@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails tfa: test" uuid="84162a92-c30f-4404-87bd-da7c232a70e6">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails tfa: development" uuid="e607789c-7c8a-4384-bddd-ff92a6fb6f14">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails tfa: production" uuid="f09c0af0-cc6a-4731-8a67-95bd058b6fe8">
+      <first-sync>true</first-sync>
+      <user-name>tfa</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffedfecdfebdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
