@@ -45,6 +45,9 @@ group :development do
   gem 'spring'
 end
 
+# allow custom env in development via .env file
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # heroku server setup
 gem 'rails_12factor', group: :production
 gem 'puma'
@@ -53,5 +56,8 @@ gem "rack-timeout"
 # bootstrap and css preproc
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
+
+# yelp
+gem 'yelp'
 
 ruby '2.2.1'
