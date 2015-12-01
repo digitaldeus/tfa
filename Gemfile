@@ -48,3 +48,5 @@ end
 gem 'rails_12factor', group: :production
 gem 'puma'
 gem "rack-timeout"
+
+ruby '2.2.1'
