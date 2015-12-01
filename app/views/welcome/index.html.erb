@@ -11,5 +11,22 @@
 </div>
 
 <div class="container">
+  <% @businesses.each do |business| %>
+      <div class="row">
+        <div class="col-xs-2">
+          <%= image_tag(business.image_url, alt: "Image of #{business.name}") %>
+        </div>
+        <div class="col-xs-4">
+          <%= business.name %>
+        </div>
+        <div class="col-cs-6">
+          <p class="inline-block">
+            <% business.location.display_address.each do |part| %>
+                <%= part %> <br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+  <% end %>
 
 </div> <!-- /container -->
