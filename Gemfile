@@ -45,8 +45,13 @@ group :development do
   gem 'spring'
 end
 
+# heroku server setup
 gem 'rails_12factor', group: :production
 gem 'puma'
 gem "rack-timeout"
+
+# bootstrap and css preproc
+gem 'bootstrap-sass', '~> 3.3.0'
+gem 'autoprefixer-rails'
 
 ruby '2.2.1'
