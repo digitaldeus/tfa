@@ -1,0 +1,2 @@
+class EstablishmentController < ApplicationController
+end

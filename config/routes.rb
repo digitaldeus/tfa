@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'main#index'
+
+  # Main routes
+  get '/find' => 'main#find'
+
+  # Api access routes
   get '/default' => 'api#default_search'
   post '/search' => 'api#search'
 
