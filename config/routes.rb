@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/default' => 'api#default_search'
   post '/search' => 'api#search'
 
+  # Church access
+  resources :establishment
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
