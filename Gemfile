@@ -51,7 +51,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 # heroku server setup
 gem 'rails_12factor', group: :production
 gem 'puma'
-gem "rack-timeout"
+gem 'rack-timeout'
 
 # bootstrap and css preproc
 gem 'bootstrap-sass', '~> 3.3.0'

@@ -3,6 +3,20 @@
   <h1><%= @establishment.name %></h1>
   <%= image_tag(@yelp_image, alt: "Image for #{@establishment.name}") %>
 
-  <h4>This church hasn't been add to The Fellowship App yet</h4>
-  <div class="btn btn-default">Request Add</div>
+  <h4>This church hasn't been claimed yet</h4>
+  <div class="btn btn-default" id="addChurchButton">Claim this church</div>
+
+  <br> <br>
+
+  <%= link_to 'View on yelp', @establishment.url %>
+
+  <h3>Address</h3>
+  <p>
+    <% @establishment.location.display_address.each do |part| %>
+        <%= part %> <br>
+    <% end %>
+  </p>
+
+  <h3>Phone</h3>
+  <p><%= @establishment.display_phone %></p>
 </div>

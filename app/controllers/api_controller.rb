@@ -11,4 +11,8 @@ class ApiController < ApplicationController
     parameters = {term: 'Church', limit: 20, category: 'churches'}
     render json: Yelp.client.search('Oakland, CA', parameters)
   end
+
+  def request_add
+
+  end
 end
