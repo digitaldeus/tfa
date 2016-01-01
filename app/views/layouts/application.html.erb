@@ -19,10 +19,32 @@
       </button>
       <a class="navbar-brand" href="/">The Fellowship App</a>
     </div>
+
+    <div id="navbar" class="collapse navbar-collapse pull-right">
+      <ul class="nav navbar-nav">
+        <!-- TODO: Add highlighting for the active path -->
+        <li><a href="#">Home</a></li>
+        <% if user_signed_in? %>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
 
-<%= yield %>
+<div class="container container-main">
+  <% if notice %>
+      <p class="alert alert-info"><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+      <p class="alert alert-warning"><%= alert %></p>
+  <% end %>
+
+  <%= yield %>
+</div>
 
 <hr>
 
@@ -32,5 +54,6 @@
   </footer>
 </div>
 
+<% console %>
 </body>
 </html>

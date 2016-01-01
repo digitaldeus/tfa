@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+  get 'users/new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,14 +10,19 @@ Rails.application.routes.draw do
   root 'main#index'
 
   # Main routes
-  get '/find' => 'main#find'
+  get 'find' => 'main#find'
 
   # Api access routes
-  get '/default' => 'api#default_search'
-  post '/search' => 'api#search'
+  get 'default' => 'api#default_search'
+  post 'search' => 'api#search'
 
   # Church access
-  resources :establishment
+  resources :establishment do
+    get 'owner' => 'owner#index'
+  end
+
+  # User routes
+  get 'signup' => 'users#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
