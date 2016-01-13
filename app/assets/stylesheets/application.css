@@ -13,14 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-.inline-block {
-  display: inline-block;
-}
-
-.container-main {
-  padding-top: 60px;
-}
