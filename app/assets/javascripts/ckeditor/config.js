@@ -57,7 +57,7 @@ CKEDITOR.editorConfig = function( config )
   // ];
   
   // remove plugins
-  config.removePlugins = "toolbar,elementspath,save,font,format,richcombo,basicstyles";
+  config.removePlugins = "toolbar,elementspath,save,font,format,basicstyles";
   
   // plain text pasting
   config.forcePasteAsPlainText = true;

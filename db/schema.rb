@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115041827) do
+ActiveRecord::Schema.define(version: 20160117183505) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",    limit: 255, null: false
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 20160115041827) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "yelp_id",     limit: 255
+    t.string   "website",     limit: 255
   end
+
+  create_table "locations", force: :cascade do |t|
+    t.float    "latitude",         limit: 24
+    t.float    "longitude",        limit: 24
+    t.string   "address",          limit: 255
+    t.integer  "establishment_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "locations", ["establishment_id"], name: "index_locations_on_establishment_id", using: :btree
 
 end

@@ -1,5 +1,6 @@
 class EstablishmentsController < ApplicationController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
+  before_action :set_google_api_key, only: [:new, :edit]
 
   # GET /establishments
   # GET /establishments.json
@@ -15,6 +16,7 @@ class EstablishmentsController < ApplicationController
   # GET /establishments/new
   def new
     @establishment = Establishment.new
+    @establishment.build_location
   end
 
   # GET /establishments/1/edit
@@ -65,10 +67,17 @@ class EstablishmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_establishment
       @establishment = Establishment.find(params[:id])
+      unless @establishment.location
+        @establishment.location = Location.new
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
-      params.require(:establishment).permit(:name, :description)
+      params.require(:establishment).permit(:name, :description, :yelp_id)
+    end
+
+    def set_google_api_key
+      @google_api_key = ENV['GOOGLE_JS_AUTOCOMPLETE']
     end
 end

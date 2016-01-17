@@ -1,0 +1,25 @@
+<div class="field">
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+</div>
+
+<%= f.hidden_field :latitude %>
+<%= f.hidden_field :longitude %>
+
+<!-- One per page intended  -->
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= @google_api_key %>&signed_in=true&libraries=places&callback=initMap"
+        async defer></script>
+<script>
+  initMap = function() {
+    var input = document.getElementById('establishment_location_attributes_address');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    var infowindow = new google.maps.InfoWindow();
+
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      document.getElementById('establishment_location_attributes_latitude').value = place.geometry.location.lat();
+      document.getElementById('establishment_location_attributes_longitude').value = place.geometry.location.lng();
+      document.getElementById('establishment_location_attributes_address').value = place.formatted_address;
+    })
+  }
+</script>
