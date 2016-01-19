@@ -7,11 +7,13 @@
     <p><%= staff.title %></p>
     <p><%= staff.description.html_safe %></p>
 
-    <%= link_to 'Show', staff %>
-    <%= link_to 'Edit', edit_staff_path(staff) %>
+    <%= link_to 'Show', staff %> |
+    <%= link_to 'Edit', edit_staff_path(staff) %> |
     <%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %>
 
     <br><br>
 <% end %>
 
 <%= link_to 'New Staff', new_establishment_staff_path %>
+<br>
+<%= link_to 'back', establishments_path %>

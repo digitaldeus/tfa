@@ -20,14 +20,19 @@ class StaffController < ApplicationController
   def create
     @staff = @establishment.staff.build(staff_params)
 
-    if (@staff.save)
+    if @staff.save
       redirect_to establishment_staff_index_path, notice: 'Staff was successfully created.'
     else
-      render 'new'
+      render :new
     end
   end
 
   def update
+    if @staff.update(staff_params)
+      redirect_to @staff, notice: 'Staff has been updated successfully'
+    else
+      render :edit
+    end
   end
 
   def destroy
