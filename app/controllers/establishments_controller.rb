@@ -74,7 +74,8 @@ class EstablishmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
-      params.require(:establishment).permit(:name, :description, :yelp_id)
+      params.require(:establishment).permit(:name, :description, :yelp_id, :website,
+        :location)
     end
 
     def set_google_api_key
