@@ -16,8 +16,8 @@
       <tr>
         <td><%= establishment.name %></td>
         <td><%= establishment.description.html_safe %></td>
-        <td><%= link_to 'Show', establishment %></td>
-        <td><%= link_to 'Edit', edit_establishment_path(establishment) %></td>
+        <td><%= link_to 'Show', establishment %> | </td>
+        <td><%= link_to 'Edit', edit_establishment_path(establishment) %> | </td>
         <td><%= link_to 'Destroy', establishment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -15,5 +15,6 @@
   <%= @establishment.yelp_id %>
 </p>
 
+<%= link_to 'Staff', establishment_staff_index_path(@establishment) %> |
 <%= link_to 'Edit', edit_establishment_path(@establishment) %> |
 <%= link_to 'Back', establishments_path %>

@@ -1,0 +1,9 @@
+<h1><%= @staff.name %></h1>
+<h2><%= @staff.title %></h2>
+
+<%= image_tag @staff.image.name_url(:small).to_s, alt: "Image of #{@staff.name}" %>
+<%=	@staff.description.html_safe %>
+
+<%= link_to 'Edit', edit_staff_path(@staff) %> |
+<%= link_to 'Destroy', @staff, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to "Back to all staff", establishment_staff_index_path(@staff.establishment) %>

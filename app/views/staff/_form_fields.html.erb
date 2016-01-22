@@ -1,0 +1,42 @@
+<% if @staff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this staff from being saved:</h2>
+
+      <ul>
+        <% @staff.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.fields_for :image do |imageform| %>
+
+      <% if @staff.image.name %>
+        <%= image_tag @staff.image.name_url(:small) %> <br>
+      <% end %>
+      <%= imageform.label :name, "Choose your image" %>
+      <%= imageform.file_field :name %>
+      <%= imageform.hidden_field :name_cache %>
+
+  <% end %>
+</div>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :description %><br>
+  <%= f.cktext_area :description %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<%= console %>

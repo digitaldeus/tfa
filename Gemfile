@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-# Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.13', '< 0.5'
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -54,9 +54,18 @@ gem 'puma'
 gem 'rack-timeout'
 
 # bootstrap and css preproc
-gem 'bootstrap-sass', '~> 3.3.0'
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 # text editor
-gem "ckeditor"
-gem "paperclip"
+gem 'ckeditor'
+gem 'paperclip'
+
+# aws file upload
+gem 'carrierwave'
+gem "mini_magick"
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
+gem 'aws-sdk'
+gem 's3_direct_upload'
