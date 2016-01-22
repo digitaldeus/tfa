@@ -54,9 +54,18 @@ gem 'puma'
 gem 'rack-timeout'
 
 # bootstrap and css preproc
-gem 'bootstrap-sass', '~> 3.3.0'
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 # text editor
-gem "ckeditor"
-gem "paperclip"
+gem 'ckeditor'
+gem 'paperclip'
+
+# aws file upload
+gem 'carrierwave'
+gem "mini_magick"
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
+gem 'aws-sdk'
+gem 's3_direct_upload'

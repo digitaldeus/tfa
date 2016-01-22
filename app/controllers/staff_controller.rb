@@ -15,6 +15,7 @@ class StaffController < ApplicationController
 
   def new
     @staff = @establishment.staff.build
+    @staff.build_image
   end
 
   def create
@@ -44,7 +45,9 @@ class StaffController < ApplicationController
 
   private
     def staff_params
-      params.require(:staff).permit(:name, :description, :title)
+      params.require(:staff)
+        .permit(:name, :description, :title, 
+                image_attributes: [:id, :name, :name_cache])
     end
 
     def set_establishment
@@ -53,5 +56,10 @@ class StaffController < ApplicationController
 
     def set_staff
       @staff = Staff.find(params[:id])
+
+      # build staff image if not available
+      if not @staff.image
+        @staff.build_image
+      end
     end
 end

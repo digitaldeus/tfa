@@ -15,4 +15,10 @@
 # IntelliJ
 .idea/
 
+# Dev keys
 .env
+
+# Uploads
+public/uploads
+
+.byebug_history
