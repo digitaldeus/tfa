@@ -1,0 +1,13 @@
+<% unless @parent.image %>
+  <h1>Add image for <%= @parent.name %></h1>
+<% else %>
+  <h1>Update image for <%= @parent.name %></h1>
+  <%= image_tag @parent.image.name_url(:smedium), alt: "Image of #{@parent.name}" %>
+  <br><br>
+<% end %>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <%= f.file_field :name %>
+  <%= f.submit %>
+<% end %>
+

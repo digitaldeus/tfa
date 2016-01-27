@@ -17,12 +17,12 @@
 <div class="field">
   <%= f.fields_for :image do |imageform| %>
 
-      <% if @staff.image.name %>
-        <%= image_tag @staff.image.name_url(:small) %> <br>
+      <% if @staff.image.graphic %>
+        <%= image_tag @staff.image.graphic_url(:small) %> <br>
       <% end %>
-      <%= imageform.label :name, "Choose your image" %>
-      <%= imageform.file_field :name %>
-      <%= imageform.hidden_field :name_cache %>
+      <%= imageform.label :graphic, "Choose your image" %>
+      <%= imageform.file_field :graphic %>
+      <%= imageform.hidden_field :graphic_cache %>
 
   <% end %>
 </div>
@@ -39,4 +39,3 @@
   <%= f.submit %>
 </div>
 
-<%= console %>

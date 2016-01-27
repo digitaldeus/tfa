@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'establishments#index'
   resources :establishments, shallow: true do
-    resources :staff
+    resources :staff do
+      member do
+        get 'image'
+        get 'image_done'
+      end
+    end
   end
 
   # Example of regular route:

@@ -1,0 +1,13 @@
+<% unless @staff.image %>
+  <h1>Add image for <%= @staff.name %></h1>
+<% else %>
+  <h1>Update image for <%= @staff.name %></h1>
+  <%= image_tag @staff.image.graphic_url, alt: "Image of #{@staff.name}" %>
+  <br><br>
+<% end %>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <%= f.file_field :graphic %>
+  <%= f.submit "Upload Image" %>
+<% end %>
+

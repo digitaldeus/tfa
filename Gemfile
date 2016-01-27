@@ -67,5 +67,3 @@ gem "mini_magick"
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
-gem 'aws-sdk'
-gem 's3_direct_upload'

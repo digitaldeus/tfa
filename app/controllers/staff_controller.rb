@@ -1,6 +1,6 @@
 class StaffController < ApplicationController
   before_action :set_establishment, only: [:new, :index, :create]
-  before_action :set_staff, only: [:edit, :show, :update, :destroy]
+  before_action :set_staff, only: [:edit, :show, :update, :destroy, :image, :image_done]
 
   def edit
   end
@@ -40,26 +40,34 @@ class StaffController < ApplicationController
     # destroy the staff
     @staff.destroy
 
-    redirect_to establishment_staff_index_path(establishment_id: @staff.establishment_id), notice: 'Establishment was successfully destroyed.'
+    redirect_to establishment_staff_index_path(establishment_id: @staff.establishment_id), notice: 'Staff was successfully destroyed.'
+  end
+
+  def image
+    @uploader = @staff.image.graphic
+    @uploader.success_action_redirect = image_done_staff_url
+  end
+
+  def image_done
+    @staff.image.update_attribute :key, params[:key]
+    redirect_to staff_url
   end
 
   private
-    def staff_params
-      params.require(:staff)
-        .permit(:name, :description, :title, 
-                image_attributes: [:id, :name, :name_cache])
-    end
+  def staff_params
+    params.require(:staff)
+      .permit(:name, :description, :title, :key)
+  end
 
-    def set_establishment
-      @establishment = Establishment.find(params[:establishment_id])
-    end
+  def set_establishment
+    @establishment = Establishment.find(params[:establishment_id])
+  end
 
-    def set_staff
-      @staff = Staff.find(params[:id])
+  def set_staff
+    @staff = Staff.find(params[:id])
 
-      # build staff image if not available
-      if not @staff.image
-        @staff.build_image
-      end
+    unless @staff.image
+      @staff.build_image
     end
+  end
 end

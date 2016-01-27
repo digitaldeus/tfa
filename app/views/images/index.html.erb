@@ -1,0 +1,24 @@
+<% unless @parent.image %>
+  <h1>Add image for <%= @parent.name %></h1>
+<% else %>
+  <h1>Update image for <%= @parent.name %></h1>
+  <%= image_tag @parent.image.name_url(:smedium), alt: "Image of #{@parent.name}" %>
+  <br><br>
+<% end %>
+
+<% if @image.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+    <ul>
+      <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <%= f.file_field :name %>
+  <%= f.submit %>
+<% end %>
+
