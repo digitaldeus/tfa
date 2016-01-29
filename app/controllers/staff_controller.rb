@@ -50,7 +50,8 @@ class StaffController < ApplicationController
 
   def image_done
     @staff.image.update_attribute :key, params[:key]
-    redirect_to staff_url
+    @staff.image.update_attribute :processed, false
+    redirect_to staff_url, notice: "Image uploaded successfully"
   end
 
   private
