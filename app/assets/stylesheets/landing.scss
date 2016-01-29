@@ -1,3 +1,72 @@
 // Place all the styles related to the landing controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+nav {
+  position: absolute;
+  top: 0;
+  color: white;
+
+  .navbar-container {
+    margin-top: 25px;
+  }
+
+  .navbar-brand {
+    > img {
+      display: inline-block;
+      width: 250px;
+    }
+
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  .navbar-nav {
+    margin-top: 30px;
+
+    a {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+      padding: 15px 30px;
+
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+}
+
+.hero-container {
+  margin-top: -130px;
+  padding-top: 160px;
+  background: asset-url('landing/home-hero.png') center no-repeat;
+  background-size: cover;
+
+  .jumbotron {
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.claims {
+  span {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 2;
+
+    &.big {
+      font-size: 100px;
+      color: white;
+    }
+
+    &.small {
+      font-size: 30px;
+      color: #FFDD22;
+    }
+  }
+}

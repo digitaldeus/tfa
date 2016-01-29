@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'lading#index'
+  root 'landing#index'
   resources :establishments, shallow: true do
     resources :staff do
       member do
