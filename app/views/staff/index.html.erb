@@ -4,8 +4,8 @@
 
 <% @establishment.staff.each do |staff| %>
   <p><%= staff.name %></p>
-  <% if staff.image and staff.image.graphic %>
-    <%= image_tag staff.image.graphic_url.to_s, alt: "Image of #{staff.name}" %> <br>
+  <% if staff.image and staff.image.graphic and staff.image.processed %>
+    <%= image_tag staff.image.graphic_url(:smedium).to_s, alt: "Image of #{staff.name}" %> <br>
   <% end %>
   <p><%= staff.title %></p>
   <p><%= staff.description.html_safe %></p>

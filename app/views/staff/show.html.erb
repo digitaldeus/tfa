@@ -1,7 +1,11 @@
 <h1><%= @staff.name %></h1>
 <h2><%= @staff.title %></h2>
 
-<%= image_tag @staff.image.graphic_url.to_s, alt: "Image of #{@staff.name}" %>
+<% if @staff.image.processed %>
+<%= image_tag @staff.image.graphic_url(:smedium).to_s, alt: "Image of #{@staff.name}" %>
+<% else %>
+  <em>Processing image...</em>
+<% end %>
 <%=	@staff.description.html_safe %>
 
 <%= link_to 'Edit', edit_staff_path(@staff) %> |

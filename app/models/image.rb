@@ -3,10 +3,15 @@ class Image < ActiveRecord::Base
 
   mount_uploader :graphic, ImageUploader
 
-  # after_save :enqueue_image
+  after_save :enqueue_image
 
   def enqueue_image
-    # ImageWorker.perform_async(id, key) if key.present?
+    if key.present?
+      logger.debug 'Running async task to process image' 
+      ImageWorker.perform_async(id, key) if key.present?
+    else
+      logger.debug 'Not running image async task but model updated'
+    end
   end
 
   class ImageWorker
@@ -14,12 +19,9 @@ class Image < ActiveRecord::Base
 
     def perform(id, key)
       image = Image.find(id)
-      image.update_column(:processed, false)
-      
-      logger.info "Proccessing image for #{image.imageable_type}: #{image.graphic}"
-
       image.key = key
-      image.remote_image_url = image.graphic.direct_fog_url(with_path: true)
+      image.remote_graphic_url = image.graphic.direct_fog_url(with_path: true)
+      logger.debug "Processing images for ${image.remote_graphic_url}"
       image.save!
       image.update_column(:processed, true)
     end

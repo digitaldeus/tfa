@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  mount Sidekiq::Web, at: '/sidekiq'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
