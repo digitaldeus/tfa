@@ -16,3 +16,8 @@
 @import "bootstrap";
 @import "scaffolds";
 @import "landing";
+
+img {
+  max-width: 100%;
+  display: inline-block;
+}

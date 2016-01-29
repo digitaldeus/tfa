@@ -39,6 +39,10 @@ nav {
   }
 }
 
+div.landing {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .hero-container {
   margin-top: -130px;
   padding-top: 140px;
@@ -49,6 +53,10 @@ nav {
     background: transparent;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  div.container-grey {
+    background: #f3f3f3;
   }
 }
 
