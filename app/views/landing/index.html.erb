@@ -19,49 +19,44 @@
         </ul>
 
         <ul class="list-inline pull-right">
-          <li><a href="#"><%= image_tag "landing/icon-facebook.png" %></a></li>
-          <li><%= image_tag "landing/icon-twitter.png" %></li>
-          <li><%= image_tag "landing/icon-google_plus.png" %></li>
-          <li><%= image_tag "landing/icon-instagram.png" %></li>
-          <li><%= image_tag "landing/icon-youtube.png" %></li>
-          <li><%= image_tag "landing/icon-linkedin.png" %></li>
+          <%= render 'social_links' %>
         </ul>
       </div>
     </div>
   </div>
 
-  <div class="container container-grey">
+  <div class="container-fluid container-lightgrey">
     <div class="col-xs-5"><%= image_tag "landing/phone-profile.png" %></div>
     <div class="col-xs-7">
       <h2>Extend your church beyond the sanctuary and into the hands of thousands!</h2>
 
       <strong>YOUR ENTIRE CHURCH RIGHT HERE </strong> <br>
       <p>Your church is so much more than a building. It’s a living breathing organization with so much to showcase.
-        With your custom profile on The Fellowship App you can do just that and so much more. </p>
+      With your custom profile on The Fellowship App you can do just that and so much more. </p>
 
       <strong>WORSHIP ON-DEMAND</strong>
       <p>Worship isn’t just on Sunday or in the confines of the sanctuary. Allow people to stream your live service and
-        past sermons whenever they like from anywhere in the world.</p>
+      past sermons whenever they like from anywhere in the world.</p>
 
       <%= image_tag "landing/Sermons.png" %>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container-fluid container-darkgrey">
     <div class="col-xs-7">
       <h2>Be found by aspiring worshippers everywhere!</h2>
       <p>Stop spending hundreds or even thousands on ineffective advertising. Place your church directly in the palms of
-        people who need you most.</p>
+      people who need you most.</p>
 
       <div class="row">
         <div class="col-xs-7">
           <strong>SMART FILTERS</strong>
           <p>Every church is unique and we want people to be able to search what makes them special. From denomination
-            to service times and amenities we help people find the church that fits them best.</p>
+          to service times and amenities we help people find the church that fits them best.</p>
 
           <strong>SEE WHAT’S IN YOUR AREA. ANYWHERE</strong>
           <p>Find a place to worship close to where you are, wether you have been there for a few years, just moved to a
-            new area or are traveling over the weekend. It’s all right in your hand. </p>
+          new area or are traveling over the weekend. It’s all right in your hand. </p>
         </div>
         <div class="col-xs-5">
           <%= image_tag "landing/phone-filter.png" %>
@@ -70,6 +65,35 @@
     </div>
     <div class="col-xs-5">
       <%= image_tag "landing/phone-map.png" %>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <figure class="text-center callout col-xs-4">
+        <%= image_tag "landing/icon-callout-calendar.png" %>
+
+        <figcaption>
+        <p><strong class="text-uppercase">SYNCHRONIZED CALENDAR</strong></p>
+        <p>Synchronized Calendar makes it easy for your church to create events, sell tickets, and share RSVPs with your congregation and the general public. </p>
+        </figcaption>
+      </figure>
+      <figure class="text-center callout col-xs-4">
+        <%= image_tag "landing/icon-callout-convo.png" %>
+
+        <figcaption>
+        <p><strong class="text-uppercase">DIRECT MESSAGING</strong></p>
+        <p>Direct Messaging with Push Notifications allows you to keep in touch with your congregation outside of church and assist them with questions right when they need it.</p>
+        </figcaption>
+      </figure>
+      <figure class="text-center callout col-xs-4">
+        <%= image_tag "landing/icon-callout-notes.png" %>
+
+        <figcaption>
+        <p><strong class="text-uppercase">NOTES &amp; BOOKMARKS</strong></p>
+        <p>Bookmarks &amp; Notes allows worshippers to save churches, events, and take sermon notes in one easy location. Bookmarks &amp; notes can be shared instantly with friends. </p>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </div>

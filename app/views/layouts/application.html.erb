@@ -40,5 +40,29 @@
     </div><!-- /.container -->
 
 
+    <div class="container-blue">
+      <div class="row">
+        <div class="col-xs-6">
+          <ul class="list-inline">
+            <li class="active"><%= link_to "Home", landing_index_path %></li>
+            <li><%= link_to "About", landing_about_path %></li>
+            <li><%= link_to "Pricing", landing_pricing_path %></li>
+            <li><%= link_to "Contact Us", landing_contact_us_path %></li>
+            <li><%= link_to "Sign Up", landing_sign_up_path %></li>
+          </ul>
+
+          <br>
+          <p><span>Copyright &copy; 2016 The Fellowship App. All Rights Reserved.</span></p>
+        </div>
+        <div class="col-xs-6">
+          <p>
+          <ul class="list-inline">
+            <%= render 'landing/social_links' %>
+          </ul>
+          </p>
+          <p><span>We value your privacy. None of the details supplied will be shared with external parties</span></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

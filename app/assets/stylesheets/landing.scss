@@ -54,10 +54,6 @@ div.landing {
     padding-left: 0;
     padding-right: 0;
   }
-
-  div.container-grey {
-    background: #f3f3f3;
-  }
 }
 
 .claims {
@@ -77,4 +73,16 @@ div.landing {
       color: #FFDD22;
     }
   }
+}
+
+div.container-lightgrey {
+  background: #fBfBfB;
+}
+
+div.container-darkgrey {
+  background: #f3f3f3;
+}
+
+div.container-blue {
+  background: #00C0CB;
 }
