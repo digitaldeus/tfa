@@ -34,6 +34,7 @@ nav {
 
       &:hover {
         background: transparent;
+        text-decoration: underline;
       }
     }
   }
@@ -53,6 +54,7 @@ div.landing {
     background: transparent;
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 0;
   }
 }
 
