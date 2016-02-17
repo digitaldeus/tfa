@@ -30,3 +30,54 @@ img {
 a:hover {
   background: transparent;
 }
+
+p, ol, ul, td {
+  font-family: "Open Sans",verdana,arial,helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  line-height: 24.85px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #2c2c2c;
+  font-family: "Open Sans";
+  font-size: 27px;
+  font-weight: 300;
+  letter-spacing: 0.68px;
+  line-height: 40px;
+  margin-bottom: 37px;
+  margin-top: 0;
+}
+strong, .strong {
+  color: #2c2c2c;
+  letter-spacing: 0.43px;
+  line-height: 17px;
+}
+p {
+  margin-bottom: 27px;
+  margin-top: 20px;
+}
+
+.nopad-bottom {
+  padding-bottom: 0 !important;
+}
+
+.flex-table {
+  display: flex;
+  align-items: stretch;
+  flex-flow: row nowrap;
+}
+
+.flex-table-column {
+  display: flex;
+  align-items: stretch;
+  flex-flow: column nowrap;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-end {
+  align-items: flex-end;
+}
