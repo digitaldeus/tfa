@@ -56,6 +56,10 @@ div.landing {
     padding-right: 0;
     padding-bottom: 0;
   }
+
+  .container {
+    padding: 0 !important;
+  }
 }
 
 .claims {
@@ -87,4 +91,14 @@ div.container-darkgrey {
 
 div.container-blue {
   background: #00C0CB;
+}
+
+.social-link {
+  a {
+    transition: all 1s;
+
+    &:hover {
+      transform: scale(1.1) translate(0, 10px);
+    }
+  }
 }

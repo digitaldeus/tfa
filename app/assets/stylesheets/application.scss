@@ -21,3 +21,12 @@ img {
   max-width: 100%;
   display: inline-block;
 }
+
+.container:not(.navbar-container) {
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+
+a:hover {
+  background: transparent;
+}
