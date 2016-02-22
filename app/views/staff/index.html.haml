@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1
+  = @establishment.name
+  staff
+- @establishment.staff.each do |staff|
+  %p= staff.name
+  - if staff.image and staff.image.graphic and staff.image.processed
+    = image_tag staff.image.graphic_url(:smedium).to_s, alt: "Image of #{staff.name}"
+    %br/
+  %p= staff.title
+  %p= staff.description.html_safe
+  = link_to 'Show', staff
+  |
+  \#{link_to 'Edit', edit_staff_path(staff)} |
+  \#{link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' }}
+  %br/
+  %br/
+= link_to 'New Staff', new_establishment_staff_path
+%br/
+= link_to 'back', establishments_path

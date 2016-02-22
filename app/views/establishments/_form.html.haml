@@ -1,0 +1,29 @@
+= form_for(@establishment) do |f|
+  - if @establishment.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@establishment.errors.count, "error")
+        prohibited this establishment from being saved:
+      %ul
+        - @establishment.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :website
+    %br/
+    = f.text_field :website
+  .field
+    = f.label :yelp_id, 'Yelp Id'
+    %br/
+    = f.text_field :yelp_id
+  .field
+    = f.label :description
+    %br/
+    = f.cktext_area :description
+  = f.fields_for :location do |builder|
+    = render 'location_fields', :f => builder
+  .actions
+    = f.submit

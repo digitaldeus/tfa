@@ -1,0 +1,15 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @establishment.name
+%p
+  %strong Description:
+  = @establishment.description.html_safe
+%p
+  %strong Yelp Id:
+  = @establishment.yelp_id
+= link_to 'Staff', establishment_staff_index_path(@establishment)
+|
+= link_to 'Edit', edit_establishment_path(@establishment)
+|
+= link_to 'Back', establishments_path

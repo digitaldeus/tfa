@@ -1,0 +1,51 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title The Fellowship App
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    %nav.navbar
+      .container.navbar-container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"}= image_tag "Logo.png"
+        #navbar.collapse.navbar-collapse.pull-right
+          %ul.nav.navbar-nav
+            %li.active= link_to "Home", landing_index_path
+            %li= link_to "About", landing_about_path
+            %li= link_to "Pricing", landing_pricing_path
+            %li= link_to "Contact Us", landing_contact_us_path
+            %li= link_to "Sign Up", landing_sign_up_path
+        / /.nav-collapse
+    .content
+      = yield
+    / /.container
+    .container-fluid.container-blue
+      .container
+        .row
+          .col-xs-6
+            %ul.list-inline
+              %li.active= link_to "Home", landing_index_path
+              %li= link_to "About", landing_about_path
+              %li= link_to "Pricing", landing_pricing_path
+              %li= link_to "Contact Us", landing_contact_us_path
+              %li= link_to "Sign Up", landing_sign_up_path
+            %br/
+            %p
+              %span Copyright © 2016 The Fellowship App. All Rights Reserved.
+          .col-xs-6
+            %p
+            %ul.list-inline
+              = render 'landing/social_links'
+            %p
+              %span We value your privacy. None of the details supplied will be shared with external parties

@@ -72,3 +72,10 @@ gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+
+# haml and converter
+gem 'haml-rails'
+
+group :development do
+  gem 'html2haml'
+end

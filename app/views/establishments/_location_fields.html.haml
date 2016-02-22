@@ -1,15 +1,11 @@
-<div class="field">
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-</div>
-
-<%= f.hidden_field :latitude %>
-<%= f.hidden_field :longitude %>
-
-<!-- One per page intended  -->
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= @google_api_key %>&signed_in=true&libraries=places&callback=initMap"
-        async defer></script>
-<script>
+.field
+  = f.label :address
+  = f.text_field :address
+= f.hidden_field :latitude
+= f.hidden_field :longitude
+/ One per page intended
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{@google_api_key}=true=places=initMap"}
+:javascript
   initMap = function() {
     var input = document.getElementById('establishment_location_attributes_address');
     var autocomplete = new google.maps.places.Autocomplete(input);
@@ -22,4 +18,3 @@
       document.getElementById('establishment_location_attributes_address').value = place.formatted_address;
     });
   }
-</script>
