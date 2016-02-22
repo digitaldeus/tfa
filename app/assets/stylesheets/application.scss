@@ -81,3 +81,34 @@ p {
 .flex-end {
   align-items: flex-end;
 }
+
+blockquote {
+  position: relative;
+  border-right: 0 !important;
+  padding-top: 0 !important;
+  border: 0 !important;
+
+  &:before {
+    position: absolute;
+    left: -15px;
+    top: -25px;
+    content: ' ';
+    width: 44px;
+    height: 38px;
+    background: asset-url('quotes.png') center no-repeat;
+  }
+
+  footer {
+    &:after {
+      display: none;
+    }
+  }
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.font-12 {
+  font-size: 12px;
+}
