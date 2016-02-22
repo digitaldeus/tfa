@@ -104,3 +104,29 @@ div.container-blue {
     }
   }
 }
+
+.footer {
+  padding-top: 70px;
+  padding-bottom: 10px !important;
+
+  ul.footer-links {
+    li {
+      &:not(:last-child) a {
+        margin-right: 30px;
+      }
+      a {
+        color: white;
+        text-transform: uppercase;
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 18px;
+        font-weight: 400;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

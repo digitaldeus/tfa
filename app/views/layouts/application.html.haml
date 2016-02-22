@@ -53,20 +53,20 @@
       = yield
     / /.container
     .container-fluid.container-blue
-      .container
+      .container.footer
         .row
           .col-xs-6
-            %ul.list-inline
-              %li.active= link_to "Home", landing_index_path
+            %ul.list-inline.footer-links{:style => 'margin-top:25px'}
+              %li= link_to "Home", landing_index_path
               %li= link_to "About", landing_about_path
               %li= link_to "Pricing", landing_pricing_path
               %li= link_to "Contact Us", landing_contact_us_path
               %li= link_to "Sign Up", landing_sign_up_path
-            %br/
-            %p
-              %small.copyright Copyright © 2016 The Fellowship App. All Rights Reserved.
-          .col-xs-6.flex-table-column
+          .col-xs-6
             %ul.list-inline
               = render 'landing/social_links'
-            %p
-              %small.copyright We value your privacy. None of the details supplied will be shared with external parties
+        .row{:style => 'padding-top:30px'}
+          .col-xs-6
+            %small.copyright Copyright © 2016 The Fellowship App. All Rights Reserved.
+          .col-xs-6
+            %small.copyright We value your privacy. None of the details supplied will be shared with external parties
