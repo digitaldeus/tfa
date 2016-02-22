@@ -109,6 +109,14 @@ blockquote {
   }
 }
 
+@media only screen and (max-width : 992px) {
+   blockquote {
+     &:before {
+       display:none;
+     }
+   }
+} 
+
 .font-12 {
   font-size: 12px;
 }

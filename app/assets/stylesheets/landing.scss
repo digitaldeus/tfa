@@ -65,6 +65,9 @@ div.landing {
 }
 
 .claims {
+  margin-top: 10px;
+  margin-bottom: 40px;
+
   span {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -82,6 +85,38 @@ div.landing {
     }
   }
 }
+
+@media only screen and (max-width : 992px) {
+  .claims {
+
+    span {
+      line-height: 1.5;
+
+      &.big {
+        font-size: 75px;
+      }
+
+      &.small {
+        font-size: 25px;
+      }
+    }
+  }
+} 
+
+@media only screen and (max-width : 768px) {
+  .claims {
+    span {
+      &.big {
+        font-size: 50px;
+      }
+
+      &.small {
+        font-size: 20px;
+        display: none;
+      }
+    }
+  }
+} 
 
 div.container-lightgrey {
   background: #fBfBfB;
@@ -105,11 +140,27 @@ div.container-blue {
   }
 }
 
+@media only screen and (max-width : 992px) {
+  .footer {
+    text-align: center;
+  }
+} 
+
+@media only screen and (max-width : 768px) {
+  .footer {
+    ul.footer-links {
+      margin-bottom: 40px;
+    }
+  }
+} 
+
 .footer {
   padding-top: 70px;
   padding-bottom: 10px !important;
 
   ul.footer-links {
+
+
     li {
       &:not(:last-child) a {
         margin-right: 30px;
