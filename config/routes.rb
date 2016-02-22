@@ -2,13 +2,25 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  get 'landing/index'
+
+  get 'landing/pricing'
+
+  get 'landing/about'
+
+  get 'landing/contact_us'
+
+  get 'landing/sign_up'
+
+  get 'landing/create_profile'
+
   mount Ckeditor::Engine => '/ckeditor'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'establishments#index'
+  root 'landing#index'
   resources :establishments, shallow: true do
     resources :staff do
       member do

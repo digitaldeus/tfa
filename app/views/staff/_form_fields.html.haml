@@ -1,0 +1,30 @@
+- if @staff.errors.any?
+  #error_explanation
+    %h2
+      = pluralize(@staff.errors.count, "error")
+      prohibited this staff from being saved:
+    %ul
+      - @staff.errors.full_messages.each do |message|
+        %li= message
+.field
+  = f.label :name
+  %br/
+  = f.text_field :name
+.field
+  = f.fields_for :image do |imageform|
+    - if @staff.image.graphic
+      = image_tag @staff.image.graphic_url(:small)
+      %br/
+    = imageform.label :graphic, "Choose your image"
+    = imageform.file_field :graphic
+    = imageform.hidden_field :graphic_cache
+.field
+  = f.label :title
+  %br/
+  = f.text_field :title
+.field
+  = f.label :description
+  %br/
+  = f.cktext_area :description
+.actions
+  = f.submit

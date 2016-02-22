@@ -1,0 +1,183 @@
+// Place all the styles related to the landing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+nav {
+  position: absolute;
+  top: 0;
+  color: white;
+
+  .navbar-container {
+    margin-top: 25px;
+  }
+
+  .navbar-brand {
+    > img {
+      display: inline-block;
+      width: 250px;
+    }
+
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  .navbar-nav {
+    margin-top: 30px;
+
+    a {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+      padding: 15px 30px;
+      font-size: 13px;
+      letter-spacing: 1px;
+
+      &:hover {
+        background: transparent;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+div.landing {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.hero-container {
+  margin-top: -130px;
+  padding-top: 140px;
+  background: asset-url('landing/home-hero.png') center no-repeat;
+  background-size: cover;
+
+  .jumbotron {
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .container {
+    padding: 0 !important;
+  }
+}
+
+.claims {
+  margin-top: 10px;
+  margin-bottom: 40px;
+
+  span {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 2;
+
+    &.big {
+      font-size: 100px;
+      color: white;
+    }
+
+    &.small {
+      font-size: 30px;
+      color: #FFDD22;
+    }
+  }
+}
+
+@media only screen and (max-width : 992px) {
+  .claims {
+
+    span {
+      line-height: 1.5;
+
+      &.big {
+        font-size: 75px;
+      }
+
+      &.small {
+        font-size: 25px;
+      }
+    }
+  }
+} 
+
+@media only screen and (max-width : 768px) {
+  .claims {
+    span {
+      &.big {
+        font-size: 50px;
+      }
+
+      &.small {
+        font-size: 20px;
+        display: none;
+      }
+    }
+  }
+} 
+
+div.container-lightgrey {
+  background: #fBfBfB;
+}
+
+div.container-darkgrey {
+  background: #f3f3f3;
+}
+
+div.container-blue {
+  background: #00C0CB;
+}
+
+.social-link {
+  a {
+    transition: all 1s;
+
+    &:hover {
+      transform: scale(1.1) translate(0, 10px);
+    }
+  }
+}
+
+@media only screen and (max-width : 992px) {
+  .footer {
+    text-align: center;
+  }
+} 
+
+@media only screen and (max-width : 768px) {
+  .footer {
+    ul.footer-links {
+      margin-bottom: 40px;
+    }
+  }
+} 
+
+.footer {
+  padding-top: 70px;
+  padding-bottom: 10px !important;
+
+  ul.footer-links {
+
+
+    li {
+      &:not(:last-child) a {
+        margin-right: 30px;
+      }
+      a {
+        color: white;
+        text-transform: uppercase;
+        font-family: 'Open Sans', Arial, sans-serif;
+        font-size: 13px;
+        letter-spacing: 1px;
+        line-height: 18px;
+        font-weight: 400;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

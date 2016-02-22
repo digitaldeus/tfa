@@ -1,0 +1,110 @@
+.landing
+  .container-fluid.hero-container
+    .container
+      .jumbotron
+        %ul.claims.list-unstyled
+          %li
+            %span.big Find
+            %span.small new members
+          %li
+            %span.big Connect
+            %span.small with congregation
+          %li
+            %span.big Worship
+            %span.small anywhere
+        %ul.list-inline.pull-right
+          = render 'social_links'
+  .container-fluid
+    .container
+      .col-sm-5.hidden-xs= image_tag "landing/phone-profile.png"
+      .col-sm-7
+        %h2 Extend your church beyond the sanctuary and into the hands of thousands!
+        %strong YOUR ENTIRE CHURCH RIGHT HERE
+        %br/
+        %p
+          Your church is so much more than a building. It’s a living breathing organization with so much to showcase.
+          With your custom profile on The Fellowship App you can do just that and so much more.
+        %strong WORSHIP ON-DEMAND
+        %p
+          Worship isn’t just on Sunday or in the confines of the sanctuary. Allow people to stream your live service
+          and
+          past sermons whenever they like from anywhere in the world.
+        = image_tag "landing/Sermons.png"
+  .container-fluid.container-lightgrey
+    .container.flex-table.nopad-bottom
+      .col-sm-7.flex-table-column
+        %h2 Be found by aspiring worshippers everywhere!
+        %p
+          Stop spending hundreds or even thousands on ineffective advertising. Place your church directly in the palms
+          of
+          people who need you most.
+        .row.flex-grow.flex-table
+          .col-md-6
+            %strong SMART FILTERS
+            %p
+              Every church is unique and we want people to be able to search what makes them special. From denomination
+              to service times and amenities we help people find the church that fits them best.
+            %strong SEE WHAT’S IN YOUR AREA. ANYWHERE
+            %p
+              Find a place to worship close to where you are, wether you have been there for a few years, just moved to
+              a
+              new area or are traveling over the weekend. It’s all right in your hand.
+          .col-md-6.visible-lg.visible-md.bg-fill{:style => "background: url(#{image_url "landing/phone-filter.png"}) center bottom no-repeat"}
+      .col-sm-5.hidden-xs
+        = image_tag "landing/phone-map.png"
+  .container-fluid.container-darkgrey
+    .container.nopad-bottom
+      .col-sm-5.text-center= image_tag "landing/phone-tide.png"
+      .col-sm-7
+        %h2 Save time, save money. Take your giving to the next level.
+        %strong NO CASH, NO PROBLEM!
+        %br/
+        %p
+          Passing around an offering plate is great, if all your members carry hundreds in cash or still have a
+          leftover check. The digital age requires digital payments that can tracked, managed, and processed instantly.
+          Oh ye, from anywhere!
+        %strong TAX SEASON, SHMAX SEASON
+        %p
+          The bigger your church the harder it is to keep track of individual giving come tax season. Well, The
+          Fellowship App makes it as breeze. We keep track of all your donations automatically and send you a simple
+          spreadsheet at the end of the year. You’re welcome Finance Ministry.
+  .container-fluid
+    .container
+      .row
+        %figure.text-center.callout.col-sm-4
+          = image_tag "landing/icon-callout-calendar.png"
+          %figcaption
+            %p
+              %strong.text-uppercase SYNCHRONIZED CALENDAR
+            %p
+              Synchronized Calendar makes it easy for your church to create events, sell tickets, and share RSVPs with
+              your congregation and the general public.
+        %figure.text-center.callout.col-sm-4
+          = image_tag "landing/icon-callout-convo.png"
+          %figcaption
+            %p
+              %strong.text-uppercase DIRECT MESSAGING
+            %p
+              Direct Messaging with Push Notifications allows you to keep in touch with your congregation outside of
+              church and assist them with questions right when they need it.
+        %figure.text-center.callout.col-sm-4
+          = image_tag "landing/icon-callout-notes.png"
+          %figcaption
+            %p
+              %strong.text-uppercase NOTES &amp; BOOKMARKS
+            %p
+              Bookmarks &amp; Notes allows worshippers to save churches, events, and take sermon notes in one easy
+              location. Bookmarks &amp; notes can be shared instantly with friends.
+  .container-fluid.container-lightgrey
+    .container
+      .col-md-5
+        %strong EXPLORE
+        %h2 Sign Up Now for Free!
+        %p.font-12
+          Create a free profile for your church or sign-up for one of our premium accounts to unlock some amazing
+          features. You can also sign-up as a worshipper to access churches in your area.
+      .col-md-7
+        %blockquote.blockquote-reverse
+          %p{:style => "margin-bottom: 6px;"} "To have effective worship, you have to have the right kind of technology!"
+          %footer - Pastor Mike Kiley (Home Church - Campbell, CA)
+
