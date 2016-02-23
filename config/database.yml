@@ -75,11 +75,12 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
   <<: *default
-  database: tfa_production
-  username: tfa
-  password: <%= ENV['TFA_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
+# production:
+# <<: *default
+# database: <%= ENV['TFA_DATABASE'] %>
+# username: <%= ENV['TFA_DATABASE_USER'] %>
+# password: <%= ENV['TFA_DATABASE_PASSWORD'] %>

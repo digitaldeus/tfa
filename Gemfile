@@ -79,3 +79,6 @@ gem 'haml-rails'
 group :development do
   gem 'html2haml'
 end
+
+# enable puma timout
+gem "rack-timeout"
