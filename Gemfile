@@ -53,8 +53,8 @@ gem 'rails_12factor', group: :production
 gem 'puma'
 gem 'rack-timeout'
 
-# bootstrap and css preproc
-gem 'bootstrap-sass'
+# foundation and css preproc
+gem 'foundation-rails'
 gem 'autoprefixer-rails'
 
 # text editor
@@ -79,6 +79,3 @@ gem 'haml-rails'
 group :development do
   gem 'html2haml'
 end
-
-# enable puma timout
-gem "rack-timeout"
