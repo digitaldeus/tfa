@@ -15,24 +15,29 @@
 
   %body
     .row.title-row
-      .title-bar.small-12.hidden{"data-responsive-toggle" => "desktop-menu"}
-        %ul
-          %li= link_to "Home", landing_index_path
-          %li= link_to "About", landing_about_path
-          %li= link_to "Pricing", landing_pricing_path
-          %li= link_to "Contact Us", landing_contact_us_path
-          %li= link_to "Sign Up", landing_sign_up_path
-      #desktop-menu.top-bar
-        .top-bar-left
+      .title-bar.small-12{"data-responsive-toggle" => "dropdown-menu",
+                          "data-hide-for" => "large"}
+        .title-bar-left
           %a.title-brand{:href => "#"}= image_tag "Logo.png"
-        .top-bar-right.hidden
+        .title-bar-right
           %button.menu-icon{type: "button", "data-toggle" => ""}
-          %ul.menu
+          %ul#dropdown-menu
             %li= link_to "Home", landing_index_path
             %li= link_to "About", landing_about_path
             %li= link_to "Pricing", landing_pricing_path
             %li= link_to "Contact Us", landing_contact_us_path
             %li= link_to "Sign Up", landing_sign_up_path
+      .row.title-row
+        #desktop-menu.top-bar.show-for-large.small-12
+          .top-bar-left
+            %a.title-brand{:href => "#"}= image_tag "Logo.png"
+          .top-bar-right
+            %ul.menu
+              %li= link_to "Home", landing_index_path
+              %li= link_to "About", landing_about_path
+              %li= link_to "Pricing", landing_pricing_path
+              %li= link_to "Contact Us", landing_contact_us_path
+              %li= link_to "Sign Up", landing_sign_up_path
     = yield 
 
     .container.bg-blue.footer
@@ -52,3 +57,12 @@
           %small.copyright Copyright © 2016 The Fellowship App. All Rights Reserved.
         .small-12.large-6
           %small.copyright We value your privacy. None of the details supplied will be shared with external parties
+
+  :javascript
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44009225-5', 'auto');
+    ga('send', 'pageview');
