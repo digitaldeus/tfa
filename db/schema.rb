@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20160126020330) do
     t.integer  "establishment_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "image"
   end
 
   add_index "staffs", ["establishment_id"], name: "index_staffs_on_establishment_id", using: :btree

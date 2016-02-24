@@ -29,12 +29,35 @@ ul {
     padding: 0 rem-calc(23);
   }
 }
-.top-bar {
+
+.title-bar-right {
+  margin-top: 2rem;
+  position: relative;
+
+  @include breakpoint (small down) {
+    margin-top: 1.5rem;
+  }
+
+  ul {
+    position: absolute;
+    right: 0;
+    top: 1.5rem;
+  }
+}
+
+.top-bar, .title-bar {
   background: transparent;
+  ul {
+    background: transparent;
+  }
   .title-brand {
     > img {
       display: inline-block;
-        width: rem-calc(250);
+      width: rem-calc(250);
+
+      @include breakpoint(small down) {
+        width: rem-calc(200);
+      }
     }
 
     &:hover {
@@ -59,6 +82,18 @@ ul {
         text-decoration: underline;
       }
     }
+  }
+}
+
+ul#dropdown-menu {
+  display: block;
+  background: rgba(200,200,200,0.5);
+  border-radius: 0 0 rem-calc(5) rem-calc(5);
+  padding: rem-calc(10);
+  margin-top: rem-calc(10);
+  width: rem-calc(150);
+  li {
+    padding: rem-calc(5) 0;
   }
 }
 
@@ -158,11 +193,11 @@ blockquote {
 }
 
 @media only screen and (max-width : rem-calc(992)) {
-   blockquote {
-     &:before {
-       display:none;
-     }
-   }
+  blockquote {
+    &:before {
+      display:none;
+    }
+  }
 } 
 
 .font-12 {
