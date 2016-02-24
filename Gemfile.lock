@@ -348,7 +348,6 @@ DEPENDENCIES
   fog
   foundation-rails
   haml-rails
-  html2haml
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
