@@ -12,10 +12,55 @@
  *
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "foundation_and_overrides";
 @import "scaffolds";
 @import "landing";
+
+ul {
+  margin-left: 0;
+}
+
+.title-row {
+  position: absolute;
+  left: 0;
+  top: 1.5rem;
+  right: 0;
+  @include breakpoint(large down) {
+    padding: 0 rem-calc(23);
+  }
+}
+.top-bar {
+  background: transparent;
+  .title-brand {
+    > img {
+      display: inline-block;
+        width: rem-calc(250);
+    }
+
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  .menu {
+    margin-top: rem-calc(30);
+
+    a {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+      padding: rem-calc(15) rem-calc(30);
+      font-size: rem-calc(13);
+      letter-spacing: rem-calc(1);
+
+      &:hover {
+        background: transparent;
+        text-decoration: underline;
+      }
+    }
+  }
+}
 
 img {
   max-width: 100%;
@@ -23,8 +68,7 @@ img {
 }
 
 .container:not(.navbar-container) {
-  padding-top: 55px;
-  padding-bottom: 55px;
+  padding: rem-calc(55) rem-calc(10);
 }
 
 a:hover {
@@ -33,29 +77,32 @@ a:hover {
 
 p, ol, ul, td {
   font-family: "Open Sans",verdana,arial,helvetica,sans-serif;
-  font-size: 16px;
+  font-size: rem-calc(16);
   font-weight: 300;
-  letter-spacing: 0.2px;
-  line-height: 24.85px;
+  letter-spacing: rem-calc(0.2);
+  line-height: rem-calc(24.85);
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #2c2c2c;
   font-family: "Open Sans";
-  font-size: 27px;
+  font-size: rem-calc(27);
   font-weight: 300;
-  letter-spacing: 0.68px;
-  line-height: 40px;
-  margin-bottom: 37px;
+  letter-spacing: rem-calc(0.68);
+  line-height: rem-calc(40);
+  margin-bottom: rem-calc(37);
   margin-top: 0;
 }
 strong, .strong {
   color: #2c2c2c;
-  letter-spacing: 0.43px;
-  line-height: 17px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: rem-calc(15);
+  letter-spacing: rem-calc(0.43);
+  line-height: rem-calc(17);
+  font-weight: normal;
 }
 p {
-  margin-bottom: 27px;
-  margin-top: 20px;
+  margin-bottom: rem-calc(27);
+  margin-top: rem-calc(20);
 }
 
 .nopad-bottom {
@@ -83,6 +130,7 @@ p {
 }
 
 blockquote {
+  display: inline-block;
   position: relative;
   border-right: 0 !important;
   padding-top: 0 !important;
@@ -90,11 +138,11 @@ blockquote {
 
   &:before {
     position: absolute;
-    left: -15px;
-    top: -25px;
+    left: rem-calc(-50);
+    top: rem-calc(-30);
     content: ' ';
-    width: 44px;
-    height: 38px;
+    width: rem-calc(44);
+    height: rem-calc(38);
     background: asset-url('quotes.png') center no-repeat;
   }
 
@@ -105,11 +153,11 @@ blockquote {
   }
 
   p {
-    margin-top: 0;
+    margin-top: rem-calc(-4);
   }
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : rem-calc(992)) {
    blockquote {
      &:before {
        display:none;
@@ -118,18 +166,22 @@ blockquote {
 } 
 
 .font-12 {
-  font-size: 12px;
+  font-size: rem-calc(12);
 }
 
 .copyright {
   /* Copyright © 2016 The: */
   font-family: Arial, sans-serif;
-  font-size: 11px;
+  font-size: rem-calc(11);
   color: #FFDD22;
-  letter-spacing: 0.1px;
-  line-height: 22px;
+  letter-spacing: rem-calc(0.1);
+  line-height: rem-calc(22);
 }
 
 .bg-fill {
   background-size: contain !important;
+}
+
+.callout {
+  border: 0;
 }

@@ -1,52 +1,54 @@
-!!!
-%html
+!!! 5
+%html{ :lang => "en" }
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}/
-    %title The Fellowship App
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600", :rel => "stylesheet", :type => "text/css"}/
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "The Fellowship App"
+
     = render 'favicon'
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tag
+
   %body
-    %nav.navbar
-      .container.navbar-container
-        .navbar-header
-          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => "#"}= image_tag "Logo.png"
-        #navbar.collapse.navbar-collapse.pull-right
-          %ul.nav.navbar-nav
-            %li.active= link_to "Home", landing_index_path
+    .row.title-row
+      .title-bar.small-12.hidden{"data-responsive-toggle" => "desktop-menu"}
+        %ul
+          %li= link_to "Home", landing_index_path
+          %li= link_to "About", landing_about_path
+          %li= link_to "Pricing", landing_pricing_path
+          %li= link_to "Contact Us", landing_contact_us_path
+          %li= link_to "Sign Up", landing_sign_up_path
+      #desktop-menu.top-bar
+        .top-bar-left
+          %a.title-brand{:href => "#"}= image_tag "Logo.png"
+        .top-bar-right.hidden
+          %button.menu-icon{type: "button", "data-toggle" => ""}
+          %ul.menu
+            %li= link_to "Home", landing_index_path
             %li= link_to "About", landing_about_path
             %li= link_to "Pricing", landing_pricing_path
             %li= link_to "Contact Us", landing_contact_us_path
             %li= link_to "Sign Up", landing_sign_up_path
-        / /.nav-collapse
-    .content
-      = yield
-    / /.container
-    .container-fluid.container-blue
-      .container.footer
-        .row
-          .col-sm-6
-            %ul.list-inline.footer-links{:style => 'margin-top:25px'}
-              %li= link_to "Home", landing_index_path
-              %li= link_to "About", landing_about_path
-              %li= link_to "Pricing", landing_pricing_path
-              %li= link_to "Contact Us", landing_contact_us_path
-              %li= link_to "Sign Up", landing_sign_up_path
-          .col-sm-6
-            %ul.list-inline
-              = render 'landing/social_links'
-        .row{:style => 'padding-top:30px'}
-          .col-sm-6
-            %small.copyright Copyright © 2016 The Fellowship App. All Rights Reserved.
-          .col-sm-6
-            %small.copyright We value your privacy. None of the details supplied will be shared with external parties
+    = yield 
+
+    .container.bg-blue.footer
+      .row
+        .small-12.large-6.text-center.large-text-left
+          %ul.menu.footer-links{:style => 'margin-top:25px'}
+            %li= link_to "Home", landing_index_path
+            %li= link_to "About", landing_about_path
+            %li= link_to "Pricing", landing_pricing_path
+            %li= link_to "Contact Us", landing_contact_us_path
+            %li= link_to "Sign Up", landing_sign_up_path
+        .small-12.large-6
+          %ul.list-inline
+            = render 'landing/social_links'
+      .row{:style => 'padding-top:30px'}
+        .small-12.large-6
+          %small.copyright Copyright © 2016 The Fellowship App. All Rights Reserved.
+        .small-12.large-6
+          %small.copyright We value your privacy. None of the details supplied will be shared with external parties

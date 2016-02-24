@@ -2,55 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-nav {
-  position: absolute;
-  top: 0;
-  color: white;
-
-  .navbar-container {
-    margin-top: 25px;
-  }
-
-  .navbar-brand {
-    > img {
-      display: inline-block;
-      width: 250px;
-    }
-
-    &:hover {
-      background: transparent;
-    }
-  }
-
-  .navbar-nav {
-    margin-top: 30px;
-
-    a {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: white;
-      padding: 15px 30px;
-      font-size: 13px;
-      letter-spacing: 1px;
-
-      &:hover {
-        background: transparent;
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-div.landing {
-  font-family: 'Open Sans', sans-serif;
-}
-
 .hero-container {
-  margin-top: -130px;
-  padding-top: 140px;
+  padding-top: rem-calc(140);
   background: asset-url('landing/home-hero.png') center no-repeat;
   background-size: cover;
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
 
   .jumbotron {
     background: transparent;
@@ -65,8 +22,8 @@ div.landing {
 }
 
 .claims {
-  margin-top: 10px;
-  margin-bottom: 40px;
+  margin-top: rem-calc(10);
+  margin-bottom: rem-calc(40);
 
   span {
     font-family: 'Open Sans', sans-serif;
@@ -75,109 +32,124 @@ div.landing {
     line-height: 2;
 
     &.big {
-      font-size: 100px;
+      font-size: rem-calc(100);
       color: white;
     }
 
     &.small {
-      font-size: 30px;
+      font-size: rem-calc(30);
       color: #FFDD22;
     }
   }
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : rem-calc(992)) {
   .claims {
 
     span {
       line-height: 1.5;
 
       &.big {
-        font-size: 75px;
+        font-size: rem-calc(75);
       }
 
       &.small {
-        font-size: 25px;
+        font-size: rem-calc(25);
       }
     }
   }
 } 
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : rem-calc(768)) {
   .claims {
     span {
       &.big {
-        font-size: 50px;
+        font-size: rem-calc(50);
       }
 
       &.small {
-        font-size: 20px;
+        font-size: rem-calc(20);
         display: none;
       }
     }
   }
 } 
 
-div.container-lightgrey {
+.bg-lightgrey {
   background: #fBfBfB;
 }
 
-div.container-darkgrey {
+.bg-darkgrey {
   background: #f3f3f3;
 }
 
-div.container-blue {
+.bg-blue {
   background: #00C0CB;
 }
 
 .social-link {
+  display: inline-block;
+  padding: rem-calc(5);
   a {
     transition: all 1s;
+    width: rem-calc(47);
 
     &:hover {
-      transform: scale(1.1) translate(0, 10px);
+      transform: scale(1.1) translate(0, rem-calc(10));
     }
   }
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width : rem-calc(992)) {
   .footer {
     text-align: center;
   }
 } 
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : rem-calc(768)) {
   .footer {
     ul.footer-links {
-      margin-bottom: 40px;
+      margin-bottom: rem-calc(40);
     }
   }
 } 
 
 .footer {
-  padding-top: 70px;
-  padding-bottom: 10px !important;
 
-  ul.footer-links {
+  ul.menu {
 
-
-    li {
-      &:not(:last-child) a {
-        margin-right: 30px;
-      }
-      a {
+    > li {
+      display: inline-block;
+      
+      > a {
         color: white;
         text-transform: uppercase;
         font-family: 'Open Sans', Arial, sans-serif;
-        font-size: 13px;
-        letter-spacing: 1px;
-        line-height: 18px;
+        font-size: rem-calc(13);
+        letter-spacing: rem-calc(1);
+        line-height: rem-calc(18);
         font-weight: 400;
 
         &:hover {
           text-decoration: underline;
         }
+
+        &:visited {
+          color: white;
+        }
+      }
+
+      &:first-child {
+        a {
+          @include breakpoint(large up) {
+            padding-left: 0;
+          }
+        }
       }
     }
   }
+}
+
+.hidden {
+  display: none !important;
 }
