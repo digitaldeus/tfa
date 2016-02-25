@@ -54,7 +54,10 @@
             = render 'landing/social_links'
       .row{:style => 'padding-top:30px'}
         .small-12.large-6
-          %small.copyright Copyright © 2016 The Fellowship App. All Rights Reserved.
+          %small.copyright 
+            Copyright © 
+            = Date.today.year
+            The Fellowship App. All Rights Reserved.
         .small-12.large-6
           %small.copyright We value your privacy. None of the details supplied will be shared with external parties
 
