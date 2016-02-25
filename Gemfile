@@ -75,7 +75,3 @@ gem 'slim'
 
 # haml and converter
 gem 'haml-rails'
-
-group :development do
-  gem 'html2haml'
-end

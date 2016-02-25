@@ -16,6 +16,13 @@
 @import "scaffolds";
 @import "landing";
 
+body {
+  color: #969695;
+  font-family: "Open Sans", arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+
 ul {
   margin-left: 0;
 }
@@ -219,4 +226,37 @@ blockquote {
 
 .callout {
   border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.media-object {
+  display: inline-block;
+
+  .media-object-section {
+    vertical-align: middle;
+  }
+
+  .thumbnail {
+    border: 0;
+    box-shadow: 0 0 0 transparent;
+  }
+
+  h4 {
+    font-size: rem-calc(24);
+    color: $black;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
+    color: #838383;
+    font-weight: 300;
+  }
+}
+
+.text-white {
+  color: $white;
 }
