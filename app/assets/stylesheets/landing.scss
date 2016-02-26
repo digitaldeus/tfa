@@ -43,6 +43,7 @@
     color: white;
     padding-top: rem-calc(40);
     padding: rem-calc(80);
+    font-weight: 400;
 
     @include breakpoint (medium down) {
       padding: 2rem;
