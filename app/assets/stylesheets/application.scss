@@ -276,7 +276,7 @@ a.dark_text {
   }
 }
 
-button {
+button[type=submit] {
   background: $green;
   border-radius: rem-calc(3) !important;
   color: white;
@@ -293,4 +293,8 @@ input[type=text], input[type=email], input[type=tel] {
   textarea, &:focus {
     border-color: #c2c2c2;
   }
+}
+
+textarea {
+  margin-top: 2rem;
 }
