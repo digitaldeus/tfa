@@ -19,15 +19,8 @@ pre {
 }
 
 a {
-  color: white;
-
-  &:visited {
-    color: white;
-  }
-
   &:hover {
-    color: #fff;
-    background-color: #000;
+    background-color: transparent;
     text-decoration: underline;
   }
 }
