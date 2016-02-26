@@ -4,17 +4,27 @@
 
 .hero-container {
   padding-top: rem-calc(140);
-  background: asset-url('landing/home-hero.png') center no-repeat;
+  background: asset-url('landing/home-hero.png') center;
   background-size: cover;
   padding-left: 1.5625rem;
   padding-right: 1.5625rem;
 
   .landing-about & {
-    background: asset-url('landing/about-hero.png') center no-repeat;
+    background: asset-url('landing/about-hero.png') center;
     padding-bottom: 3rem;
 
     @include breakpoint(medium down) {
       padding-bottom: 1rem;
+    }
+
+  }
+
+  .landing-contact & {
+    background: asset-url('landing/contact-hero.png') center;
+    padding-bottom: 3rem;
+
+    @include breakpoint(medium down) {
+      padding-bottom: 1.5rem;
     }
   }
 

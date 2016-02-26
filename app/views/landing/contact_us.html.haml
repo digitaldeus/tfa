@@ -1,2 +1,58 @@
-%h1 Landing#contact_us
-%p Find me in app/views/landing/contact_us.html.erb
+.landing-contact
+  .hero-container
+    %h2.text-center
+      Have a Question? Let us Help!
+  .container.container-overlay
+    %p.text-center
+      Taking the first steps into any new technology can be daunting and 
+      we want to help make your transition smooth and stress free. Send us a
+      message with your questions or concerns and we will be sure to respond 
+      promptly. 
+      %br/
+      %br/
+      Please fill out the form below.
+    = form_for @contact_info, url: landing_contact_us_path do |f|
+      .row{style: "margin-top:4rem"}
+        .small-12.medium-6.column.text-center.medium-text-left
+          = f.text_field :first_name, placeholder: 'First name'
+        .small-12.medium-6.column.text-center.medium-text-left
+          = f.text_field :last_name, placeholder: 'Last name'
+      .row
+        .small-12.medium-6.column.text-center.medium-text-left
+          = f.email_field :email, placeholder: 'Email'
+        .small-12.medium-6.column.text-center.medium-text-left
+          = f.phone_field :phone, placeholder: 'Phone number'
+      .row
+        .small-12.column.text-center.medium-text-left
+          = f.text_area :details, placeholder: 'Type message here...', rows: 8
+
+      .row
+        .small-12.text-right.column
+          = f.button 'Submit', type: :submit
+
+    .row.align-center
+      .columns.small-12.medium-3.text-center.medium-text-left
+        %p.title
+          SAN FRANCISCO
+        %p
+          288 Athens Street
+          %br/
+          San Francisco, CA 94112
+      .columns.small-12.medium-3.text-center.medium-text-left
+        %p.title
+          OAKLAND
+        %p
+          1466 36th Ave
+          %br/
+          Oakland, CA 94601
+      .columns.small-12.medium-3.text-center.medium-text-left
+        %p.title
+          PRESS &amp; PUBLIC RELATIONS
+        %p
+          %span.small TELEPHONE
+          %br/
+          %a.dark_text{href: "tel:14157452347", color: "#969695"} 
+            (415) 745-2347
+        %p
+          %span.small EMAIL
+          info@thefellowshipapp.com

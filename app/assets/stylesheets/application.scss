@@ -16,8 +16,11 @@
 @import "scaffolds";
 @import "landing";
 
+$bodycolor: #969695;
+$green: #47DA7A;
+
 body {
-  color: #969695;
+  color: $bodycolor;
   font-family: "Open Sans", arial, helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.5rem;
@@ -259,4 +262,35 @@ blockquote {
 
 .text-white {
   color: $white;
+}
+
+a.dark_text {
+  color: $bodycolor;
+
+  &:hover {
+    color: $bodycolor;
+  }
+
+  &:visited {
+    color: $bodycolor;
+  }
+}
+
+button {
+  background: $green;
+  border-radius: rem-calc(3) !important;
+  color: white;
+  padding: rem-calc(15) rem-calc(50);
+}
+
+input[type=text], input[type=email], input[type=tel] {
+  border: rem-calc(1) solid #ddd;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  box-shadow: 0 0 0 transparent;
+
+  textarea, &:focus {
+    border-color: #c2c2c2;
+  }
 }
