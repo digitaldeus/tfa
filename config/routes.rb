@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/', to: 'landing#index', as: 'landing_index'
   get '/pricing', to: 'landing#pricing', as: 'landing_pricing'
   get '/about', to: 'landing#about', as: 'landing_about'
-  get '/contact_us', to: 'landing#contact_us', as: 'landing_contact_us'
+  match '/contact_us', to: 'landing#contact_us', via: [:get, :post], as: 'landing_contact_us'
   get '/sign_up', to: 'landing#sign_up', as: 'landing_sign_up'
   get '/create_profile', to: 'landing#create_profile', as: 'landing_create_profile'
 

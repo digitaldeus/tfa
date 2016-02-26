@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126020330) do
+ActiveRecord::Schema.define(version: 20160226145352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20160126020330) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "customer_contacts", force: :cascade do |t|
+    t.string   "purpose",    null: false
+    t.string   "first_name", null: false
+    t.string   "last_name",  null: false
+    t.text     "details"
+    t.string   "email",      null: false
+    t.string   "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "establishments", force: :cascade do |t|
     t.string   "name"

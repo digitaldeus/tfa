@@ -4,17 +4,27 @@
 
 .hero-container {
   padding-top: rem-calc(140);
-  background: asset-url('landing/home-hero.png') center no-repeat;
+  background: asset-url('landing/home-hero.png') center;
   background-size: cover;
   padding-left: 1.5625rem;
   padding-right: 1.5625rem;
 
   .landing-about & {
-    background: asset-url('landing/about-hero.png') center no-repeat;
+    background: asset-url('landing/about-hero.png') center;
     padding-bottom: 3rem;
 
     @include breakpoint(medium down) {
       padding-bottom: 1rem;
+    }
+
+  }
+
+  .landing-contact & {
+    background: asset-url('landing/contact-hero.png') center;
+    padding-bottom: 3rem;
+
+    @include breakpoint(medium down) {
+      padding-bottom: 1.5rem;
     }
   }
 
@@ -37,6 +47,15 @@
     @include breakpoint (medium down) {
       padding: 2rem;
     }
+  }
+}
+
+.landing-contact {
+  padding-bottom: 8rem;
+  background: #f3f3f3;
+
+  p.title {
+    font-weight: 400;
   }
 }
 
@@ -139,7 +158,7 @@
 
     > li {
       display: inline-block;
-      
+
       > a {
         color: white;
         text-transform: uppercase;
@@ -169,4 +188,23 @@
   }
 }
 
+div.container-overlay {
+  margin: 0 8rem;
+  margin-top: -7rem;
+  z-index: 100;
+  background: white;
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
 
+  @include breakpoint(medium down) {
+    margin: 0 2rem;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    margin-top: -4rem;
+  }
+
+  @include breakpoint(small down) {
+    margin: 0 1rem;
+    margin-top: -4rem;
+  }
+}

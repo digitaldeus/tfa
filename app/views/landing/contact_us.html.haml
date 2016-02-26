@@ -1,2 +1,78 @@
-%h1 Landing#contact_us
-%p Find me in app/views/landing/contact_us.html.erb
+.landing-contact
+  .hero-container
+    %h2.text-center
+      Have a Question? Let us Help!
+  .container.container-overlay
+    - if flash[:notice]
+      .success.callout.text-center
+        %p
+          = flash[:notice]
+    - else
+      %p.text-center
+        Taking the first steps into any new technology can be daunting and 
+        we want to help make your transition smooth and stress free. Send us a
+        message with your questions or concerns and we will be sure to respond 
+        promptly. 
+        %br/
+        %br/
+        Please fill out the form below.
+      = form_for @contact_info, url: landing_contact_us_path, 
+          html: {"data-abide" => " ", novalidate: " "} do |f|
+        - if @contact_info.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@contact_info.errors.count, "error")
+              prohibited this form from being submitted:
+            %ul
+              - @contact_info.errors.full_messages.each do |message|
+                %li= message
+        .row{style: "margin-top:4rem"}
+          .small-12.medium-6.column.text-center.medium-text-left
+            = f.text_field :first_name, placeholder: 'First name*', required: true
+            %span.form-error
+              First name is required
+          .small-12.medium-6.column.text-center.medium-text-left
+            = f.text_field :last_name, placeholder: 'Last name*', required: true
+            %span.form-error
+              Last name is required
+        .row
+          .small-12.medium-6.column.text-center.medium-text-left
+            = f.email_field :email, placeholder: 'Email*', required: true
+            %span.form-error
+              Email is required
+          .small-12.medium-6.column.text-center.medium-text-left
+            = f.phone_field :phone, placeholder: 'Phone number'
+        .row
+          .small-12.column.text-center.medium-text-left
+            = f.text_area :details, placeholder: 'Type message here...', rows: 8
+
+        .row
+          .small-12.column.text-center.medium-text-right
+            = f.button 'Submit', type: :submit, value: 'submit'
+
+    .row.align-center{style: "margin-top: 4rem"}
+      .columns.small-12.large-3.text-center.large-text-left
+        %p.title
+          SAN FRANCISCO
+        %p
+          288 Athens Street
+          %br/
+          San Francisco, CA 94112
+      .columns.small-12.large-3.text-center.large-text-left
+        %p.title
+          OAKLAND
+        %p
+          1466 36th Ave
+          %br/
+          Oakland, CA 94601
+      .columns.small-12.large-3.text-center.large-text-left
+        %p.title
+          PRESS &amp; PUBLIC RELATIONS
+        %p
+          %span{style: "font-size:0.9rem"} TELEPHONE
+          %br/
+          %a.dark_text{href: "tel:14157452347", color: "#969695"} 
+            (415) 745-2347
+        %p
+          %span{style: "font-size:0.8rem"} EMAIL
+          info@thefellowshipapp.com
