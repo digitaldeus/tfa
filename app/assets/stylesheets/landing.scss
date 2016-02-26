@@ -195,6 +195,7 @@ div.container-overlay {
   background: white;
   padding-left: 4rem !important;
   padding-right: 4rem !important;
+  border: 1px solid #ccc;
 
   @include breakpoint(medium down) {
     margin: 0 2rem;
