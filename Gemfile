@@ -82,3 +82,6 @@ gem 'haml-rails'
 
 # easier form creation via Simple Form
 gem 'simple_form'
+
+# authentication
+gem 'devise'
