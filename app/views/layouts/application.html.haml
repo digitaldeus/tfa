@@ -24,11 +24,6 @@
           %button.menu-icon{type: "button", "data-toggle" => ""}
           %ul#dropdown-menu
             = render 'landing_links'
-            %li 
-              - if user_signed_in?
-                = link_to 'Sign out', destroy_user_session_path, method: :delete
-              - else
-                = link_to 'Sign in', new_user_session_path
       #desktop-menu.top-bar.show-for-large.small-12
         .top-bar-left
           %a.title-brand{:href => landing_index_path}= image_tag "Logo.png"
