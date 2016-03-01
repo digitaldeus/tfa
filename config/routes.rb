@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  devise_for :users
   # root level routes
   get '/', to: 'landing#index', as: 'landing_index'
   get '/pricing', to: 'landing#pricing', as: 'landing_pricing'

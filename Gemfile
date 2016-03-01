@@ -85,3 +85,5 @@ gem 'simple_form'
 
 # authentication
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
