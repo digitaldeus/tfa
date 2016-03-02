@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="10px" height="19px" viewBox="0 0 10 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6 (26304) - http://www.bohemiancoding.com/sketch -->
+    <title>facebook-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pages-|-Sign-Up" transform="translate(-418.000000, -547.000000)" fill="#FFFFFF">
+            <g id="Facebook" transform="translate(395.000000, 532.000000)">
+                <path d="M32.8653848,15.1370193 L32.8653848,18.1514425 L31.072716,18.1514425 C30.4180688,18.1514425 29.976562,18.2884618 29.7481969,18.5625005 C29.5198318,18.8365384 29.405649,19.2475964 29.405649,19.7956731 L29.405649,21.9537263 L32.7512019,21.9537263 L32.3058892,25.3335338 L29.405649,25.3335338 L29.405649,34 L25.9116585,34 L25.9116585,25.3335338 L23,25.3335338 L23,21.9537263 L25.9116585,21.9537263 L25.9116585,19.4645433 C25.9116585,18.0486785 26.3074917,16.950621 27.0991582,16.1703727 C27.8908253,15.3901245 28.9451122,15 30.2620189,15 C31.3810093,15 32.2487981,15.0456736 32.8653848,15.1370193 L32.8653848,15.1370193 Z" id="facebook-icon"></path>
+            </g>
+        </g>
+    </g>
+</svg>
