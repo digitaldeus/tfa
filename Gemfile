@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Ruby version
+ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -87,3 +89,4 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"

@@ -260,15 +260,16 @@ div.container-overlay {
     }
   }
 
-  &.button-google_plus {
-    background: #acacac;
+  &.button-google {
+    background: #dd4b39;
 
     &:hover {
-      background: #acacac;
+      background: #dd4b39;
     }
 
     &:before {
-      content: asset-url('landing/facebook-logo.svg');
+      content: asset-url('landing/google_plus-logo.svg');
+      left: rem-calc(20)
     }
   }
 
