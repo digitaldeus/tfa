@@ -11,6 +11,7 @@
 
   .landing-about & {
     background: asset-url('landing/about-hero.png') center;
+    background-size: cover;
     padding-bottom: 3rem;
 
     @include breakpoint(medium down) {
@@ -21,6 +22,17 @@
 
   .landing-contact & {
     background: asset-url('landing/contact-hero.png') center;
+    background-size: cover;
+    padding-bottom: 3rem;
+
+    @include breakpoint(medium down) {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .landing-signup & {
+    background: asset-url('landing/signin-hero.png') center;
+    background-size: cover;
     padding-bottom: 3rem;
 
     @include breakpoint(medium down) {
@@ -208,5 +220,66 @@ div.container-overlay {
   @include breakpoint(small down) {
     margin: 0 1rem;
     margin-top: -4rem;
+  }
+}
+
+.social-button {
+  padding: rem-calc(15) rem-calc(20);
+  background: #acacac;
+  padding-left: rem-calc(50);
+  color: white;
+  display: inline-block;
+  font-size: rem-calc(14);
+  border-radius: rem-calc(3);
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  position: relative;
+
+  &:hover {
+    text-decoration: none;
+    background: #acacac;
+    color: white;
+  }
+
+  &:before {
+    position: absolute;
+    height: rem-calc(20);
+    top: rem-calc(17);
+    left: rem-calc(22)
+  }
+
+  &.button-facebook {
+    background: #3b5998;
+
+    &:hover {
+      background: #3b5998;
+    }
+
+    &:before {
+      content: asset-url('landing/facebook-logo.svg');
+    }
+  }
+
+  &.button-google_plus {
+    background: #acacac;
+
+    &:hover {
+      background: #acacac;
+    }
+
+    &:before {
+      content: asset-url('landing/facebook-logo.svg');
+    }
+  }
+
+  &.button-linkedin {
+    background: #acacac;
+    &:hover {
+      background: #acacac;
+    }
+
+    &:before {
+      content: asset-url('landing/facebook-logo.svg');
+    }
   }
 }

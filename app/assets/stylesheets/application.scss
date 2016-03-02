@@ -275,14 +275,14 @@ a.dark_text {
   }
 }
 
-button[type=submit] {
+input.button[type=submit], button[type=submit] {
   background: $green;
   border-radius: rem-calc(3) !important;
   color: white;
   padding: rem-calc(15) rem-calc(50);
 }
 
-input[type=text], input[type=email], input[type=tel] {
+input[type=text], input[type=password], input[type=email], input[type=tel] {
   border: rem-calc(1) solid #ddd;
   border-top-width: 0;
   border-left-width: 0;
@@ -296,4 +296,24 @@ input[type=text], input[type=email], input[type=tel] {
 
 textarea {
   margin-top: 2rem;
+}
+
+.middle-line {
+  .line {
+    position: relative;
+    background: #eee;
+    height: rem-calc(1);
+    display: block;
+    width: 100%;
+    margin: rem-calc(60) 0;
+
+    span {
+      position: absolute;
+      top: rem-calc(-17);
+      background: #f8f8f8;
+      border: 1px solid #eee;
+      border-radius: 50%;
+      padding: rem-calc(5);
+    }
+  }
 }
