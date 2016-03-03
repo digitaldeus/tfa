@@ -2,18 +2,18 @@
   .hero-container
     %h2.text-center
       Find, Connect &amp; Worship anywhere in the World!
-  .container.container-overlay
+  .container.container-overlay{style: "margin-bottom: 6rem"}
     .row
       .small-12.columns.text-center
         %p.title.dark{style: "font-size: 2rem"} Sign In
         %small Sign in with your social account
     .row
-      .small-12.medium-6.columns.text-right
+      .small-12.medium-6.columns.text-center.medium-text-right
         = link_to "Sign in with facebook", user_omniauth_authorize_path(:facebook), class: 'social-button button-facebook'
-      .small-12.medium-6.columns.text-text-left
+      .small-12.medium-6.columns.text-center.medium-text-left
         = link_to "Sign in with google", user_omniauth_authorize_path(:google_oauth2), class: 'social-button button-google'
     .row
-      .small-12.medium-6.columns.text-right
+      .small-12.medium-6.columns.text-center.medium-text-right
         = link_to "Sign in with linkedin", user_omniauth_authorize_path(:linkedin), class: 'social-button button-linkedin'
     .row
       .small-12.columns.text-center
