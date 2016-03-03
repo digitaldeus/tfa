@@ -234,6 +234,7 @@ div.container-overlay {
   font-family: Helvetica,Arial,sans-serif;
   font-weight: bold;
   position: relative;
+  width: rem-calc(220);
 
   &:hover {
     text-decoration: none;
@@ -274,13 +275,15 @@ div.container-overlay {
   }
 
   &.button-linkedin {
-    background: #acacac;
+    background: #007bb6;
     &:hover {
-      background: #acacac;
+      background: #007bb6;
     }
 
     &:before {
-      content: asset-url('landing/facebook-logo.svg');
+      content: asset-url('landing/linkedin-logo.svg');
+      top: rem-calc(16);
+      left: rem-calc(21);
     }
   }
 }

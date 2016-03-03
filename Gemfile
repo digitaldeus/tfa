@@ -89,4 +89,5 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 gem "omniauth-google-oauth2"
