@@ -14,53 +14,57 @@
     = csrf_meta_tag
 
   %body
-    -# Render the header
-    .row.title-row
-      .title-bar.small-12.hide-for-large{"data-responsive-toggle" => "dropdown-menu",
-                                         "data-hide-for" => "large"}
-        .title-bar-left
-          %a.title-brand{:href => landing_index_path}= image_tag "Logo.png"
-        .title-bar-right
-          %button.menu-icon{type: "button", "data-toggle" => ""}
-          %ul#dropdown-menu
-            = render 'landing_links'
-      #desktop-menu.top-bar.show-for-large.small-12
-        .top-bar-left
-          %a.title-brand{:href => landing_index_path}= image_tag "Logo.png"
-        .top-bar-right
-          %ul.menu
-            = render 'landing_links'
 
     -# Alerts and notice flashes
     - if notice
-      .alert-box.info{"data-alert" => ""}
+      .success.callout{"data-closable" => ""}
         = notice
-        %a.close{:href => "#"} &times;
+        %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
     - if alert
-      .alert-box.warning{"data-alert" => ""}
+      .alert.callout{"data-closable" => ""}
         = alert
-        %a.close{:href => "#"} &times;
+        %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
 
-    -# Render the main content
-    = yield 
+    .body
+      -# Render the header
+      .row.title-row
+        .title-bar.small-12.hide-for-large{"data-responsive-toggle" => "dropdown-menu",
+                                           "data-hide-for" => "large"}
+          .title-bar-left
+            %a.title-brand{:href => landing_index_path}= image_tag "Logo.png"
+          .title-bar-right
+            %button.menu-icon{type: "button", "data-toggle" => ""}
+            %ul#dropdown-menu
+              = render 'landing_links'
+        #desktop-menu.top-bar.show-for-large.small-12
+          .top-bar-left
+            %a.title-brand{:href => landing_index_path}= image_tag "Logo.png"
+          .top-bar-right
+            %ul.menu
+              = render 'landing_links'
 
-    -# Render the footer
-    .container.bg-blue.footer
-      .row
-        .small-12.large-6.text-center.large-text-left
-          %ul.menu.footer-links{:style => 'margin-top:25px'}
-            = render 'landing_links'
-        .small-12.large-6
-          %ul.list-inline
-            = render 'landing/social_links'
-      .row{:style => 'padding-top:30px'}
-        .small-12.large-6
-          %small.copyright 
-            Copyright © 
-            = Date.today.year
-            The Fellowship App. All Rights Reserved.
-        .small-12.large-6
-          %small.copyright We value your privacy. None of the details supplied will be shared with external parties
+      -# Render the main content
+      = yield 
+
+      -# Render the footer
+      .container.bg-blue.footer
+        .row
+          .small-12.large-6.text-center.large-text-left
+            %ul.menu.footer-links{:style => 'margin-top:25px'}
+              = render 'landing_links'
+          .small-12.large-6
+            %ul.list-inline
+              = render 'landing/social_links'
+        .row{:style => 'padding-top:30px'}
+          .small-12.large-6
+            %small.copyright 
+              Copyright © 
+              = Date.today.year
+              The Fellowship App. All Rights Reserved.
+          .small-12.large-6
+            %small.copyright We value your privacy. None of the details supplied will be shared with external parties
 
   -# Initialize foundation after main content loaded
   :javascript

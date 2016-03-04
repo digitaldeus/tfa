@@ -321,3 +321,14 @@ textarea {
 .dark {
   color: $black;
 }
+
+.error * {
+  border-color: $alert-color !important;
+}
+small.error {
+  color: $alert-color;
+}
+
+.body {
+  position: relative;
+}
