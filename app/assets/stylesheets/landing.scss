@@ -223,6 +223,11 @@ div.container-overlay {
   }
 }
 
+.row.social-row .columns {
+  padding-left: rem-calc(35);
+  padding-right: rem-calc(35);
+}
+
 .social-button {
   padding: rem-calc(15) rem-calc(20);
   background: #acacac;
@@ -235,6 +240,7 @@ div.container-overlay {
   font-weight: bold;
   position: relative;
   width: rem-calc(220);
+  margin-top: rem-calc(30);
 
   &:hover {
     text-decoration: none;
