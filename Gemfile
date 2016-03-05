@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Ruby version
+ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -43,6 +45,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # better errors
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # allow custom env in development via .env file
@@ -75,3 +81,13 @@ gem 'slim'
 
 # haml and converter
 gem 'haml-rails'
+
+# easier form creation via Simple Form
+gem 'simple_form'
+
+# authentication
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+gem "omniauth-google-oauth2"

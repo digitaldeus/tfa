@@ -11,6 +11,7 @@
 
   .landing-about & {
     background: asset-url('landing/about-hero.png') center;
+    background-size: cover;
     padding-bottom: 3rem;
 
     @include breakpoint(medium down) {
@@ -21,6 +22,17 @@
 
   .landing-contact & {
     background: asset-url('landing/contact-hero.png') center;
+    background-size: cover;
+    padding-bottom: 3rem;
+
+    @include breakpoint(medium down) {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .landing-signup & {
+    background: asset-url('landing/signin-hero.png') center;
+    background-size: cover;
     padding-bottom: 3rem;
 
     @include breakpoint(medium down) {
@@ -208,5 +220,76 @@ div.container-overlay {
   @include breakpoint(small down) {
     margin: 0 1rem;
     margin-top: -4rem;
+  }
+}
+
+.row.social-row .columns {
+  padding-left: rem-calc(35);
+  padding-right: rem-calc(35);
+}
+
+.social-button {
+  padding: rem-calc(15) rem-calc(20);
+  background: #acacac;
+  padding-left: rem-calc(50);
+  color: white;
+  display: inline-block;
+  font-size: rem-calc(14);
+  border-radius: rem-calc(3);
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  position: relative;
+  width: rem-calc(220);
+  margin-top: rem-calc(30);
+
+  &:hover {
+    text-decoration: none;
+    background: #acacac;
+    color: white;
+  }
+
+  &:before {
+    position: absolute;
+    height: rem-calc(20);
+    top: rem-calc(17);
+    left: rem-calc(22)
+  }
+
+  &.button-facebook {
+    background: #3b5998;
+
+    &:hover {
+      background: #3b5998;
+    }
+
+    &:before {
+      content: asset-url('landing/facebook-logo.svg');
+    }
+  }
+
+  &.button-google {
+    background: #dd4b39;
+
+    &:hover {
+      background: #dd4b39;
+    }
+
+    &:before {
+      content: asset-url('landing/google_plus-logo.svg');
+      left: rem-calc(20)
+    }
+  }
+
+  &.button-linkedin {
+    background: #007bb6;
+    &:hover {
+      background: #007bb6;
+    }
+
+    &:before {
+      content: asset-url('landing/linkedin-logo.svg');
+      top: rem-calc(16);
+      left: rem-calc(21);
+    }
   }
 }
