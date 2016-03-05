@@ -65,15 +65,16 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # mail setup
-  config.action_mailer.default_url_options = { host: 'thefellowshipapp.com' }
+  # config.action_mailer.default_url_options = { host: 'thefellowshipapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
+    :address              => "smtp.sparkpostmail.com",
     :port                 => 587,
-    :user_name            => ENV['GMAIL_USERNAME'],
-    :password             => ENV['GMAIL_PASSWORD'],
-    :authentication       => "plain",
-    :enable_starttls_auto => true
+    :user_name            => ENV['EMAIL_USERNAME'],
+    :password             => ENV['EMAIL_PASSWORD'],
+    :enable_starttls_auto => true,
+    :format               => :html,
+    :from                 => 'noreply@thefellowshipapp.com'
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
