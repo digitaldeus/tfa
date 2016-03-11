@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
   first_name: MyString
   last_name: MyString
   details: MyText
   email: MyString
   phone: MyString
+  purpose: MyString
 
 two:
-  type: 
   first_name: MyString
   last_name: MyString
   details: MyText
   email: MyString
   phone: MyString
+  purpose: MyString

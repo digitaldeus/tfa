@@ -3,9 +3,9 @@
 one:
   name: MyString1
   description: MyText
-  yelp_id: yelp-id-1
+  yelp_id: yelp_id_1
 
 two:
   name: MyString2
   description: MyText
-  yelp_id: yelp-id-2
+  yelp_id: yelp_id_2
