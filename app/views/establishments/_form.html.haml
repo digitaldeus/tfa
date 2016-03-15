@@ -9,19 +9,15 @@
           %li= message
   .field
     = f.label :name
-    %br/
     = f.text_field :name
   .field
     = f.label :website
-    %br/
     = f.text_field :website
   .field
     = f.label :yelp_id, 'Yelp Id'
-    %br/
     = f.text_field :yelp_id
   .field
     = f.label :description
-    %br/
     = f.cktext_area :description
   = f.fields_for :location do |builder|
     = render 'location_fields', :f => builder
