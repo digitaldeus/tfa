@@ -9,9 +9,4 @@ class EstablishmentTest < ActiveSupport::TestCase
     @establishment.name = nil
     assert_not @establishment.save, 'Saved the establishment without a name'
   end
-  
-  test 'should save without yelp_id' do
-    @establishment.yelp_id = nil
-    assert @establishment.save, 'Saved the establishment without a yelp_id'
-  end
 end
