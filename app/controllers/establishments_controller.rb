@@ -68,14 +68,14 @@ class EstablishmentsController < ApplicationController
     def set_establishment
       @establishment = Establishment.find(params[:id])
       unless @establishment.location
-        @establishment.location = Location.new
+        @establishment.build_location
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
       params.require(:establishment).permit(:name, :description, :yelp_id, :website,
-        :location)
+        location_attributes: [:id, :latitude, :longitude, :address])
     end
 
     def set_google_api_key

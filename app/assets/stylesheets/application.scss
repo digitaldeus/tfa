@@ -18,6 +18,7 @@
 
 $bodycolor: #969695;
 $green: #47DA7A;
+$blue: #00C0CB;
 
 body {
   color: $bodycolor;
@@ -30,22 +31,22 @@ ul {
   margin-left: 0;
 }
 
+.title-wrapper {
+  background: $blue;
+}
+
 .title-row {
-  position: absolute;
-  left: 0;
-  top: 1.5rem;
-  right: 0;
   @include breakpoint(large down) {
     padding: 0 rem-calc(23);
   }
 }
 
 .title-bar-right {
-  margin-top: 2rem;
+  // margin-top: 2rem;
   position: relative;
 
   @include breakpoint (small down) {
-    margin-top: 1.5rem;
+    margin-top: rem-calc(13);
   }
 
   ul {
@@ -63,10 +64,10 @@ ul {
   .title-brand {
     > img {
       display: inline-block;
-      width: rem-calc(250);
+      // width: rem-calc(250);
 
       @include breakpoint(small down) {
-        width: rem-calc(200);
+        // width: rem-calc(200);
       }
     }
 
@@ -76,7 +77,7 @@ ul {
   }
 
   .menu {
-    margin-top: rem-calc(30);
+    margin-top: rem-calc(6);
 
     a {
       font-family: 'Open Sans', sans-serif;
@@ -97,13 +98,17 @@ ul {
 
 ul#dropdown-menu {
   display: block;
-  background: rgba(200,200,200,0.5);
+  background: #00C0CB;
   border-radius: 0 0 rem-calc(5) rem-calc(5);
   padding: rem-calc(10);
   margin-top: rem-calc(10);
   width: rem-calc(150);
   li {
     padding: rem-calc(5) 0;
+
+    a {
+      color: white;
+    }
   }
 }
 

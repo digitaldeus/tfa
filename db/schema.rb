@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301200802) do
+ActiveRecord::Schema.define(version: 20160316024217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20160301200802) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "yelp_id"
     t.string   "website"
   end
 
@@ -74,6 +73,18 @@ ActiveRecord::Schema.define(version: 20160301200802) do
 
   add_index "locations", ["establishment_id"], name: "index_locations_on_establishment_id", using: :btree
 
+  create_table "social_links", force: :cascade do |t|
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "yelp"
+    t.string   "google_plus"
+    t.string   "youtube"
+    t.string   "instagram"
+    t.string   "linkedin"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "staffs", force: :cascade do |t|
     t.string   "name"
     t.string   "title"
@@ -81,6 +92,7 @@ ActiveRecord::Schema.define(version: 20160301200802) do
     t.integer  "establishment_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "image"
   end
 
   add_index "staffs", ["establishment_id"], name: "index_staffs_on_establishment_id", using: :btree

@@ -18,7 +18,7 @@ class EstablishmentsControllerTest < ActionController::TestCase
 
   test "should create establishment" do
     assert_difference('Establishment.count') do
-      post :create, establishment: { description: @establishment.description, name: @establishment.name, yelp_id: "#{@establishment.yelp_id}-test" }
+      post :create, establishment: { description: @establishment.description, name: @establishment.name }
     end
 
     assert_redirected_to establishment_path(assigns(:establishment))
@@ -35,7 +35,7 @@ class EstablishmentsControllerTest < ActionController::TestCase
   end
 
   test "should update establishment" do
-    patch :update, id: @establishment, establishment: { description: @establishment.description, name: @establishment.name, yelp_id: @establishment.yelp_id }
+    patch :update, id: @establishment, establishment: { description: @establishment.description, name: @establishment.name }
     assert_redirected_to establishment_path(assigns(:establishment))
   end
 

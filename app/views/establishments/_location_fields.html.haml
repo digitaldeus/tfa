@@ -4,7 +4,7 @@
 = f.hidden_field :latitude
 = f.hidden_field :longitude
 / One per page intended
-%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{@google_api_key}=true=places=initMap"}
+%script{:async => "", :defer => "", :src => "https://maps.googleapis.com/maps/api/js?key=#{@google_api_key}&libraries=places&callback=initMap"}
 :javascript
   initMap = function() {
     var input = document.getElementById('establishment_location_attributes_address');

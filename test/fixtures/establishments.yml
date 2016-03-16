@@ -3,9 +3,7 @@
 one:
   name: MyString1
   description: MyText
-  yelp_id: yelp_id_1
 
 two:
   name: MyString2
   description: MyText
-  yelp_id: yelp_id_2
