@@ -47,7 +47,7 @@
                 = render 'landing_links'
 
       -# Render the main content
-      - unless params[:controller] == "landing"
+      - unless params[:controller].match /(landing|devise)/
         .row
           .content.small-12.column
             = yield 
