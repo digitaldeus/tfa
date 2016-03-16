@@ -249,6 +249,7 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    nprogress-rails (0.1.6.7)
     oauth (0.5.1)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -405,6 +406,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
+  nprogress-rails
   omniauth
   omniauth-facebook
   omniauth-google-oauth2

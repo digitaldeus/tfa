@@ -12,13 +12,16 @@
  *
  */
 
-@import "foundation_and_overrides";
-@import "scaffolds";
-@import "landing";
-
 $bodycolor: #969695;
 $green: #47DA7A;
 $blue: #00C0CB;
+$yellow: #FFDD22;
+$nprogress-color: $yellow;
+
+@import "foundation_and_overrides";
+@import "nprogress";
+@import "scaffolds";
+@import "landing";
 
 body {
   color: $bodycolor;

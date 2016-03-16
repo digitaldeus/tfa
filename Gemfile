@@ -91,3 +91,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem "omniauth-google-oauth2"
+
+# loading bar
+gem 'nprogress-rails'

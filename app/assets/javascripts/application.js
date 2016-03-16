@@ -15,5 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require ckeditor/init
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
 
