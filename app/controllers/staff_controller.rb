@@ -22,6 +22,10 @@ class StaffController < ApplicationController
     @staff = @establishment.staff.build(staff_params)
 
     if @staff.save
+      # also save the image
+      if @staff.image
+        @staff.image.save
+      end
       redirect_to establishment_staff_index_path, notice: 'Staff was successfully created.'
     else
       render :new
@@ -57,7 +61,8 @@ class StaffController < ApplicationController
   private
   def staff_params
     params.require(:staff)
-      .permit(:name, :description, :title, :key)
+      .permit(:name, :description, :title, :key,
+             image_attributes: [:graphic, :graphic_cache])
   end
 
   def set_establishment
