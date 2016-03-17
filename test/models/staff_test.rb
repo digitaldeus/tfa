@@ -9,4 +9,8 @@ class StaffTest < ActiveSupport::TestCase
     @staff.name = nil
     assert_not @staff.save
   end
+
+  test "should have social links method" do
+    assert_respond_to @staff, :social_link
+  end
 end
