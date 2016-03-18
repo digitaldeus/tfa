@@ -4,6 +4,10 @@
 %p
   %strong Description:
   = @establishment.description.html_safe
+
+%div
+  = render "social/social_link_list"
+
 = link_to 'Staff', establishment_staff_index_path(@establishment)
 |
 = link_to 'Edit', edit_establishment_path(@establishment)

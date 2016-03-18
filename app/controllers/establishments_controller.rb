@@ -70,12 +70,19 @@ class EstablishmentsController < ApplicationController
       unless @establishment.location
         @establishment.build_location
       end
+
+      unless @establishment.social_link
+        @establishment.build_social_link
+      end
+
+      @social_link = @establishment.social_link
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establishment_params
       params.require(:establishment).permit(:name, :description, :yelp_id, :website,
-        location_attributes: [:id, :latitude, :longitude, :address])
+        location_attributes: [:id, :latitude, :longitude, :address],
+        social_link_attributes: [:id, :facebook, :twitter, :instagram, :yelp, :google_plus, :youtube])
     end
 
     def set_google_api_key

@@ -18,5 +18,7 @@
     = f.cktext_area :description
   = f.fields_for :location do |builder|
     = render 'location_fields', :f => builder
+  = f.simple_fields_for :social_link do |slf|
+    = render 'social/social_fields', f: slf
   .actions
     = f.submit

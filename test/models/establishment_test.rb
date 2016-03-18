@@ -9,4 +9,8 @@ class EstablishmentTest < ActiveSupport::TestCase
     @establishment.name = nil
     assert_not @establishment.save, 'Saved the establishment without a name'
   end
+
+  test "should have social links method" do
+    assert_respond_to @establishment, :social_link
+  end
 end

@@ -1,0 +1,22 @@
+- if @social_link.has_social
+  %ul.list-inline
+    - if @social_link.facebook.present?
+      %li.social-link
+        %a{:href => @social_link.facebook}= image_tag "landing/icon-facebook.svg"
+    - if @social_link.twitter.present?
+      %li.social-link
+        %a{:href => @social_link.twitter}= image_tag "landing/icon-twitter.svg"
+    - if @social_link.google_plus.present?
+      %li.social-link
+        %a{:href => @social_link.google_plus}= image_tag "landing/icon-google_plus.svg"
+    - if @social_link.instagram.present?
+      %li.social-link
+        %a{:href => @social_link.instagram}= image_tag "landing/icon-instagram.svg"
+    - if @social_link.youtube.present?
+      %li.social-link
+        %a{:href => @social_link.youtube}= image_tag "landing/icon-youtube.svg"
+    - if @social_link.linkedin.present?
+      %li.social-link
+        %a{:href => @social_link.linkedin}= image_tag "landing/icon-linkedin.svg"
+
+

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -69,9 +69,10 @@ gem 'paperclip'
 
 # aws file upload
 gem 'carrierwave'
-gem "mini_magick"
-gem 'fog'
 gem 'carrierwave_direct'
+gem 'mini_magick'
+gem 'fog'
+gem 'aws-sdk'
 
 
 # sidekiq and web dependencies
@@ -90,4 +91,12 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
+
+# loading bar
+gem 'nprogress-rails'
+
+# direct file upload
+# group :assets do
+#   gem 'jquery-fileupload-rails'
+# end
