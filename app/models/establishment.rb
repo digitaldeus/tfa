@@ -6,4 +6,5 @@ class Establishment < ActiveRecord::Base
 
   accepts_nested_attributes_for :location
   accepts_nested_attributes_for :staff
+  accepts_nested_attributes_for :social_link
 end
