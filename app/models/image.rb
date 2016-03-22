@@ -16,6 +16,7 @@ class Image < ActiveRecord::Base
 
   class ImageWorker
     include Sidekiq::Worker
+    sidekiq_options :retry => 5
 
     def perform(id, key)
       image = Image.find(id)

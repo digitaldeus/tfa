@@ -62,7 +62,7 @@ class StaffController < ApplicationController
   def staff_params
     params.require(:staff)
       .permit(:name, :description, :title, :key,
-             image_attributes: [:graphic, :graphic_cache])
+             image_attributes: [:id, :graphic, :graphic_cache])
   end
 
   def set_establishment

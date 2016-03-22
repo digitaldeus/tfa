@@ -1,9 +1,25 @@
 %p
   %strong Name:
+  %br
   = @establishment.name
 %p
   %strong Description:
+  %br
   = @establishment.description.html_safe
+%p
+  %strong Profile Image:
+  %br
+  - if @establishment.profile_image.processed
+    = image_tag @establishment.profile_image.graphic_url(:smedium).to_s, alt: "Profile image of #{@establishment.name}"
+  - else
+    %em Processing image...
+%p
+  %strong Banner Image:
+  %br
+  - if @establishment.banner_image.processed
+    = image_tag @establishment.banner_image.graphic_url(:large).to_s, alt: "Banner image of #{@establishment.name}"
+  - else
+    %em Processing image...
 
 %div
   = render "social/social_link_list"
