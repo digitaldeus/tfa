@@ -6,6 +6,26 @@
   %strong Description:
   %br
   = @establishment.description.html_safe
+- if @establishment.phone.present?
+  %p
+    %strong Phone:
+    %br
+    = @establishment.phone
+- if @establishment.admin_phone.present?
+  %p
+    %strong Admin phone:
+    %br
+    = @establishment.admin_phone
+- if @establishment.email.present? 
+  %p
+    %strong Email:
+    %br
+    = @establishment.email
+- if @establishment.admin_email.present? 
+  %p
+    %strong Admin email:
+    %br
+    = @establishment.admin_email
 %p
   %strong Profile Image:
   %br
