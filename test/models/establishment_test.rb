@@ -21,4 +21,21 @@ class EstablishmentTest < ActiveSupport::TestCase
   test "should have banner image method" do
     assert_respond_to @establishment, :banner_image
   end
+
+  test "should have email method" do
+    assert_respond_to @establishment, :email
+  end
+
+  test "should have admin_email method" do
+    assert_respond_to @establishment, :admin_email
+  end
+
+  test "should have phone method" do
+    assert_respond_to @establishment, :phone
+  end
+
+  test "should have admin_phone method" do
+    assert_respond_to @establishment, :admin_phone
+  end
+
 end
