@@ -38,4 +38,8 @@ class EstablishmentTest < ActiveSupport::TestCase
     assert_respond_to @establishment, :admin_phone
   end
 
+  test "should have a leader method" do
+    assert_respond_to @establishment, :leader
+  end
+
 end
