@@ -119,7 +119,8 @@ class EstablishmentsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def establishment_params
     params.require(:establishment)
-    .permit(:name, :description, :website, :key, :phone, :admin_phone, :email, :admin_email,
+    .permit(:name, :description, :website, :key, :phone, 
+            :admin_phone, :email, :admin_email, :leader,
             location_attributes: [:id, :latitude, :longitude, :address],
             social_link_attributes: [:id, :facebook, :twitter, :instagram, :yelp, :google_plus, :youtube],
             profile_image_attributes: [:id, :graphic, :graphic_cache],
