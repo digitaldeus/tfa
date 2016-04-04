@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327082445) do
+ActiveRecord::Schema.define(version: 20160329152814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 20160327082445) do
 
   add_index "locations", ["establishment_id"], name: "index_locations_on_establishment_id", using: :btree
 
+  create_table "service_times", force: :cascade do |t|
+    t.string   "service_name"
+    t.integer  "establishment_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "day",              null: false
+    t.string   "start_time"
+  end
+
+  add_index "service_times", ["establishment_id"], name: "index_service_times_on_establishment_id", using: :btree
+
   create_table "social_links", force: :cascade do |t|
     t.string   "facebook"
     t.string   "twitter"
@@ -125,4 +136,5 @@ ActiveRecord::Schema.define(version: 20160327082445) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "service_times", "establishments"
 end

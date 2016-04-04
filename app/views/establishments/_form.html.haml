@@ -48,5 +48,21 @@
     = render 'location_fields', :f => builder
   = f.simple_fields_for :social_link do |slf|
     = render 'social/social_fields', f: slf
+
+  .field
+    %h4{style: "margin-bottom: 0.625rem"} Church service times
+    .duplicatable_nested_form_container
+      = f.simple_fields_for :service_times do |st_form|
+        .duplicatable_nested_form
+          %fieldset
+            = st_form.input :service_name
+            = st_form.select :day, ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+            = st_form.input :start_time, input_html: {type: 'time'}
+            - unless st_form.object.new_record?
+              = st_form.input :_destroy, as: :hidden
+            .text-right
+              = link_to 'Remove', '#', class: 'destroy_nested_form'
+      = link_to 'Add service time', '#', class: 'duplicate_nested_form'
+    
   .actions
     = f.submit
