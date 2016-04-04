@@ -340,3 +340,19 @@ small.error {
 .body {
   position: relative;
 }
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: rem-calc(15);
+  margin-top: rem-calc(15);
+
+  &:not(:first-of-type) {
+    margin-top: rem-calc(15);
+  }
+}
+
+select {
+  &.time {
+    width: rem-calc(60);
+  }
+}

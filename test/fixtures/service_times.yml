@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  time: MyString
+  service_name: MyString
+  start_time: MyString
   establishment_id: 1
+  day: Sunday
 
 two:
-  name: MyString
-  time: MyString
+  service_name: MyString
+  start_time: MyString
   establishment_id: 1
+  day: Sunday

@@ -6,19 +6,25 @@ class ServiceTimeTest < ActiveSupport::TestCase
   end
 
   test "should respond to fields" do
-    assert_respond_to @service_time, :name, "Doesn't have a name field"
-    assert_respond_to @service_time, :time, "Doesn't have a time field"
-    assert_respond_to @service_time, :establishment, "Doesn't have an establishment field"
+    assert_respond_to @service_time, :service_name
+    assert_respond_to @service_time, :start_time
+    assert_respond_to @service_time, :day
+    assert_respond_to @service_time, :establishment
   end
 
-  test "name should be mandatory" do
-    @service_time.name = nil
+  test "service_name should not be mandatory" do
+    @service_time.service_name = nil
 
     assert_not @service_time.save
   end
 
-  test "time should be mandatory" do
-    @service_time.time = nil
+  test "start_time should be mandatory" do
+    @service_time.start_time = nil
+    assert_not @service_time.save
+  end
+
+  test "day should be mandatory" do
+    @service_time.day = nil
     assert_not @service_time.save
   end
 

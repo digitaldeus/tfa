@@ -17,10 +17,12 @@ class EstablishmentsController < ApplicationController
   def new
     @establishment = Establishment.new
     @establishment.build_location
+    @establishment.service_times.build()
   end
 
   # GET /establishments/1/edit
   def edit
+    @establishment.service_times.build()
   end
 
   # POST /establishments
@@ -51,6 +53,7 @@ class EstablishmentsController < ApplicationController
   # PATCH/PUT /establishments/1.json
   def update
     respond_to do |format|
+      # prevent errors with blank graphic image
       pia = params['establishment']['profile_image_attributes']
       if pia and (pia['graphic'].blank? and pia['graphic_cache'].blank?)
         params['establishment'].delete 'profile_image_attributes'
@@ -102,6 +105,15 @@ class EstablishmentsController < ApplicationController
     unless @establishment.banner_image
       @establishment.build_banner_image
     end
+
+    # set_service_times()
+  end
+
+  def set_service_times
+    # build our service times, 5 by default
+    unless @establishment.service_times.count > 0
+      @establishment.service_times.build()
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
@@ -111,7 +123,9 @@ class EstablishmentsController < ApplicationController
             location_attributes: [:id, :latitude, :longitude, :address],
             social_link_attributes: [:id, :facebook, :twitter, :instagram, :yelp, :google_plus, :youtube],
             profile_image_attributes: [:id, :graphic, :graphic_cache],
-            banner_image_attributes: [:id, :graphic, :graphic_cache])
+            banner_image_attributes: [:id, :graphic, :graphic_cache],
+            service_times_attributes: [:id, :start_time, :day, :service_name, :_delete]
+           )
   end
 
   def set_google_api_key
