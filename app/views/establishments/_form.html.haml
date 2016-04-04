@@ -58,8 +58,10 @@
             = st_form.input :service_name
             = st_form.select :day, ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
             = st_form.input :start_time, input_html: {type: 'time'}
-            %p.text-right
-              %a.remove-link{href: '#'} Remove service
+            - unless st_form.object.new_record?
+              = st_form.input :_destroy, as: :hidden
+            .text-right
+              = link_to 'Remove', '#', class: 'destroy_nested_form'
       = link_to 'Add service time', '#', class: 'duplicate_nested_form'
     
   .actions

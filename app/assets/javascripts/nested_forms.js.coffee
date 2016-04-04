@@ -33,3 +33,11 @@ $(document).ready ->
         $(this).attr 'name', newName
 
       $(newForm).insertAfter(lastNested)
+
+    # process the remove click
+    container.find('.destroy_nested_form').click (e) ->
+      e.preventDefault()
+      parentForm = $(this).parents(NESTED_FORM_CLASS)
+      parentForm.hide()
+      destroy_input = parentForm.find('input[type=hidden][id*=__destroy]')
+      destroy_input.val('1')

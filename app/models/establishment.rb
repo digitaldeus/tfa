@@ -14,7 +14,7 @@ class Establishment < ActiveRecord::Base
 
   accepts_nested_attributes_for :location
   accepts_nested_attributes_for :staff
-  accepts_nested_attributes_for :service_times, :reject_if => proc {|attrs| attrs['day'].blank? or attrs['start_time'].blank?}
+  accepts_nested_attributes_for :service_times, allow_destroy: true, :reject_if => proc {|attrs| attrs['day'].blank? or attrs['start_time'].blank?}
   accepts_nested_attributes_for :social_link
 
   accepts_nested_attributes_for :banner_image
