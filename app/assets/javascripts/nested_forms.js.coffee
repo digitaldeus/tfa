@@ -1,10 +1,10 @@
-$(document).ready ->
+$(document).on 'page:change', ->
   NESTED_FORM_CONTAINER_CLASS = '.duplicatable_nested_form_container'
   NESTED_FORM_CLASS = '.duplicatable_nested_form'
   ADD_ENTITY_CLASS = '.duplicate_nested_form'
   ATTR_ID_REGEX = /_[0-9]+_/
 
-  # process any nested fors that we find
+  # process any nested forms that we find
   $(NESTED_FORM_CONTAINER_CLASS).each ->
     container = $(this)
     nestedForm = container.find(NESTED_FORM_CLASS).last().clone()

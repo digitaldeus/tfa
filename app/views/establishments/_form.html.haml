@@ -46,7 +46,7 @@
       = banner_image_form.hidden_field :graphic_cache
   .field
     = f.label :description
-    = f.cktext_area :description
+    = f.cktext_area :description, class: 'ckeditor'
   = f.fields_for :location do |builder|
     = render 'location_fields', :f => builder
   = f.simple_fields_for :social_link do |slf|
