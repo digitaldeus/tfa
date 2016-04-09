@@ -73,7 +73,7 @@
 
   -# Initialize foundation after main content loaded
   :javascript
-    $(document).ready(function() { $(document).foundation(); });
+    $(document).on('page:change', function() { $(document).foundation(); });
 
   -# GA only in production
   - if Rails.env.production?
