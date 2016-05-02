@@ -44,6 +44,18 @@ ul {
   }
 }
 
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.church-search {
+  margin: 0;
+  margin-left: rem-calc(10);
+  flex: 1;
+}
+
 .title-bar-right {
   // margin-top: 2rem;
   position: relative;
