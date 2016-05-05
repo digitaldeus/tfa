@@ -25,3 +25,6 @@
 public/uploads
 
 .byebug_history
+
+# Vagrant
+.vagrant/
