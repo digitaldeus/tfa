@@ -93,6 +93,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'omniauth-google-oauth2'
 
+# httparty for external api calls
+gem 'httparty'
+
 # loading bar
 gem 'nprogress-rails'
 
