@@ -27,5 +27,12 @@ Rails.application.routes.draw do
     end
   end
 
+  # api
+  namespace :api do
+    namespace :v1 do
+      resources :search, only: [:index]
+    end
+  end
+
   mount Sidekiq::Web, at: '/sidekiq'
 end
