@@ -3,11 +3,13 @@ class Api::V1::SearchController < Api::V1::BaseController
   before_action 
   def index
     #TODO split google search into it's own class / gem
+    my_params = search_params
+
     client = GooglePlaces::Client.new(ENV['GOOGLE_SERVER_KEY'])
-    radius = params[:radius] or 80500 # default to about 50 miles
-    term = params[:term] or ''
-    lat = params[:lat]
-    long = params[:long]
+    radius = my_params[:radius] or 80500 # default to about 50 miles
+    term = my_params[:term] or ''
+    lat = my_params[:lat]
+    long = my_params[:long]
 
     # call the google search with paramters
     url = "https://maps.googleapis.com/maps/api/place/search/json?name=#{term}&type=church&location=#{lat},#{long}&radius=80500&key=#{ENV['GOOGLE_SERVER_KEY']}"
@@ -26,8 +28,8 @@ class Api::V1::SearchController < Api::V1::BaseController
 
   private
   def search_params
-    params.require(:lat, :long)
-      .permit(:radius, :term)
+    # TODO Figure out how to use strong parameters
+    params
   end
 
   def format_church(church)
