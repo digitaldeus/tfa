@@ -5,7 +5,6 @@ class Api::V1::SearchController < Api::V1::BaseController
     #TODO split google search into it's own class / gem
     my_params = search_params
 
-    client = GooglePlaces::Client.new(ENV['GOOGLE_SERVER_KEY'])
     radius = my_params[:radius] or 80500 # default to about 50 miles
     term = my_params[:term] or ''
     lat = my_params[:lat]
