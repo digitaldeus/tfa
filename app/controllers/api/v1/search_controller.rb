@@ -11,7 +11,8 @@ class Api::V1::SearchController < Api::V1::BaseController
     long = my_params[:long]
 
     # call the google search with paramters
-    url = "https://maps.googleapis.com/maps/api/place/search/json?name=#{term}&type=church&location=#{lat},#{long}&radius=80500&key=#{ENV['GOOGLE_SERVER_KEY']}"
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{term}&location=#{lat},#{long}&rankby=distance&types=church&key=#{ENV['GOOGLE_SERVER_KEY']}"
+    # url = "https://maps.googleapis.com/maps/api/place/search/json?name=#{term}&rankby=distance&type=church&location=#{lat},#{long}&radius=80500&key=#{ENV['GOOGLE_SERVER_KEY']}"
     response = HTTParty.get(url).parsed_response
     results = response['results'] or []
 
