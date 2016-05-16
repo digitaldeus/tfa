@@ -28,7 +28,7 @@ class Api::V1::SearchControllerTest < ActionController::TestCase
     assert church['long'], 'church should have a long'
     assert church['address'], 'church should have a address'
     assert church['place_id'], 'church should have a place_id'
-    assert church['photo_reference'], 'church should have a photo_reference'
+    assert church['distance'], 'church should have a distance'
   end
 end
 
