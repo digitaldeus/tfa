@@ -8,7 +8,7 @@ class Api::V1::SearchLocationController < Api::V1::BaseController
     term = my_params[:term] or ''
 
     # call the google search with paramters
-    url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=#{term}&key=#{ENV['GOOGLE_SERVER_KEY']}"
+    url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=#{term}&key=#{ENV['GOOGLE_SERVER_KEY']}&types=(cities)"
     response = HTTParty.get(url).parsed_response
     results = response['predictions'] or []
 
