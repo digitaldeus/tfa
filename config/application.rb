@@ -28,5 +28,10 @@ module Tfa
 
     # Allow bower to work
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+
+    # Fix react server
+    config.react.server_renderer_options = {
+        files: ["server_rendering.js"], # files to load for prerendering
+    }
   end
 end
