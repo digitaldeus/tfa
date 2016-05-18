@@ -1,0 +1,5 @@
+## Customize dependencies
+dependencies:
+  pre:
+    - npm install bower # install from a different package manager
+    - $(npm bin)/bower install

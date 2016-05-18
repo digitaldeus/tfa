@@ -42,7 +42,9 @@
           #desktop-menu.top-bar.show-for-large.small-12
             .top-bar-left
               %a.title-brand{:href => landing_index_path}= image_tag "logo-short.png"
-              %input.church-search#church-search{type: 'text', placeholder: 'Search for church'}
+              -#%input.church-search#church-search{type: 'text', placeholder: 'Search for church'}
+              = react_component('ChurchSearch', {}, {prerender: true})
+              = react_component('LocationSearch', {}, {prerender: true})
             .top-bar-right
               %ul.menu
                 = render 'landing_links'

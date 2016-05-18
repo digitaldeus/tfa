@@ -25,3 +25,9 @@
 public/uploads
 
 .byebug_history
+
+# Ignore bower dir
+/vendor/assets/components
+/node_modules
+
+npm-debug.log
