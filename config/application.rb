@@ -30,6 +30,7 @@ module Tfa
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
 
     # Fix react server
+    config.assets.precompile += %w( server_rendering.js )
     config.react.server_renderer_options = {
         files: ["server_rendering.js"], # files to load for prerendering
     }
