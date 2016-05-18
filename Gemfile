@@ -103,3 +103,9 @@ gem 'nprogress-rails'
 # group :assets do
 #   gem 'jquery-fileupload-rails'
 # end
+
+# include react
+gem 'react-rails'
+
+# super fast dev
+gem "rack-livereload", group: :development

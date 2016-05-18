@@ -50,10 +50,72 @@ ul {
   width: 50%;
 }
 
-.church-search {
-  margin: 0;
-  margin-left: rem-calc(10);
-  flex: 1;
+// the header search bar
+div[data-react-class=ChurchSearch] {
+  flex: 0.6;
+
+  .church-search-container {
+    margin: 0;
+    margin-left: rem-calc(10);
+    display: flex;
+    position: relative;
+
+    &:before {
+      content: asset-url('icon-search.png');
+      width: rem-calc(21);
+      height: rem-calc(23);
+      position: absolute;
+      left: rem-calc(10);
+      top: rem-calc(8);
+    }
+
+    input.church-search {
+      flex: 1;
+      border: 0;
+      padding: rem-calc(8);
+      border-radius: rem-calc(4);
+      padding-left: rem-calc(46);
+      font-size: rem-calc(15);
+      font-family: "Open Sans", arial, helvetica, sans-serif;
+      font-weight: 300;
+    }
+  }
+}
+
+div[data-react-class=LocationSearch] {
+  flex: 0.4;
+
+  .location-search-container {
+    margin: 0;
+    margin-left: rem-calc(10);
+    display: flex;
+    position: relative;
+
+    &:before {
+      content: 'Near';
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #9B9B9B;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    input.location-search {
+      flex: 1;
+      border: 0;
+      padding: rem-calc(8);
+      border-radius: rem-calc(4);
+      padding-left: rem-calc(64);
+      font-size: rem-calc(15);
+      font-family: "Open Sans", arial, helvetica, sans-serif;
+      font-weight: 300;
+    }
+  }
 }
 
 .title-bar-right {
