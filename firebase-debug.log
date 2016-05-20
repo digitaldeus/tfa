@@ -1,0 +1,14 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /Users/deusduke/.nvm/versions/node/v6.1.0/bin/node /Users/deusduke/.nvm/versions/node/v6.1.0/bin/firebase serve
+[debug] CLI Version:  3.0.0
+[debug] Platform:     darwin
+[debug] Node Version: v6.1.0
+[debug] Time:         Thu May 19 2016 16:37:11 GMT-0700 (PDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/deusduke/Desktop/tfa-single
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000

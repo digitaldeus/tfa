@@ -1,0 +1,33 @@
+{
+  "name": "tfa",
+  "version": "1.0.0",
+  "description": "The Fellowship App",
+  "dependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-react-html-attrs": "^2.0.0",
+    "babel-plugin-transform-class-properties": "^6.9.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "flux": "^2.1.1",
+    "foundation-sites": "^6.2.1",
+    "node-sass": "^3.7.0",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-router": "^2.4.1",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack --progress --colors --watch"
+  },
+  "author": "Deus Duke <deusduke@gmail.com>",
+  "private": true
+}
