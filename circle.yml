@@ -1,0 +1,9 @@
+## Customize dependencies
+dependencies:
+branches:
+    ignore:
+      - test_firebase # list of branches to ignore
+  # pre:
+  
+    # - npm install bower # install from a different package manager
+#    - $(npm bin)/bower install
