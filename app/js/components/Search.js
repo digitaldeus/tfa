@@ -17,7 +17,7 @@ export const LocationSearch = React.createClass({
       selectedLocation: null
     };
   },
-  selectedLocation: function(location) {
+  selectLocation: function(location) {
     this.setState(Object.assign({}, this.state, {
       selectedLocation: location,
       predictions: []
@@ -60,7 +60,9 @@ export const LocationSearch = React.createClass({
       <div className='location-search-container'>
         <input className="location-search" id="location-search" placeholder="Enter a location"
           onChange={e => this.updatePredictions(e.target.value)}
-          onFocus={e => e.target.select()}
+          onFocus={e => {
+            this.updatePredictions(e.target.value);
+          }}
           onBlur={e => this.removePredictions()} 
           ref="searchInput" />
         <ul className="search-result-container">
@@ -68,7 +70,7 @@ export const LocationSearch = React.createClass({
             this.state.predictions.map(p => (
               <li key={p.place_id} 
                 className="search-result location-search-result"
-                onClick={() => this.selectLocation(p)}>{p.description}</li>
+                onMouseDown={e => this.selectLocation(p)}>{p.description}</li>
             ))
           }
         </ul>
