@@ -20,12 +20,16 @@ class AppDispatcher extends Dispatcher {
     this.dispatch({type: 'SELECT_LOCATION', location});
   }
   
-  showPlacePredictions() {
-    this.dispatch({type: 'DO_CHURCH_SEARCH'});
+  searchChurch(input) {
+    this.dispatch({type: 'DO_CHURCH_SEARCH', input});
   }
   
-  hidePlacePredictions() {
-    this.dispatch({type: 'HIDE_SEARCH_SEARCH'});
+  hideChurchPredictions() {
+    this.dispatch({type: 'HIDE_CHURCH_SEARCH'});
+  }
+  
+  selectChurch(church) {
+    this.dispatch({type: 'SELECT_CHURCH', church});
   }
 }
 

@@ -40,8 +40,16 @@ export class ChurchSearch extends Component {
 
   render() {
     return (
-      <div />
-    );
+      <Search
+        name="church-search"
+        placeholder="Search for a church"
+        value={this.state.churchInput}
+        onSearchPredictions={(input) => AppDispatcher.searchChurch(input) }
+        onRemovePredictions={() => AppDispatcher.hideChurchPredictions() }
+        onPlaceSelected={(l) => AppDispatcher.selectChurch(l) }
+        predictions={SearchStore.getChurchPredictions()}
+        />
+    )
   }
 };
 
