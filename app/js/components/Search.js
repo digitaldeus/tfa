@@ -1,4 +1,6 @@
 import React from 'react'
+import {Container} from 'flux/utils'
+import SearchStore from '../flux/SearchStore'
 
 const Search = React.createClass({
   getInitialState: function () {
@@ -20,7 +22,7 @@ const Search = React.createClass({
       let predictions = [];
       // run the passed in autocomplete function
       this.props.onAutoComplete(searchString, (predictions) => {
-        this.setState(Object.assign({}, this.state, {predictions}));
+        this.setState(Object.assign({}, this.state, { predictions }));
       });
     } else {
       this.removePredictions();
@@ -57,11 +59,17 @@ const Search = React.createClass({
 });
 
 export const ChurchSearch = React.createClass({
+  doAutoComplete: function(input, callback) {
+    console.log(input);
+    const service = new google.maps.places.PlacesService();
+  },
   render: function () {
     return (
-      <div className="church-search-container">
-        <input class="church-search" id="church-search" placeholder="Search for a church" />
-      </div>
+      <Search
+        name="church-search"
+        placeholder="Search for a chuch"
+        onAutoComplete={this.doAutoComplete}
+        />
     );
   }
 });
