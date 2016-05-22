@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import {ChurchSearch, LocationSearch} from '../components/Search'
+import {ChurchSearchContainer, LocationSearchContainer} from '../components/Search'
 
 export default React.createClass({
   render: function() {
@@ -26,8 +26,8 @@ export default React.createClass({
           <div className="top-bar show-for-large small-12" id="desktop-menu">
             <div className="top-bar-left">
               <Link className="title-brand" to="/"><img src="/img/logo-short.png" alt="Logo short" /></Link>
-              <ChurchSearch />
-              <LocationSearch />
+              <ChurchSearchContainer />
+              <LocationSearchContainer />
             </div>
             <div className="top-bar-right">
               <ul className="menu">

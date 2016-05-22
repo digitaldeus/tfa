@@ -1,5 +1,5 @@
 import {ReduceStore} from 'flux/utils';
-import AppDispatcher from './AppDispatcher';
+import AppDispatcher, {dispatch} from './AppDispatcher';
 
 class SearchStore extends ReduceStore {
   getInitialState() {
@@ -7,6 +7,7 @@ class SearchStore extends ReduceStore {
       searchPredictions: [],
       locationPredictions: [],
       selectedLocation: null,
+      locationInput: '',
       selectedPlace: null,
     }
   }
@@ -16,18 +17,26 @@ class SearchStore extends ReduceStore {
       case 'DO_CHURCH_SEARCH':
         return state;
       case 'CHURCH_SEARCH_RESULTS':
-        return state;
+        return Object.assign({}, state, {
+          locationPredictions: action.data
+        });
       case 'DO_LOCATION_SEARCH':
         this._updateLocationPredictions(action.input);
-        return state;
+        return Object.assign({}, state, {
+          locationInput: action.input
+        });
       case 'LOCATION_SEARCH_RESULTS':
         return state;
       case 'HIDE_LOCATION_SEARCH':
-        return state;
+        return Object.assign({}, state, {locationPredictions: []});
+      case 'SELECT_LOCATION':
+        return Object.assign({}, state, {
+          selectedLocation: action.location,
+          locationInput: action.location.description,
+          locationPredictions: []
+        });
       case 'HIDE_SEARCH_SEARCH':
         return state;
-      case 'LOCATION_CLEAR_RESULTS':
-        return Object.assign({}, state, {locationPredictions: []});
       default:
         console.warn('Got unknown action: ', action)
         return state;
@@ -48,11 +57,11 @@ class SearchStore extends ReduceStore {
 
       // run the search
       service.getPlacePredictions({
-        input: input, types: ['(cities)']
+        input: searchString, types: ['(cities)']
       }, (predictions, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
 
-          this.dispatcher.dispatch({
+          dispatch({
             type: 'CHURCH_SEARCH_RESULTS',
             data: predictions.map(l => {
               const desc = l.terms.map(term => term.value);
@@ -65,10 +74,17 @@ class SearchStore extends ReduceStore {
         }
       });
     } else {
-      this.dispatcher.dispatch({
-        type: 'LOCATION_CLEAR_RESULTS'
-      });
+      // clear the predictions
+      this.reduce(this.getState(), {type: 'HIDE_LOCATION_SEARCH'});
     }
+  }
+  
+  /**
+   * Get the current location predictions array
+   * @returns {Array} Array of the location predictions 
+   */
+  getLocationPredictions() {
+    return this.getState().locationPredictions;
   }
 }
 

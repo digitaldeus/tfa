@@ -1,10 +1,9 @@
-import Dispatcher from 'flux'
+import {Dispatcher} from 'flux'
 
 class AppDispatcher extends Dispatcher {
   showLocationPredictions() {
     this.dispatch({type: 'DO_LOCATION_SEARCH'});
   }
-  
   
   /**
    * @param  {string} input
@@ -13,8 +12,12 @@ class AppDispatcher extends Dispatcher {
     this.dispatch({type: 'DO_LOCATION_SEARCH', input});
   }
   
-  hideLocationPredictios() {
+  hideLocationPredictions() {
     this.dispatch({type: 'HIDE_LOCATION_SEARCH'});
+  }
+  
+  selectLocation(location) {
+    this.dispatch({type: 'SELECT_LOCATION', location});
   }
   
   showPlacePredictions() {
@@ -27,5 +30,7 @@ class AppDispatcher extends Dispatcher {
 }
 
 const instance = new AppDispatcher();
-export const dispatch = instance.dispatch;
 export default instance;
+
+// So we can conveniently do, `import {dispatch} from './AppDispatcher';`
+export const dispatch = instance.dispatch.bind(instance);
