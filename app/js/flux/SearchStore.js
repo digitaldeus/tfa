@@ -1,6 +1,16 @@
 import {ReduceStore} from 'flux/utils';
 import AppDispatcher, {dispatch} from './AppDispatcher';
 
+const distance = function(lat1, lon1, lat2, lon2) {
+  var p = 0.017453292519943295;    // Math.PI / 180
+  var c = Math.cos;
+  var a = 0.5 - c((lat2 - lat1) * p)/2 + 
+          c(lat1 * p) * c(lat2 * p) * 
+          (1 - c((lon2 - lon1) * p))/2;
+
+  return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+};
+
 class SearchStore extends ReduceStore {
   getInitialState() {
     return {
@@ -25,6 +35,7 @@ class SearchStore extends ReduceStore {
           churchInput: action.input
         });
       case 'CHURCH_SEARCH_RESULTS':
+        console.log(action);
         return Object.assign({}, state, {
           churchPredictions: action.data
         });
@@ -57,8 +68,10 @@ class SearchStore extends ReduceStore {
           churchInput: action.church.description,
           churchPredictions: []
         });
-      case 'HIDE_SEARCH_SEARCH':
-        return state;
+      case 'HIDE_CHURCH_SEARCH':
+        return Object.assign({}, state, {
+          churchPredictions: state.churchPredictions
+        });
       default:
         console.warn('Got unknown action: ', action)
         return state;
@@ -140,16 +153,24 @@ class SearchStore extends ReduceStore {
       }, (predictions, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           console.log(predictions);
-          // dispatch({
-          //   type: 'LOCATION_SEARCH_RESULTS',
-          //   data: predictions.map(l => {
-          //     const desc = l.terms.map(term => term.value);
-          //     return {
-          //       description: desc.splice(0, desc.length - 1).join(','),
-          //       place_id: l.place_id
-          //     };
-          //   })
-          // });
+          dispatch({
+            type: 'CHURCH_SEARCH_RESULTS',
+            data: predictions.map(l => {
+                const lat1 = l.geometry.location.lat();
+                const lng1 = l.geometry.location.lng();
+                const lat2 = this.getState().lat;
+                const lng2 = this.getState().lng;
+              return {
+                lat: l.geometry.location.lat(),
+                lng: l.geometry.location.lng(),
+                place_id: l.place_id,
+                photo: l.photos ? l.photos[0].getUrl({maxWidth: 600, maxHeight: 600}) : l.icon,
+                description: l.name,
+                address: l.vicinity,
+                distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(2) + "mi"
+              };
+            }).slice(0, 10)
+          });
         }
       });
     } else {

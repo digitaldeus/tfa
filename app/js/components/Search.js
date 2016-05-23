@@ -17,11 +17,23 @@ const Search = React.createClass({
           ref="searchInput" />
         <ul className="search-result-container">
           {
-            this.props.predictions.map(p => (
-              <li key={p.place_id}
-                className={`search-result #{this.props.name}-result`}
-                onMouseDown={e => this.props.onPlaceSelected(p) }>{p.description}</li>
-            ))
+            this.props.predictions.map(p => {
+              let distance = null;
+              if (p.distance) {
+                distance = <span className="search-distance">{p.distance}</span>;
+              }
+
+              return (
+                <li key={p.place_id}
+                  className={`search-result #{this.props.name}-result`}
+                  onMouseDown={e => this.props.onPlaceSelected(p) }>
+                  <div className="search-name">
+                    <span>{p.description}</span>
+                  </div>
+                  {/*distance*/}
+                </li>
+              );
+            })
           }
         </ul>
       </div>
@@ -47,8 +59,8 @@ export class ChurchSearch extends Component {
         onSearchPredictions={(input) => AppDispatcher.searchChurch(input) }
         onRemovePredictions={() => AppDispatcher.hideChurchPredictions() }
         onPlaceSelected={(l) => AppDispatcher.selectChurch(l) }
-        predictions={SearchStore.getChurchPredictions()}
-        />
+        predictions={this.state.churchPredictions}
+        distance={this.state.distance} />
     )
   }
 };
@@ -71,7 +83,7 @@ class LocationSearch extends Component {
         onSearchPredictions={(input) => AppDispatcher.searchLocations(input) }
         onRemovePredictions={() => AppDispatcher.hideLocationPredictions() }
         onPlaceSelected={(l) => AppDispatcher.selectLocation(l) }
-        predictions={SearchStore.getLocationPredictions()}
+        predictions={this.state.locationPredictions}
         />
     )
   }
