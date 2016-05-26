@@ -7,8 +7,13 @@ const Search = React.createClass({
   render: function () {
     return (
       <div className={this.props.name + '-container'}>
-        <input className={this.props.name} id={this.props.name} placeholder={this.props.placeholder}
-          value={this.props.value}
+        <input type="hidden" name={this.props.name} value={this.props.formValue} />
+        <input
+          autoComplete="off" 
+          className={this.props.name}
+          id={this.props.name}
+          placeholder={this.props.placeholder}
+          value={this.props.textValue}
           onChange={e => this.props.onSearchPredictions(e.target.value) }
           onFocus={e => {
             this.props.onSearchPredictions(e.target.value);
@@ -55,7 +60,8 @@ export class ChurchSearch extends Component {
       <Search
         name="church-search"
         placeholder="Search for a church"
-        value={this.state.churchInput}
+        textValue={this.state.churchInput}
+        formValue={this.state.churchInput}
         onSearchPredictions={(input) => AppDispatcher.searchChurch(input) }
         onRemovePredictions={() => AppDispatcher.hideChurchPredictions() }
         onPlaceSelected={(l) => AppDispatcher.selectChurch(l) }
@@ -79,7 +85,8 @@ class LocationSearch extends Component {
       <Search
         name="location-search"
         placeholder="Enter a location"
-        value={this.state.locationInput}
+        textValue={this.state.locationInput}
+        formValue={SearchStore.getLocationString()}
         onSearchPredictions={(input) => AppDispatcher.searchLocations(input) }
         onRemovePredictions={() => AppDispatcher.hideLocationPredictions() }
         onPlaceSelected={(l) => AppDispatcher.selectLocation(l) }

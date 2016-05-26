@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {ChurchSearchContainer, LocationSearchContainer} from '../components/Search'
+import SearchStore from '../flux/SearchStore'
 
 export default React.createClass({
   render: function() {
@@ -26,8 +27,23 @@ export default React.createClass({
           <div className="top-bar show-for-large small-12" id="desktop-menu">
             <div className="top-bar-left">
               <Link className="title-brand" to="/"><img src="/img/logo-short.png" alt="Logo short" /></Link>
-              <ChurchSearchContainer />
-              <LocationSearchContainer />
+              <form method="get" action="/search" autoComplete="off"
+                style={{display: 'flex', flex: 1, alignItems: 'center'}}
+                onKeyPress={(e) => {
+                  if (e.which === 13) {
+                    e.preventDefault();
+                    if (SearchStore.churchSearchValid()) {
+                      this.refs.searchForm.submit();
+                    } else {
+                      toastr.error('Please select a location before searching...', 'Oopsy');
+                    }
+                  }
+                }}
+                ref="searchForm">
+                
+                <ChurchSearchContainer />
+                <LocationSearchContainer />
+              </form>
             </div>
             <div className="top-bar-right">
               <ul className="menu">

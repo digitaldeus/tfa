@@ -1,6 +1,9 @@
 import {ReduceStore} from 'flux/utils';
 import AppDispatcher, {dispatch} from './AppDispatcher';
 
+/**
+ * Compute distance between a given lat and long
+ */
 const distance = function(lat1, lon1, lat2, lon2) {
   var p = 0.017453292519943295;    // Math.PI / 180
   var c = Math.cos;
@@ -35,7 +38,6 @@ class SearchStore extends ReduceStore {
           churchInput: action.input
         });
       case 'CHURCH_SEARCH_RESULTS':
-        console.log(action);
         return Object.assign({}, state, {
           churchPredictions: action.data
         });
@@ -50,13 +52,19 @@ class SearchStore extends ReduceStore {
         });
       case 'HIDE_LOCATION_SEARCH':
         return Object.assign({}, state, { locationPredictions: [] });
+      case 'SET_LOCATION':
+        return Object.assign({}, state, {
+          lat: action.lat,
+          lng: action.lng
+        });
       case 'SELECT_LOCATION':
         this._getPlaceDetail(action.location.place_id, (location) => {
           // store the lat and lng
-          this.currentLat = location.geometry.location.lat();
-          this.currentLng = location.geometry.location.lng();
-          
-          console.log(this.currentLat, this.currentLng);
+          dispatch({
+            type: 'SET_LOCATION',
+            lat: location.geometry.location.lat(),
+            lng: location.geometry.location.lng()
+          });
         });
         return Object.assign({}, state, {
           locationInput: action.location.description,
@@ -70,7 +78,7 @@ class SearchStore extends ReduceStore {
         });
       case 'HIDE_CHURCH_SEARCH':
         return Object.assign({}, state, {
-          churchPredictions: state.churchPredictions
+          churchPredictions: [ ]
         });
       default:
         console.warn('Got unknown action: ', action)
@@ -143,23 +151,23 @@ class SearchStore extends ReduceStore {
       let predictions = [];
       // run the passed in autocomplete function
       const service = new google.maps.places.PlacesService(this._getDummyMap());
+      const currentState = this.getState();
 
       // run the search
       service.nearbySearch({
         keyword: searchString,
         type: 'church',
-        location: {lat: this.currentLat, lng: this.currentLng},
+        location: {lat: currentState.lat, lng: currentState.lng},
         radius: 80500,
       }, (predictions, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
-          console.log(predictions);
           dispatch({
             type: 'CHURCH_SEARCH_RESULTS',
             data: predictions.map(l => {
                 const lat1 = l.geometry.location.lat();
                 const lng1 = l.geometry.location.lng();
-                const lat2 = this.getState().lat;
-                const lng2 = this.getState().lng;
+                const lat2 = currentState.lat;
+                const lng2 = currentState.lng;
               return {
                 lat: l.geometry.location.lat(),
                 lng: l.geometry.location.lng(),
@@ -175,7 +183,7 @@ class SearchStore extends ReduceStore {
       });
     } else {
       // clear the predictions
-      this.reduce(this.getState(), { type: 'HIDE_LOCATION_SEARCH' });
+      this.reduce(currentState, { type: 'HIDE_LOCATION_SEARCH' });
     }
   }
 
@@ -193,6 +201,23 @@ class SearchStore extends ReduceStore {
    */
   getChurchPredictions() {
     return this.getState().churchPredictions;
+  }
+  
+  /**
+   * Determines is the store is in a valid church search state
+   * @returns {boolean} validity of the state
+   */
+  churchSearchValid() {
+    const curState = this.getState();
+    return curState.selectedLocation || (curState.lat && curState.lng);
+  }
+  
+  /**
+   * lat,lng
+   */
+  getLocationString() {
+    const curState = this.getState();
+    return `${curState.lat},${curState.lng}`;
   }
 }
 
