@@ -7,7 +7,7 @@ export default React.createClass({
         <div className='landing-contact'>
           <div className='hero-container'>
             <h2 className='text-center'>
-              Have a Question?Let us Help!
+              Have a Question? Let us Help!
             </h2>
           </div>
           <div className='container container-overlay'>

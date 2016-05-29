@@ -8,6 +8,21 @@
   background-size: cover;
   padding-left: 1.5625rem;
   padding-right: 1.5625rem;
+  
+  &.placesearch-hero-container {
+    height: rem-calc(596);
+    
+    h2 {
+      text-align: center;
+      font-family: 'Open Sans';
+      
+      strong {
+        color: white;
+        font-size: rem-calc(27);
+        font-weight: bold;
+      }
+    }
+  }
 
   .landing-about & {
     background: url('/img/landing/about-hero.png') center;

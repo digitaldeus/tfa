@@ -31,6 +31,18 @@ class AppDispatcher extends Dispatcher {
   selectChurch(church) {
     this.dispatch({type: 'SELECT_CHURCH', church});
   }
+  
+  setLocation(locObj) {
+    this.dispatch(Object.assign({}, {type: 'SET_LOCATION'}, locObj));
+  }
+  
+  getChurches() {
+    this.dispatch({type: 'GET_CHURCHES'});
+  }
+  
+  setChurchInput(church) {
+    this.dispatch({type: 'SET_CHURCH_INPUT', church});
+  }
 }
 
 const instance = new AppDispatcher();

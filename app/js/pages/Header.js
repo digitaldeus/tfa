@@ -2,6 +2,8 @@ import React from 'react'
 import {Link} from 'react-router'
 import {ChurchSearchContainer, LocationSearchContainer} from '../components/Search'
 import SearchStore from '../flux/SearchStore'
+import {browserHistory} from 'react-router'
+import AppDispatcher from '../flux/AppDispatcher'
 
 export default React.createClass({
   render: function() {
@@ -29,11 +31,15 @@ export default React.createClass({
               <Link className="title-brand" to="/"><img src="/img/logo-short.png" alt="Logo short" /></Link>
               <form method="get" action="/search" autoComplete="off"
                 style={{display: 'flex', flex: 1, alignItems: 'center'}}
+                onSubmit={e => e.preventDefault()}
                 onKeyPress={(e) => {
                   if (e.which === 13) {
                     e.preventDefault();
                     if (SearchStore.churchSearchValid()) {
-                      this.refs.searchForm.submit();
+                      browserHistory.push(`/search?church=${SearchStore.getChurchInput()}&loc=${SearchStore.getLocationString()}`);
+                      AppDispatcher.hideChurchPredictions();
+                      AppDispatcher.hideLocationPredictions();
+                      // console.log(`/search?church=${SearchStore.getChurchInput()}&loc=${SearchStore.getLocationString()}`);
                     } else {
                       toastr.error('Please select a location before searching...', 'Oopsy');
                     }

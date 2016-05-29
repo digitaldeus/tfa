@@ -1,0 +1,10 @@
+@import 'util/util';
+
+.place-search-list {
+  .church-search-entry {
+    display: flex;
+    .church-thumbnail {
+      width: rem-calc(134);
+    }
+  }
+}

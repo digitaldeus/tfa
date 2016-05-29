@@ -48,7 +48,7 @@ export default React.createClass({
             </small>
           </div>
           <div className="small-12 large-6">
-            <small className="copyright">We value your privacy. None of the details supplied will be shared with external parties</small>
+            <small className="copyright" style={{color: 'white'}}>We value your privacy. None of the details supplied will be shared with external parties</small>
           </div>
         </div>
       </div>
