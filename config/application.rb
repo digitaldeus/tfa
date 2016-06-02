@@ -25,5 +25,14 @@ module Tfa
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Allow bower to work
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+
+    # Fix react server
+    config.assets.precompile += %w( server_rendering.js )
+    config.react.server_renderer_options = {
+        files: ["server_rendering.js"], # files to load for prerendering
+    }
   end
 end

@@ -17,5 +17,9 @@
 //= require ckeditor/init
 //= require nprogress
 //= require nprogress-turbolinks
+//= require typeahead.js/dist/typeahead.bundle
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 

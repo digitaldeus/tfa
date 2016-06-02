@@ -93,6 +93,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'omniauth-google-oauth2'
 
+# httparty for external api calls
+gem 'httparty'
+
 # loading bar
 gem 'nprogress-rails'
 
@@ -100,3 +103,9 @@ gem 'nprogress-rails'
 # group :assets do
 #   gem 'jquery-fileupload-rails'
 # end
+
+# include react
+gem 'react-rails'
+
+# super fast dev
+gem "rack-livereload", group: :development

@@ -28,3 +28,9 @@ public/uploads
 
 # Vagrant
 .vagrant/
+
+# Ignore bower dir
+/vendor/assets/components
+/node_modules
+
+npm-debug.log
