@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   match '/contact_us', to: 'landing#contact_us', via: [:get, :post], as: 'landing_contact_us'
   get '/sign_up', to: 'landing#sign_up', as: 'landing_sign_up'
   get '/create_profile', to: 'landing#create_profile', as: 'landing_create_profile'
+  get '/search', to: 'landing#search', as: 'landing_search'
 
   mount Ckeditor::Engine => '/ckeditor'
   

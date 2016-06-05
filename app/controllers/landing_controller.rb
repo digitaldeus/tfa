@@ -29,6 +29,9 @@ class LandingController < ApplicationController
   def create_profile
   end
 
+  def search
+  end
+
   private
   def contact_info_params
     params.require(:customer_contact)
