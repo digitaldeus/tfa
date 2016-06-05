@@ -29,6 +29,11 @@ class LandingController < ApplicationController
   def create_profile
   end
 
+  def search
+    @churchName = params[:church]
+    @locationName = params[:locname].to_s.gsub( ',', ', ' )
+  end
+
   private
   def contact_info_params
     params.require(:customer_contact)

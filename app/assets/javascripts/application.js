@@ -17,7 +17,10 @@
 //= require ckeditor/init
 //= require nprogress
 //= require nprogress-turbolinks
-//= require typeahead.js/dist/typeahead.bundle
+//= require flux/dist/Flux
+//= require FluxUtils
+//= require underscore/underscore-min
+//= require toastr/toastr
 //= require react
 //= require react_ujs
 //= require components

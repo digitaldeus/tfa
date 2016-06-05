@@ -18,6 +18,7 @@ $blue: #00C0CB;
 $yellow: #FFDD22;
 $nprogress-color: $yellow;
 
+@import "toastr/toastr.scss";
 @import "foundation_and_overrides";
 @import "nprogress";
 @import "scaffolds";
@@ -48,14 +49,22 @@ ul {
   }
 }
 
-.top-bar-left {
+.top-bar .top-bar-left {
   display: flex;
   align-items: center;
-  width: 50%;
+  @include breakpoint(large) {
+    width: 50%;
+  }
 }
 
 // the header search bar
-div[data-react-class=ChurchSearch] {
+.header-search-form {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+div[data-react-class=ChurchSearchContainer] {
   flex: 0.6;
 
   .church-search-container {
@@ -86,7 +95,7 @@ div[data-react-class=ChurchSearch] {
   }
 }
 
-div[data-react-class=LocationSearch] {
+div[data-react-class=LocationSearchContainer] {
   flex: 0.4;
 
   .location-search-container {
@@ -119,31 +128,32 @@ div[data-react-class=LocationSearch] {
       font-family: "Open Sans", arial, helvetica, sans-serif;
       font-weight: 300;
     }
+  }
+}
 
-    .search-result-container {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border-radius: rem-calc(4) rem-calc(4) 0 0;
-      margin-top: rem-calc(2);
-      box-shadow: 0 rem-calc(4) rem-calc(4) rgba(0,0,0,0.5);
+.search-result-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: rem-calc(4) rem-calc(4) 0 0;
+  margin-top: rem-calc(2);
+  box-shadow: 0 rem-calc(4) rem-calc(4) rgba(0,0,0,0.5);
 
-      li {
-        padding: rem-calc(7);
-        padding-left: rem-calc(64);
-        font-size: rem-calc(14);
-        color: black;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        cursor: pointer;
+  li {
+    padding: rem-calc(7);
+    padding-left: rem-calc(64);
+    font-size: rem-calc(14);
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    background: white;
 
-        &:not(:last-child) {
-          border-bottom: rem-calc(1) solid #D7D7D7;
-        }
-      }
+    &:not(:last-child) {
+      border-bottom: rem-calc(1) solid #D7D7D7;
     }
   }
 }
@@ -319,7 +329,7 @@ blockquote {
       display:none;
     }
   }
-} 
+}
 
 .font-12 {
   font-size: rem-calc(12);

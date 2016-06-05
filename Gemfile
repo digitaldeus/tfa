@@ -106,6 +106,7 @@ gem 'nprogress-rails'
 
 # include react
 gem 'react-rails'
+gem 'sprockets-es6'; require 'sprockets/es6'
 
 # super fast dev
 gem "rack-livereload", group: :development
