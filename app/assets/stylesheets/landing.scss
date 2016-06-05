@@ -9,6 +9,21 @@
   padding-left: 1.5625rem;
   padding-right: 1.5625rem;
 
+  &.placesearch-hero-container {
+    height: rem-calc(596);
+
+    h2 {
+      text-align: center;
+      font-family: 'Open Sans';
+
+      strong {
+        color: white;
+        font-size: rem-calc(27);
+        font-weight: bold;
+      }
+    }
+  }
+
   .landing-about & {
     background: asset-url('landing/about-hero.png') center;
     background-size: cover;
@@ -94,7 +109,7 @@
   }
 }
 
-@media only screen and (max-width : rem-calc(992)) {
+@media only screen and (max-width: rem-calc(992)) {
   .claims {
 
     span {
@@ -109,9 +124,9 @@
       }
     }
   }
-} 
+}
 
-@media only screen and (max-width : rem-calc(768)) {
+@media only screen and (max-width: rem-calc(768)) {
   .claims {
     span {
       &.big {
@@ -124,7 +139,7 @@
       }
     }
   }
-} 
+}
 
 .bg-lightgrey {
   background: #fBfBfB;
@@ -151,19 +166,19 @@
   }
 }
 
-@media only screen and (max-width : rem-calc(992)) {
+@media only screen and (max-width: rem-calc(992)) {
   .footer {
     text-align: center;
   }
-} 
+}
 
-@media only screen and (max-width : rem-calc(768)) {
+@media only screen and (max-width: rem-calc(768)) {
   .footer {
     ul.footer-links {
       margin-bottom: rem-calc(40);
     }
   }
-} 
+}
 
 .footer {
 
@@ -236,7 +251,7 @@ div.container-overlay {
   display: inline-block;
   font-size: rem-calc(14);
   border-radius: rem-calc(3);
-  font-family: Helvetica,Arial,sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   position: relative;
   width: rem-calc(220);
@@ -293,3 +308,73 @@ div.container-overlay {
     }
   }
 }
+
+div[data-react-class=PlaceSearchListContainer] {
+  flex: 1;
+  max-width: rem-calc(900);
+}
+
+.place-search-list {
+  border: 1px solid #D7D7D7;
+  background: #F3F3F3;
+
+  .church-search-entry {
+    &:not(:first-child) {
+      border-top: 1px solid #D7D7D7;
+    }
+    display: flex;
+    font-family: Helvetica, Arial, sans-serif;
+    background: white;
+    border-collapse: collapse;
+
+    .church-name {
+      color: black;
+    }
+
+    .church-address {
+      color: #0D85FE;
+      font-weight: 300;
+      font-size: rem-calc(14);
+    }
+
+    .church-thumbnail {
+      width: rem-calc(134);
+      height: rem-calc(123);
+      background-size: cover !important;
+      position: relative;
+
+      .church-size {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+    .church-details {
+      flex: 1;
+      padding: rem-calc(10);
+    }
+
+    .church-description {
+      font-size: rem-calc(12);
+      color: #9B9B9B;
+      line-height: 1.3;
+
+      &.unregistered {
+        color: #D0021B;
+      }
+    }
+
+    .church-service-times {
+      float: right;
+      font-size: rem-calc(14);
+      font-weight: 300;
+      color: black;
+    }
+
+    .church-service-time {
+      color: #00C0CB;
+      margin-right: rem-calc(5);
+    }
+  }
+}
+

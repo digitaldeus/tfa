@@ -31,13 +31,6 @@ class SearchStore extends FluxUtils.ReduceStore {
             }
         }
 
-        // search church if on search page and we have all the info
-        if (lat && long && church && location.pathname == "/search") {
-            $(() => {
-                this._getChurches(lat, long);
-            });
-        }
-
         return {
             churchInput: church,
             churchPredictions: [],
@@ -51,7 +44,8 @@ class SearchStore extends FluxUtils.ReduceStore {
             searchResults: [],
             searchPagination: {
                 hasNextPage: false
-            }
+            },
+            registered: false
         };
     }
 
@@ -148,7 +142,7 @@ class SearchStore extends FluxUtils.ReduceStore {
                         lat: l.geometry.location.lat(),
                         lng: l.geometry.location.lng(),
                         place_id: l.place_id,
-                        photo: l.photos ? l.photos[0].getUrl({ maxWidth: 600, maxHeight: 600 }) : l.icon,
+                        photo: l.photos ? l.photos[0].getUrl({ maxWidth: 600, maxHeight: 600 }) : '<%=asset_url("landing/church-no-image.png")%>',
                         description: l.name,
                         address: l.vicinity,
                         distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(2) + "mi"

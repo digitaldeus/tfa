@@ -1,1 +1,14 @@
-%h1 Working...
+.place-search-container
+  .hero-container.placesearch-hero-container
+    .row
+      .small-12
+        %h2{style: "padding-left: 0, padding-right: 0"}
+          %strong
+            = @churchName
+          near
+          %strong
+            = @locationName
+
+  .container
+    .row.align-center
+      = react_component 'PlaceSearchListContainer', {member_icon: asset_url('landing/size-0.png')}

@@ -30,6 +30,8 @@ class LandingController < ApplicationController
   end
 
   def search
+    @churchName = params[:church]
+    @locationName = params[:locname].to_s.gsub( ',', ', ' )
   end
 
   private
