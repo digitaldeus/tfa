@@ -109,7 +109,6 @@ gem 'react-rails'
 
 # es6 support
 gem 'sprockets-es6'
-require 'sprockets/es6'
 
 # super fast dev
 gem "rack-livereload", group: :development
