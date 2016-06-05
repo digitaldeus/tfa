@@ -9,6 +9,9 @@ Bundler.require(*Rails.groups)
 # manually load carrierwave
 require 'carrierwave/orm/activerecord'
 
+# es6 support
+require 'sprockets/es6'
+
 module Tfa
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
