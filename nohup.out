@@ -1,0 +1,179 @@
+=> Booting Puma
+=> Rails 4.2.6 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+=> Ctrl-C to shutdown server
+[2315] Puma starting in cluster mode...
+[2315] * Version 3.4.0 (ruby 2.3.1-p112), codename: Owl Bowl Brawl
+[2315] * Min threads: 5, max threads: 5
+[2315] * Environment: development
+[2315] * Process workers: 2
+[2315] * Preloading application
+[2315] * Listening on tcp://localhost:3000
+[2315] Use Ctrl-C to stop
+[2315] - Worker 0 (pid: 2320) booted, phase: 0
+[2315] - Worker 1 (pid: 2325) booted, phase: 0
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms state=ready
+
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=56ms state=active
+
+Started GET "/" for 127.0.0.1 at 2016-06-07 07:53:22 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LandingController#index as */*
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=1059ms state=active
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=2027ms state=active
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=3026ms state=active
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=4034ms state=active
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=5027ms state=active
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=6027ms state=active
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=7027ms state=active
+  Rendered landing/_social_links.html.haml (6801.9ms)
+  Rendered landing/index.html.haml within layouts/application (6986.6ms)
+  Rendered application/_favicon.html.haml (91.2ms)
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=8026ms state=active
+  Rendered application/_landing_links.html.haml (4.2ms)
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=9131ms state=active
+  Rendered application/_landing_links.html.haml (0.4ms)
+  Rendered application/_landing_links.html.haml (0.5ms)
+  Rendered landing/_social_links.html.haml (3.1ms)
+Completed 200 OK in 9419ms (Views: 9406.4ms | ActiveRecord: 0.0ms)
+source=rack-timeout id=69c2430a52809c8a28bc1e0e01429866 timeout=600000ms service=9634ms state=completed
+=> Booting Puma
+=> Rails 4.2.6 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+=> Ctrl-C to shutdown server
+[2475] Puma starting in cluster mode...
+[2475] * Version 3.4.0 (ruby 2.3.1-p112), codename: Owl Bowl Brawl
+[2475] * Min threads: 5, max threads: 5
+[2475] * Environment: development
+[2475] * Process workers: 2
+[2475] * Preloading application
+[2475] * Listening on tcp://localhost:3000
+[2475] Use Ctrl-C to stop
+[2475] - Worker 0 (pid: 2477) booted, phase: 0
+[2475] - Worker 1 (pid: 2482) booted, phase: 0
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms state=ready
+
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=29ms state=active
+
+Started GET "/" for 127.0.0.1 at 2016-06-07 07:59:32 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LandingController#index as */*
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=1001ms state=active
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=2001ms state=active
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=3001ms state=active
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=4001ms state=active
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=5001ms state=active
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=6001ms state=active
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=7001ms state=active
+  Rendered landing/_social_links.html.haml (7168.5ms)
+  Rendered landing/index.html.haml within layouts/application (7346.4ms)
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=8001ms state=active
+  Rendered application/_favicon.html.haml (83.4ms)
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=9001ms state=active
+  Rendered application/_landing_links.html.haml (4.1ms)
+  Rendered application/_landing_links.html.haml (0.5ms)
+  Rendered application/_landing_links.html.haml (0.4ms)
+  Rendered landing/_social_links.html.haml (3.1ms)
+Completed 200 OK in 9672ms (Views: 9657.5ms | ActiveRecord: 0.0ms)
+source=rack-timeout id=031376d6a7a5f695e6a508546bfe7829 timeout=600000ms service=9867ms state=completed
+source=rack-timeout id=983b6371e96dd355b37f50e248131d66 timeout=600000ms state=ready
+source=rack-timeout id=983b6371e96dd355b37f50e248131d66 timeout=600000ms service=0ms state=active
+
+
+Started GET "/" for 127.0.0.1 at 2016-06-07 07:59:56 +0000
+Processing by LandingController#index as */*
+  Rendered landing/_social_links.html.haml (40.7ms)
+  Rendered landing/index.html.haml within layouts/application (185.4ms)
+  Rendered application/_favicon.html.haml (82.1ms)
+source=rack-timeout id=983b6371e96dd355b37f50e248131d66 timeout=600000ms service=1001ms state=active
+  Rendered application/_landing_links.html.haml (0.7ms)
+  Rendered application/_landing_links.html.haml (0.4ms)
+  Rendered application/_landing_links.html.haml (0.4ms)
+source=rack-timeout id=983b6371e96dd355b37f50e248131d66 timeout=600000ms service=2014ms state=active
+  Rendered landing/_social_links.html.haml (3.1ms)
+Completed 200 OK in 1988ms (Views: 1987.8ms | ActiveRecord: 0.0ms)
+source=rack-timeout id=983b6371e96dd355b37f50e248131d66 timeout=600000ms service=2020ms state=completed
+source=rack-timeout id=ad6009944701d18b92d5a4b5df234c15 timeout=600000ms state=ready
+
+source=rack-timeout id=ad6009944701d18b92d5a4b5df234c15 timeout=600000ms service=1ms state=active
+
+Started GET "/" for 127.0.0.1 at 2016-06-07 08:06:49 +0000
+Processing by LandingController#index as */*
+  Rendered landing/_social_links.html.haml (34.2ms)
+  Rendered landing/index.html.haml within layouts/application (179.1ms)
+  Rendered application/_favicon.html.haml (76.8ms)
+source=rack-timeout id=ad6009944701d18b92d5a4b5df234c15 timeout=600000ms service=1001ms state=active
+  Rendered application/_landing_links.html.haml (0.7ms)
+  Rendered application/_landing_links.html.haml (0.5ms)
+source=rack-timeout id=ad6009944701d18b92d5a4b5df234c15 timeout=600000ms service=2020ms state=active
+  Rendered application/_landing_links.html.haml (0.4ms)
+  Rendered landing/_social_links.html.haml (3.0ms)
+Completed 200 OK in 2099ms (Views: 2098.7ms | ActiveRecord: 0.0ms)
+source=rack-timeout id=ad6009944701d18b92d5a4b5df234c15 timeout=600000ms service=2137ms state=completed
+source=rack-timeout id=7fe0ed97aad116226e6be4b1b99d1e7c timeout=600000ms state=ready
+
+source=rack-timeout id=7fe0ed97aad116226e6be4b1b99d1e7c timeout=600000ms service=4ms state=active
+
+Started GET "/" for 127.0.0.1 at 2016-06-07 08:08:36 +0000
+Processing by LandingController#index as */*
+  Rendered landing/_social_links.html.haml (31.5ms)
+  Rendered landing/index.html.haml within layouts/application (176.8ms)
+  Rendered application/_favicon.html.haml (78.5ms)
+source=rack-timeout id=7fe0ed97aad116226e6be4b1b99d1e7c timeout=600000ms service=1001ms state=active
+  Rendered application/_landing_links.html.haml (0.9ms)
+  Rendered application/_landing_links.html.haml (0.5ms)
+  Rendered application/_landing_links.html.haml (0.3ms)
+  Rendered landing/_social_links.html.haml (2.7ms)
+Completed 200 OK in 1927ms (Views: 1926.8ms | ActiveRecord: 0.0ms)
+source=rack-timeout id=7fe0ed97aad116226e6be4b1b99d1e7c timeout=600000ms service=1969ms state=completed
+source=rack-timeout id=81a4dbbdbc03d38b2b76b2c67d96fcd2 timeout=600000ms state=ready
+
+source=rack-timeout id=81a4dbbdbc03d38b2b76b2c67d96fcd2 timeout=600000ms service=1ms state=active
+
+Started GET "/" for 127.0.0.1 at 2016-06-07 08:10:11 +0000
+Processing by LandingController#index as */*
+  Rendered landing/_social_links.html.haml (33.8ms)
+  Rendered landing/index.html.haml within layouts/application (177.5ms)
+  Rendered application/_favicon.html.haml (76.4ms)
+source=rack-timeout id=81a4dbbdbc03d38b2b76b2c67d96fcd2 timeout=600000ms service=1001ms state=active
+  Rendered application/_landing_links.html.haml (0.7ms)
+  Rendered application/_landing_links.html.haml (0.5ms)
+  Rendered application/_landing_links.html.haml (0.4ms)
+source=rack-timeout id=81a4dbbdbc03d38b2b76b2c67d96fcd2 timeout=600000ms service=2058ms state=active
+  Rendered landing/_social_links.html.haml (2.7ms)
+Completed 200 OK in 2033ms (Views: 2032.3ms | ActiveRecord: 0.0ms)
+source=rack-timeout id=81a4dbbdbc03d38b2b76b2c67d96fcd2 timeout=600000ms service=2064ms state=completed
+[2475] - Gracefully shutting down workers...
+/home/vagrant/.rvm/gems/ruby-2.3.1/gems/rack-1.6.4/lib/rack/server.rb:355:in `delete': No such file or directory @ unlink_internal - /vagrant/tmp/pids/server.pid (Errno::ENOENT)
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/rack-1.6.4/lib/rack/server.rb:355:in `block in write_pid'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/puma-3.4.0/lib/puma/cluster.rb:120:in `fork'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/puma-3.4.0/lib/puma/cluster.rb:120:in `block in spawn_workers'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/puma-3.4.0/lib/puma/cluster.rb:116:in `times'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/puma-3.4.0/lib/puma/cluster.rb:116:in `spawn_workers'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/puma-3.4.0/lib/puma/cluster.rb:424:in `run'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/puma-3.4.0/lib/puma/launcher.rb:172:in `run'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/puma-3.4.0/lib/rack/handler/puma.rb:51:in `run'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/commands/server.rb:80:in `start'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/commands/commands_tasks.rb:75:in `tap'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/commands/commands_tasks.rb:75:in `server'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/railties-4.2.6/lib/rails/commands.rb:17:in `<top (required)>'
+	from /vagrant/bin/rails:9:in `require'
+	from /vagrant/bin/rails:9:in `<top (required)>'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-1.7.1/lib/spring/client/rails.rb:28:in `load'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-1.7.1/lib/spring/client/rails.rb:28:in `call'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-1.7.1/lib/spring/client/command.rb:7:in `call'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-1.7.1/lib/spring/client.rb:30:in `run'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-1.7.1/bin/spring:49:in `<top (required)>'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-1.7.1/lib/spring/binstub.rb:11:in `load'
+	from /home/vagrant/.rvm/gems/ruby-2.3.1/gems/spring-1.7.1/lib/spring/binstub.rb:11:in `<top (required)>'
+	from /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /home/vagrant/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+	from /vagrant/bin/spring:13:in `<top (required)>'
+	from bin/rails:3:in `load'
+	from bin/rails:3:in `<main>'
+[2475] === puma shutdown: 2016-06-07 08:13:25 +0000 ===
+[2475] - Goodbye!
+Exiting
