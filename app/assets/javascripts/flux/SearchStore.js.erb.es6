@@ -145,7 +145,7 @@ class SearchStore extends FluxUtils.ReduceStore {
                         photo: l.photos ? l.photos[0].getUrl({ maxWidth: 600, maxHeight: 600 }) : '<%=asset_url("landing/church-no-image.png")%>',
                         description: l.name,
                         address: l.vicinity,
-                        distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(2) + "mi"
+                        distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(1)
                     };
                 });
 

@@ -23,7 +23,7 @@ class ChurchListItem extends React.Component {
                         would like to claim this profile, request access here.
                     </p>
 
-                    <span className="church-distance">{c.distance}</span>
+                    <span className="church-distance">{c.distance}<br/><span className="smaller">mi</span></span>
                 </div>
             </div>
         );
