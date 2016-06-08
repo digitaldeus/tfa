@@ -18,6 +18,14 @@ class EstablishmentsController < ApplicationController
     @establishment = Establishment.new
     @establishment.build_location
     @establishment.service_times.build()
+
+    unless params['place_id']
+      flash[:alert] = "You must register a church from the church search screen"
+    else
+      pid = params['place_id']
+      @establishment.place_id = pid
+      @establishment.location.place_id = pid
+    end
   end
 
   # GET /establishments/1/edit
@@ -119,9 +127,9 @@ class EstablishmentsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def establishment_params
     params.require(:establishment)
-    .permit(:name, :description, :website, :key, :phone, 
-            :admin_phone, :email, :admin_email, :leader,
-            location_attributes: [:id, :latitude, :longitude, :address],
+    .permit(:name, :description, :website, :key, :phone, :denomination,
+            :admin_phone, :email, :admin_email, :leader, :pastor,
+            location_attributes: [:id, :latitude, :longitude, :address, :city, :state, :zip, :place_id],
             social_link_attributes: [:id, :facebook, :twitter, :instagram, :yelp, :google_plus, :youtube],
             profile_image_attributes: [:id, :graphic, :graphic_cache],
             banner_image_attributes: [:id, :graphic, :graphic_cache],

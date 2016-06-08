@@ -5,6 +5,7 @@
 %p
   %strong Description:
   %br
+- if @establishment.description.present?
   = @establishment.description.html_safe
 - if @establishment.phone.present?
   %p

@@ -69,12 +69,7 @@
                 = render 'landing_links'
 
       -# Render the main content
-      - unless params[:controller].match /(landing|devise)/
-        .row
-          .content.small-12.column
-            = yield 
-      - else
-        = yield
+      = yield
 
       -# Render the footer
       .container.bg-blue.footer

@@ -8,7 +8,7 @@
     "bower": "^1.7.9"
   },
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "./node_modules/bower/bin/bower install; rake db:migrate"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0"

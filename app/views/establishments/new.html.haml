@@ -1,3 +1,76 @@
-%h1 New Establishment
-= render 'form'
-= link_to 'Back', establishments_path
+.landing-contact.establishment-register
+  .hero-container
+    %h2.text-center
+      The best investment your Church will ever make!
+  .container.container-overlay
+    - if flash[:notice]
+      .success.callout.text-center
+        %p
+          = flash[:notice]
+    - else
+      .row
+        .small-12
+          %h3.text-center{style: 'margin-bottom: 0'} Register Your Church Today!
+          %p.text-center{style: 'margin-top: 0'} Please fill out the form below.
+
+          = form_for @establishment,
+              html: {"data-abide" => " ", novalidate: " "} do |f|
+            - if @establishment.errors.any?
+              #error_explanation
+                %h2
+                  = pluralize(@establishment.errors.count, "error")
+                  prohibited this form from being submitted:
+                %ul
+                  - @establishment.errors.full_messages.each do |message|
+                    %li= message
+            .row{style: "margin-top:4rem"}
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.text_field :name, placeholder: 'Name*', required: true
+                %span.form-error
+                  Church name is required
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.text_field :denomination, placeholder: 'Denomination*', required: true
+                %span.form-error
+                  Denomination is required
+            .row
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.text_field :leader, placeholder: 'Pastor full name*', required: true
+                %span.form-error
+                  Pastor is required
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.fields_for :location do |l|
+                  = l.text_field :address, required: true, placeholder: 'Address*'
+            .row
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.phone_field :phone, placeholder: 'Phone number*', required: true
+                %span.form-error
+                  Phone number is required
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.fields_for :location do |l|
+                  .row
+                    .small-6.columns
+                      = l.text_field :city, required: true, placeholder: 'City*', disabled: true
+                      %span.form-error
+                        City is required
+                    .small-3.columns
+                      = l.text_field :state, required: true, placeholder: 'State*', disabled: true
+                      %span.form-error
+                        State is required
+                    .small-3.columns
+                      = l.text_field :zip, required: true, placeholder: 'Zip*', disabled: true
+                      %span.form-error
+                        Zip is required
+                      = l.hidden_field :place_id
+                      = l.hidden_field :latitude
+                      = l.hidden_field :longitude
+            .row
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.email_field :email, placeholder: 'Email*', required: true
+                %span.form-error
+                  Email is required
+              .small-12.medium-6.column.text-center.medium-text-left
+                = f.phone_field :website, placeholder: 'Website'
+
+            .row
+              .small-12.column.text-center.medium-text-right
+                = f.button 'Submit', type: :submit, value: 'submit'
