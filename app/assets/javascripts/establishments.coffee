@@ -9,7 +9,7 @@ $(document).on 'page:change', ->
 
     for comp in place.address_components
       type = comp.types[0]
-      if type is "locality"
+      if type in ["locality", "route"]
         addr[type] = comp.long_name
       else
         addr[type] = comp.short_name
