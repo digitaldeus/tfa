@@ -32,9 +32,9 @@ class SearchStore extends FluxUtils.ReduceStore {
         }
 
         return {
-            churchInput: church,
+            churchInput: church || "",
             churchPredictions: [],
-            locationInput: parseQueryString('locname'),
+            locationInput: parseQueryString('locname') || "",
             locationPredictions: [],
             selectedChurch: null,
             selectedLocation: parseQueryString('loc'),

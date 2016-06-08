@@ -318,6 +318,22 @@ div[data-react-class=PlaceSearchListContainer] {
   border: 1px solid #D7D7D7;
   background: #F3F3F3;
 
+  a.church-register {
+    float: right;
+    font-weight: bold;
+    font-size: rem-calc(12);
+    padding: rem-calc(12) rem-calc(20);
+    background: #47DA7A;
+    border-radius: rem-calc(3);
+    color: white;
+    text-decoration: none;
+    line-height: 1;
+
+    &:hover, &:visited {
+      text-decoration: none;
+    }
+  }
+
   .church-search-entry {
     &:not(:first-child) {
       border-top: 1px solid #D7D7D7;
@@ -383,7 +399,7 @@ div[data-react-class=PlaceSearchListContainer] {
     .church-distance {
       position: absolute;
       right: rem-calc(10);
-      top: rem-calc(50);
+      bottom: rem-calc(10);
       color: #54DA6D;
       font-size: rem-calc(36);
       font-weight: 300;

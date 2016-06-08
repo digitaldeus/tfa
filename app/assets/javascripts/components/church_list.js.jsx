@@ -2,6 +2,10 @@ class ChurchListItem extends React.Component {
 
     render() {
         const c = this.props.church;
+        service = <a className="church-register" href={`/establishments/new?place_id=${c.place_id}`}>Request Access</a>;
+        if (c.registered) {
+            let service = <span className="church-service-times"><span className="church-service-time">Sunday 9:00am</span>(Worship)</span>;
+        }
 
         return (
             <div className="church-search-entry">
@@ -13,7 +17,7 @@ class ChurchListItem extends React.Component {
                     <div className="top">
                         <span className="church-name">{c.description}</span>
 
-                        <span className="church-service-times"><span className="church-service-time">Sunday 9:00am</span>(Worship)</span>
+                        {service}
                     </div>
                     <div className="mid">
                         <span className="church-address">{c.address}</span>
