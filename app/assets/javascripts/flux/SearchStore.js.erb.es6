@@ -133,8 +133,9 @@ class SearchStore extends FluxUtils.ReduceStore {
             keyword: currentState.churchInput,
             type: 'church',
             location: { lat: lat * 1, lng: lng * 1 },
-            radius: 80500,
-            limit: 10
+            // radius: 16093,
+            limit: 10,
+            rankBy: google.maps.places.RankBy.DISTANCE,
         }, (predictions, status, pagination) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 const results = predictions.map(l => {
@@ -237,7 +238,8 @@ class SearchStore extends FluxUtils.ReduceStore {
                 keyword: searchString,
                 type: 'church',
                 location: { lat: currentState.lat, lng: currentState.lng },
-                radius: 80500,
+                // radius: 16093,
+                rankBy: google.maps.places.RankBy.DISTANCE,
             }, (predictions, status) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                     dispatch({
