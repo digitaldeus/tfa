@@ -12,7 +12,7 @@ class Api::V1::SearchLocationControllerTest < ActionController::TestCase
   end
 
   test "should return results with correct params" do
-    get :index, term: 'Oakland'
+    get :index, params: {term: 'Oakland'}
     assert_response :success
 
     # # should also have results

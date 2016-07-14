@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby "2.3.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -77,7 +77,7 @@ gem 'aws-sdk'
 
 # sidekiq and web dependencies
 gem 'sidekiq'
-gem 'sinatra', require: false
+gem 'sinatra', github: 'sinatra', require: false
 gem 'slim'
 
 # haml and converter
@@ -112,3 +112,6 @@ gem 'sprockets-es6'
 
 # super fast dev
 gem "rack-livereload", group: :development
+
+# assigns extract to gem
+gem 'rails-controller-testing'

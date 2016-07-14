@@ -43,5 +43,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Live reloading with better_errors:
-  config.middleware.insert_before Rack::Lock, Rack::LiveReload
+  # config.middleware.insert_before Rack::Lock, Rack::LiveReload
 end

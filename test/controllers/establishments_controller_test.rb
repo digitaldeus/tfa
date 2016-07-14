@@ -18,30 +18,30 @@ class EstablishmentsControllerTest < ActionController::TestCase
 
   test "should create establishment" do
     assert_difference('Establishment.count') do
-      post :create, establishment: { description: @establishment.description, name: @establishment.name }
+      post :create, params: {establishment: { description: @establishment.description, name: @establishment.name }}
     end
 
     assert_redirected_to establishment_path(assigns(:establishment))
   end
 
   test "should show establishment" do
-    get :show, id: @establishment
+    get :show, params: {id: @establishment}
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @establishment
+    get :edit, params: {id: @establishment}
     assert_response :success
   end
 
   test "should update establishment" do
-    patch :update, id: @establishment, establishment: { description: @establishment.description, name: @establishment.name }
+    patch :update, params: {id: @establishment, establishment: { description: @establishment.description, name: @establishment.name }}
     assert_redirected_to establishment_path(assigns(:establishment))
   end
 
   test "should destroy establishment" do
     assert_difference('Establishment.count', -1) do
-      delete :destroy, id: @establishment
+      delete :destroy, params: {id: @establishment}
     end
 
     assert_redirected_to establishments_path

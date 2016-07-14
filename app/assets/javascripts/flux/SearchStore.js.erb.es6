@@ -133,9 +133,9 @@ class SearchStore extends FluxUtils.ReduceStore {
             keyword: currentState.churchInput,
             type: 'church',
             location: { lat: lat * 1, lng: lng * 1 },
-            // radius: 16093,
+            radius: 16093,
             limit: 10,
-            rankBy: google.maps.places.RankBy.DISTANCE,
+            // rankBy: google.maps.places.RankBy.DISTANCE,
         }, (predictions, status, pagination) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 const results = predictions.map(l => {
