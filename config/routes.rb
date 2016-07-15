@@ -2,6 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  match "/404", :to => "errors#not_found", :via => :all
+
   # You can have the root of your site routed with "root"
   root 'landing#index'
 

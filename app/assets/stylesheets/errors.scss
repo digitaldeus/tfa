@@ -1,0 +1,105 @@
+// Place all the styles related to the errors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.errors-page {
+	position: relative;
+
+	.image-pastor-404 {
+		img {
+			position: absolute;
+			bottom: 0;
+			height: 70%;
+			left: 65%;
+		}
+	}
+
+	.big-pink-error {
+		font-family: 'Helvetica Neue', Helvetica;
+		font-weight: bold;
+		color: rgb(241, 176, 183);
+		text-align: right;
+
+		&.header-404 {
+			font-size: 40vw;
+			line-height: 40vw;
+			text-align: center;
+
+			@include breakpoint(medium) {
+				font-size: 200px;
+				line-height: 200px;
+				font-size: 17vw;
+				line-height: 13vw;
+				text-align: right;
+			}
+		}
+
+		&.error-404 {
+			font-size: 25px;
+			line-height: 25px;
+			text-align: center;
+
+			@include breakpoint(medium) {
+				font-size: 50px;
+				line-height: 50px;
+				font-size: 5vw;
+				line-height: 4vw;
+				text-align: right;
+			}
+		}
+	}
+
+	.error-404-lord-column {
+
+		font-weight: bold;
+		color: rgb(74, 74, 74);
+
+		.header-lord {
+			font-size: 20vw;
+			line-height: 20vw;
+			text-align: center;
+
+			@include breakpoint(medium) {
+				font-size: 100px;
+				line-height: 100px;
+				font-size: 8vw;
+				line-height: 8vw;
+				text-align: left;
+				margin-top: 0.5em;
+			}
+		}
+
+		.subheader-lord {
+			font-size: 10vw;
+			line-height: 10vw;
+			text-align: center;
+			margin-bottom: 0.5em;
+
+			@include breakpoint(medium) {
+				font-size: 50px;
+				line-height: 50px;
+				font-size: 6vw;
+				line-height: 6vw;
+				text-align: left;
+			}
+		}
+
+		.common-lord {
+			font-size: 5vw;
+			line-height: 5vw;
+
+			@include breakpoint(medium) {
+				font-size: 25px;
+				line-height: 25px;
+				font-size: 2vw;
+				line-height: 3vw;
+			}
+		}	
+	}
+}
+
+.errors-page-contact {
+	background-color: rgb(243, 243, 243);
+	border-top: 2px solid $dark-gray;
+}
