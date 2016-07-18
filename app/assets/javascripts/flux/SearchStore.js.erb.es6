@@ -2,13 +2,9 @@
  * Compute distance between a given lat and long
  */
 const distance = function (lat1, lon1, lat2, lon2) {
-	var p = 0.017453292519943295;    // Math.PI / 180
-	var c = Math.cos;
-	var a = 0.5 - c((lat2 - lat1) * p) / 2 +
-		c(lat1 * p) * c(lat2 * p) *
-		(1 - c((lon2 - lon1) * p)) / 2;
-
-	return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+    const l1 = new google.maps.LatLng(lat1, lon1);
+    const l2 = new google.maps.LatLng(lat2, lon2);
+	return google.maps.geometry.spherical.computeDistanceBetween(l1, l2) * 0.000621371; // convert meters to miles
 };
 
 class SearchStore extends FluxUtils.ReduceStore {
@@ -258,7 +254,7 @@ class SearchStore extends FluxUtils.ReduceStore {
 								photo: l.photos ? l.photos[0].getUrl({ maxWidth: 600, maxHeight: 600 }) : l.icon,
 								description: l.name,
 								address: l.vicinity,
-								distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(2) + "mi"
+								distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(3) + "mi"
 							};
 						}).slice(0, 10)
 					});

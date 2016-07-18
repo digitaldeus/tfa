@@ -14,7 +14,7 @@
     = csrf_meta_tag
 
   -# Google places search
-  %script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_JS_AUTOCOMPLETE']}&libraries=places"}
+  %script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_JS_AUTOCOMPLETE']}&libraries=places,geometry"}
 
   -# Initialize foundation after main content loaded
   :javascript
