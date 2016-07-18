@@ -18,7 +18,7 @@
 
   -# Initialize foundation after main content loaded
   :javascript
-    $(document).on('page:change', function() { $(document).foundation(); });
+    $(document).on('turbolinks:load', function() { $(document).foundation(); });
 
   -# GA only in production
   - if Rails.env.production?
