@@ -37,5 +37,7 @@ module Tfa
     config.react.server_renderer_options = {
         files: ["server_rendering.js"], # files to load for prerendering
     }
+
+    config.exceptions_app = self.routes
   end
 end
