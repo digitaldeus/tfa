@@ -133,7 +133,7 @@ class SearchStore extends FluxUtils.ReduceStore {
 			keyword: currentState.churchInput,
 			type: 'church',
 			location: { lat: lat * 1, lng: lng * 1 },
-			radius: 80500,
+			radius: 8046,
 			limit: 10
 		}, (predictions, status, pagination) => {
 			if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -149,12 +149,12 @@ class SearchStore extends FluxUtils.ReduceStore {
 						photo: l.photos ? l.photos[0].getUrl({ maxWidth: 600, maxHeight: 600 }) : '<%=asset_url("landing/church-no-image.png")%>',
 						description: l.name,
 						address: l.vicinity,
-						distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(1)
+						distance: (distance(lat1, lng1, lat2, lng2)).toFixed(1)
 					};
 				});
 
-				console.log(results);
-				console.log(pagination);
+				// console.log(results);
+				// console.log(pagination);
 
 				dispatch({type: 'CHURCH_SEARCH_ADD_RESULTS', results, pagination});
 			}
@@ -237,7 +237,7 @@ class SearchStore extends FluxUtils.ReduceStore {
 				keyword: searchString,
 				type: 'church',
 				location: { lat: currentState.lat, lng: currentState.lng },
-				radius: 80500,
+				radius: 8046,
 			}, (predictions, status) => {
 				if (status === google.maps.places.PlacesServiceStatus.OK) {
 					dispatch({
@@ -254,7 +254,7 @@ class SearchStore extends FluxUtils.ReduceStore {
 								photo: l.photos ? l.photos[0].getUrl({ maxWidth: 600, maxHeight: 600 }) : l.icon,
 								description: l.name,
 								address: l.vicinity,
-								distance: (distance(lat1, lng1, lat2, lng2) * 0.00062137).toFixed(3) + "mi"
+								distance: (distance(lat1, lng1, lat2, lng2)).toFixed(3) + "mi"
 							};
 						}).slice(0, 10)
 					});
