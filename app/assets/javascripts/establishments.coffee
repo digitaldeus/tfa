@@ -1,5 +1,5 @@
 # Setup the autocomplete
-$(document).on 'page:change', ->
+$(document).on 'turbolinks:load', ->
   input = document.getElementById('establishment_location_attributes_address')
   place_id_input = document.getElementById('establishment_location_attributes_place_id')
 
