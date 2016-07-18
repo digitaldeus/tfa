@@ -11,8 +11,8 @@ class SearchStore extends FluxUtils.ReduceStore {
 	constructor(dispatcher) {
 		super(dispatcher);
 
-		this.updateLocationPredictions = _.debounce(this._updateLocationPredictions, 100, true);
-		this.updateChurchPredictions = _.debounce(this._updateChurchPredictions, 100, true);
+		this.updateLocationPredictions = _.throttle(this._updateLocationPredictions, 100, true);
+		this.updateChurchPredictions = _.throttle(this._updateChurchPredictions, 100, true);
 	}
 
 	getInitialState() {
