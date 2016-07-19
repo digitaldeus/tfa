@@ -52,8 +52,7 @@ class SearchStore extends FluxUtils.ReduceStore {
 				this.updateChurchPredictions(action.input);
 
 				return Object.assign({}, state, {
-					churchInput: action.input,
-					searchResults: []
+					churchInput: action.input
 				});
 			case 'CHURCH_SEARCH_RESULTS':
 				return Object.assign({}, state, {
