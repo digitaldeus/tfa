@@ -42,7 +42,9 @@
     "SECRET_KEY_BASE": {
       "required": true
     },
-    "STAGING_PIPELINE": true
+    "STAGING_PIPELINE": {
+      "required": true
+    }
   },
   "formation": {
     "worker": {
