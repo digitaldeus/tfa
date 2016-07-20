@@ -314,6 +314,16 @@ div.container-overlay {
     width: 100%;
     height: rem-calc(400);
   }
+
+  .google-map-marker-label {
+    color: black;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    width: 30px;
+    white-space: nowrap;
+  }
 }
 
 .place-search-list-container {
@@ -345,6 +355,21 @@ div.container-overlay {
     }
 
     .church-search-entry {
+      position: relative;
+
+      .church-index-number {
+        position: absolute;
+        width: 1.5em;
+        height: 1.5em;
+        left: 0.5em;
+        top: 0.5em;
+        background-color: rgb(152, 4, 20);
+        color: white;
+        font-weight: bold;
+        border-radius: 1em;
+        text-align: center;
+      }
+
       &:not(:first-child) {
         border-top: 1px solid #D7D7D7;
       }

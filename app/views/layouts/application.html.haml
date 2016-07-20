@@ -14,7 +14,9 @@
     = csrf_meta_tag
 
   -# Google places search
-  %script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_JS_AUTOCOMPLETE']}&libraries=places,geometry"}
+  -# calling initMarkerWithLabel which adds support of custom Markers. Defined in
+  -# vendor/assets/javasripts/markerwithlabel.js
+  %script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_JS_AUTOCOMPLETE']}&libraries=places,geometry&callback=initMarkerWithLabel"}
 
   -# Initialize foundation after main content loaded
   :javascript

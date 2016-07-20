@@ -26,7 +26,7 @@ class ChurchListMap extends React.Component {
     this._clearMarkers();
     this._clearBounds();
 
-    this.props.searchResults.forEach(result => this._createMarker(result));
+    this.props.searchResults.forEach((result, index) => this._createMarker(result, index));
 
     this.map.fitBounds(this.bounds);
     this.map.setCenter(this.bounds.getCenter());
@@ -43,15 +43,18 @@ class ChurchListMap extends React.Component {
     this.bounds = new google.maps.LatLngBounds();
   }
 
-  _createMarker(place) {
+  _createMarker(place, index) {
     const infoWindow = this.infoWindow;
     const map = this.map;
     const location = new google.maps.LatLng(place.lat, place.lng);
-    const marker = new google.maps.Marker ({
+    const marker = new MarkerWithLabel ({
       map: map,
       position: location,
-      title: place.description,
-      icon: "http://maps.google.com/mapfiles/kml/pal2/icon11.png"
+      labelContent: (index + 1) + '',
+      label: ' ',
+      labelAnchor: new google.maps.Point(15, 40),
+      labelClass: "google-map-marker-label",
+      labelInBackground: false
     });
 
     this.bounds.extend(location);
@@ -111,6 +114,7 @@ class ChurchListItem extends React.Component {
     return (
       <div className="church-search-entry">
         <div className="church-thumbnail" style={{background: `url(${c.photo}) top center no-repeat`}}>
+          <div className="church-index-number">{this.props.index + 1}</div>
           <img className="church-size" src={this.props.member_icon}/>
         </div>
 
@@ -155,7 +159,11 @@ class PlaceSearchList extends React.Component {
         <div className="place-search-list-container columns small-12 medium-8">
           <div className="place-search-list">
             {
-              this.state.searchResults.map(c => <ChurchListItem key={c.place_id} church={c} {...this.props}/>)
+              this.state.searchResults.map((c, index) => <ChurchListItem 
+                                                          key={c.place_id}
+                                                          church={c}
+                                                          index={index}
+                                                          {...this.props}/>)
             }
           </div>
           <div className="place-search-list-more-button-container">
