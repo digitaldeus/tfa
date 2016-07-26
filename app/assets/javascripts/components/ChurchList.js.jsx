@@ -106,7 +106,7 @@ class ChurchListItem extends React.Component {
 
   render() {
     const c = this.props.church;
-    service = <a className="church-register" href={`/establishments/new?place_id=${c.place_id}`}>Request Access</a>;
+    service = <a className="button hollow small church-register" href={`/establishments/new?place_id=${c.place_id}`}>Request Access</a>;
     if (c.registered) {
       let service = <span className="church-service-times"><span className="church-service-time">Sunday 9:00am</span>(Worship)</span>;
     }
@@ -119,20 +119,22 @@ class ChurchListItem extends React.Component {
         </div>
 
         <div className="church-details">
-          <div className="top">
+          <div className="church-details-top clearfix">
             <span className="church-name">{c.description}</span>
-
             {service}
           </div>
-          <div className="mid">
-            <span className="church-address">{c.address}</span>
-          </div>
-          <p className={ "church-description " + (c.registered ? "registered" : "unregistered") }>
-            This church has not completed a profile. If you are a staff member & <br />
-            would like to claim this profile, request access here.
-          </p>
 
-          <span className="church-distance">{c.distance}<br/><span className="smaller">mi</span></span>
+          <div className="church-details-mid">
+            <div className="row">
+              <div className={"columns church-description " + (c.registered ? "registered" : "unregistered") }>
+                This church has not completed a profile. If you are a staff member & <br />
+                would like to claim this profile, request access here.
+              </div>
+              <div className="columns shrink church-distance">{c.distance} mi</div>
+            </div>
+          </div>
+
+          <div className="church-address">{c.address}</div>
         </div>
       </div>
     );
