@@ -374,13 +374,11 @@ div.container-overlay {
       }
 
       .church-details-mid {
-        margin-bottom: rem-calc(28);
-        margin-top: rem-calc(16);
+        margin-top: rem-calc(12);
+        min-height: rem-calc(32);
       }
 
       .church-address {
-        position: absolute;
-        bottom: rem-calc(12);
         color: $light-black;
         font-weight: bold;
         font-size: rem-calc(14);
