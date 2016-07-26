@@ -1,17 +1,59 @@
-%p
-  %strong Name:
-  %br
-  = @establishment.name
+.establishment-show
+  .row.align-center
+    .columns.small-12.medium-9
+      .row.columns.cover-container
+        .cover-picture
+          = image_tag "establishments/church-placeholder", width: "100%"
+        .profile-picture
+          = image_tag "establishments/church-placeholder-profile", width: "100%"
+        .profile-title
+          = @establishment.name
+        .cover-header
+          .row.align-right
+            .columns.small-6.medium-3
+              %input{ type: "text", value: "#{@establishment.phone}" }
+            .columns.small-6.medium-6
+              .button-group.expanded
+                %a.hollow.secondary.button Join
+                %a.hollow.secondary.button Bookmark
+                %a.hollow.secondary.button Icons
+      .row
+        .columns.small-12.medium-6
+          .widget-container
+            %img{ src: "http://placehold.it/420x400/DDD?text=Map+section", width: "100%" }
+          .widget-container
+            %img{ src: "http://placehold.it/420x300/DDD?text=Photos", width: "100%" }
+          .widget-container
+            %img{ src: "http://placehold.it/420x350/DDD?text=Giving", width: "100%" }
+        .columns.small-12.medium-6
+          .widget-container
+            %img{ src: "http://placehold.it/420x350/DDD?text=About+Us", width: "100%" }
+          .widget-container
+            %img{ src: "http://placehold.it/420x200/DDD?text=Members", width: "100%" }
+          .widget-container
+            %img{ src: "http://placehold.it/420x400/DDD?text=Livestreamers", width: "100%" }
+          .widget-container
+            %img{ src: "http://placehold.it/420x200/DDD?text=Calendars", width: "100%" }
+
+    .columns.medium-3
+      .row.hide-for-small-only.side-ads
+        .columns.small-12
+          %img{ src: "http://placehold.it/260x180/DDD?text=Ad+goes+here!", width: "100%", height: "100%" }
+        .columns.small-12
+          %img{ src: "http://placehold.it/260x180/DDD?text=Ad+goes+here!", width: "100%", height: "100%" }
+        .columns.small-12
+          %img{ src: "http://placehold.it/260x180/DDD?text=Ad+goes+here!", width: "100%", height: "100%" }
+
+      .widget-container
+        %img{ src: "http://placehold.it/420x150/DDD?text=Blogs", width: "100%" }
+
+
 %p
   %strong Description:
   %br
 - if @establishment.description.present?
   = @establishment.description.html_safe
-- if @establishment.phone.present?
-  %p
-    %strong Phone:
-    %br
-    = @establishment.phone
+
 - if @establishment.admin_phone.present?
   %p
     %strong Admin phone:

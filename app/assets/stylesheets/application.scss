@@ -43,6 +43,9 @@ ul {
 
 .title-wrapper {
   background: $blue;
+  // Solves shadows overlaping of near elemens
+  position: relative;
+  z-index: 300;
 }
 
 .title-row {

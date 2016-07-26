@@ -2,8 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin container-shadow() {
+	box-shadow: 0px 0px 12px 1px #aaa;
+}
+
 .establishment-register {
   .hero-container {
     background-image: audio_url('landing/signin-hero.png');
   }
+}
+
+.establishment-show {
+
+	.side-ads {
+		.columns {
+			margin-top: 1em;
+		}
+	}
+
+	.cover-container {
+		@include container-shadow();
+		position: relative;
+
+		.cover-picture {
+			height: rem-calc(200);
+			overflow: hidden;
+			filter: opacity(60%);
+		}
+
+		.cover-header {
+			height: rem-calc(40);
+			background-color: $lighter-gray;
+		}
+
+		.profile-picture {
+			@include container-shadow();
+
+			position: absolute;
+			bottom: rem-calc(16);
+			left: rem-calc(32);
+			width: rem-calc(150);
+			height: rem-calc(150);
+			border-radius: 50%;
+			overflow: hidden;
+		}
+
+		.profile-title {
+			position: absolute;
+			bottom: rem-calc(48);
+			left: rem-calc(204);
+			font-size: rem-calc(24);
+			font-weight: bold;
+			color: white;
+		}
+	}
+
+	.widget-container {
+		@include container-shadow();
+
+		margin-top: 1rem;
+	}
 }
