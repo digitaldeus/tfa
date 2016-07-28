@@ -25,6 +25,7 @@
 //= require react_ujs
 //= require fetch/fetch
 //= require es6-promise/es6-promise.min
+//= require utils/utils
 //= require components
 //= require_tree .
 
