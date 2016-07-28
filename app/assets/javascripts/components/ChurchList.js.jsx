@@ -146,7 +146,7 @@ class PlaceSearchList extends React.Component {
 
   componentDidMount() {
     // get the churches for this search
-    TFADispatcher.getChurches();
+    SearchAactions.getChurches();
   }
 
   render() {

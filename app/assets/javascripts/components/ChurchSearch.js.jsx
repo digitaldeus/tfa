@@ -68,9 +68,9 @@ class ChurchSearch extends React.Component {
 				placeholder="Search for a church"
 				textValue={this.state.churchInput}
 				formValue={this.state.churchInput}
-				onSearchPredictions={(input) => TFADispatcher.searchChurch(input) }
-				onRemovePredictions={() => TFADispatcher.hideChurchPredictions() }
-				onPlaceSelected={(l) => TFADispatcher.selectChurch(l) }
+				onSearchPredictions={(input) => SearchActions.searchChurch(input) }
+				onRemovePredictions={() => SearchActions.hideChurchPredictions() }
+				onPlaceSelected={(l) => SearchActions.selectChurch(l) }
 				predictions={this.state.churchPredictions}
 				distance={this.state.distance}/>
 		)
@@ -95,9 +95,9 @@ class LocationSearch extends React.Component {
 				placeholder="Enter a location"
 				textValue={this.state.locationInput}
 				formValue={AppSearchStore.getLocationString()}
-				onSearchPredictions={(input) => TFADispatcher.searchLocations(input) }
-				onRemovePredictions={() => TFADispatcher.hideLocationPredictions() }
-				onPlaceSelected={(l) => TFADispatcher.selectLocation(l) }
+				onSearchPredictions={(input) => SearchActions.searchLocations(input) }
+				onRemovePredictions={() => SearchActions.hideLocationPredictions() }
+				onPlaceSelected={(l) => SearchActions.selectLocation(l) }
 				predictions={this.state.locationPredictions}
 			/>
 		)
