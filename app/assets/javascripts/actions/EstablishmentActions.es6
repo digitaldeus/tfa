@@ -8,7 +8,7 @@ var EstablishmentActions = {
     EstablishmentAPI.update(establishment);
   },
 
-  receiveUpdated: function(establishment){
+  updateReceived: function(establishment){
     dispatch({
       type: 'ESTABLISHMENT_UPDATE_RECEIVED',
       establishment: establishment
