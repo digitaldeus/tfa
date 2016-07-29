@@ -8,6 +8,4 @@ class EstablishmentPhone extends React.Component {
     return AppEstablishmentStore.getState();
   }
 
-  
-
 }
