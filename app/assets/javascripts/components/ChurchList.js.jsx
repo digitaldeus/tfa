@@ -50,9 +50,10 @@ class ChurchListMap extends React.Component {
     const marker = new MarkerWithLabel ({
       map: map,
       position: location,
+      icon: this._getPin(),
       labelContent: (index + 1) + '',
       label: ' ',
-      labelAnchor: new google.maps.Point(15, 40),
+      labelAnchor: new google.maps.Point(15, 30),
       labelClass: "google-map-marker-label",
       labelInBackground: false
     });
@@ -64,6 +65,17 @@ class ChurchListMap extends React.Component {
       infoWindow.setContent(place.description);
       infoWindow.open(map, marker);
     })
+  }
+
+  _getPin(){
+    return {
+        path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+        fillColor: '#F78519',
+        fillOpacity: 1,
+        strokeColor: '#C45200',
+        strokeWeight: 1,
+        scale: 0.7
+    };
   }
 
   render() {
@@ -120,8 +132,14 @@ class ChurchListItem extends React.Component {
 
         <div className="church-details">
           <div className="church-details-top clearfix">
-            <span className="church-name">{c.description}</span>
-            {service}
+            <div className="row">
+              <div className="columns">
+                <span className="church-name">{c.description}</span>
+              </div>
+              <div className="columns shrink church-distance">
+                {c.distance} mi
+              </div>
+            </div>
           </div>
 
           <div className="church-details-mid">
@@ -130,11 +148,20 @@ class ChurchListItem extends React.Component {
                 This church has not completed a profile. If you are a staff member & <br />
                 would like to claim this profile, request access here.
               </div>
-              <div className="columns shrink church-distance">{c.distance} mi</div>
+                
             </div>
           </div>
 
-          <div className="church-address">{c.address}</div>
+          <div className="church-details-bot">
+            <div className="row">
+              <div className="columns">
+                <div className="church-address">{c.address}</div>
+              </div>
+              <div className="columns shrink">
+                {service}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
