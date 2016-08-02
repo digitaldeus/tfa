@@ -19,3 +19,9 @@ const parseQueryString = function (variable) {
 
 	return null;
 };
+
+const getLocation = function(href) {
+    var l = document.createElement("a");
+    l.href = href;
+    return l;
+};

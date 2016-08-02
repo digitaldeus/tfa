@@ -1,4 +1,4 @@
-class EstablishmentStore extends FluxUtils.ReduceStore {
+class EstablishmentStore extends BaseStore {
 
   getInitialState(){
     return {
@@ -13,7 +13,7 @@ class EstablishmentStore extends FluxUtils.ReduceStore {
         return Object.assign({}, state, {
           isUpdating: true
         });
-      case 'ESTABLISHMENT_UPDATE_RECEIVED':
+      case 'SET_ESTABLISHMENT':
         return Object.assign({}, state, {
           isUpdating: false,
           establishment: action.establishment

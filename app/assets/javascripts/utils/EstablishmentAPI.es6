@@ -14,7 +14,7 @@ const EstablishmentAPI = {
       return response.json();
     })
     .then(json => {
-      EstablishmentActions.updateReceived(json);
+      EstablishmentActions.setEstablishment(json);
     }); 
   }
 
