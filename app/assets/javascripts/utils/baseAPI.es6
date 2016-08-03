@@ -1,4 +1,4 @@
-
+// This is place for simple API calls that could be used in more general way
 
 
 // Update script
@@ -14,8 +14,13 @@ $(document).on('turbolinks:load', () => {
 
   gon.stores.forEach((store) => {
     if(window[store]){
-      let {_n, ...data} = gon 
-      window[store].loadFromGon(data);
+      let {stores, ...data} = gon 
+      
+      dispatch({
+        type: "GON_" + store.toUpperCase(),
+        data: data
+      })
+
     }
   });
 

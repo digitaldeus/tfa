@@ -107,7 +107,6 @@ class SearchStore extends FluxUtils.ReduceStore {
 					nextPageLoading: true
 				});
 			default:
-				console.warn('Got unknown action: ', action)
 				return state;
 		}
 	}

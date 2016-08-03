@@ -1,4 +1,4 @@
-class EstablishmentStore extends BaseStore {
+class EstablishmentStore extends FluxUtils.ReduceStore {
 
   getInitialState(){
     return {
@@ -17,6 +17,12 @@ class EstablishmentStore extends BaseStore {
         return Object.assign({}, state, {
           isUpdating: false,
           establishment: action.establishment
+        });
+      // Action emitted on turbolinks if this store has
+      // been included in gon.stores
+      case 'GON_APPESTABLISHMENTSTORE':
+        return Object.assign({}, state, {
+          establishment: action.data
         });
       default:
         return state;
