@@ -11,8 +11,8 @@
         .cover-header
           .row.align-right
             .columns.small-6.medium-3
-              %input{ type: "text", value: "#{@establishment.phone}" }
-              = react_component 'EstablishmentPhoneContainer'
+              .establishment-phone
+                = @establishment.phone
             .columns.small-6.medium-6
               .button-group.expanded
                 %a.hollow.secondary.button Join
