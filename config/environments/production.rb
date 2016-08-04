@@ -58,7 +58,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  unless ENV['STAGING_PIPELINE'] == 'enabled'
+  if ENV['CDN_HOSTING_ENABLED'] == 'enabled'
     config.action_controller.asset_host = 'http://assets.thefellowshipapp.com'
   end
 

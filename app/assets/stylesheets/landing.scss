@@ -314,6 +314,16 @@ div.container-overlay {
     width: 100%;
     height: rem-calc(400);
   }
+
+  .google-map-marker-label {
+    color: white;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    width: 30px;
+    white-space: nowrap;
+  }
 }
 
 .place-search-list-container {
@@ -328,23 +338,30 @@ div.container-overlay {
     border: 1px solid #D7D7D7;
     background: #F3F3F3;
 
-    a.church-register {
+    .church-register {
       float: right;
-      font-weight: bold;
-      font-size: rem-calc(12);
-      padding: rem-calc(12) rem-calc(20);
-      background: #47DA7A;
-      border-radius: rem-calc(3);
-      color: white;
-      text-decoration: none;
-      line-height: 1;
-
-      &:hover, &:visited {
-        text-decoration: none;
-      }
+      margin: 0;
+      border-color: $our-green;
+      color: $our-green;
     }
 
     .church-search-entry {
+      position: relative;
+
+      .church-index-number {
+        position: absolute;
+        width: rem-calc(30);
+        height: rem-calc(30);
+        left: 0.5em;
+        top: 0.5em;
+        background-color: $orange;
+        color: white;
+        font-weight: bold;
+        border-radius: 1em;
+        text-align: center;
+        line-height: rem-calc(30);
+      }
+
       &:not(:first-child) {
         border-top: 1px solid #D7D7D7;
       }
@@ -355,12 +372,20 @@ div.container-overlay {
 
       .church-name {
         color: black;
+        font-size: rem-calc(16);
+      }
+
+      .church-details-mid {
+        margin-top: rem-calc(12);
+        min-height: rem-calc(32);
       }
 
       .church-address {
-        color: #0D85FE;
-        font-weight: 300;
+        color: $light-black;
+        font-weight: bold;
         font-size: rem-calc(14);
+        display: inline-block;
+        padding-top: rem-calc(10);
       }
 
       .church-thumbnail {
@@ -384,14 +409,8 @@ div.container-overlay {
 
       .church-description {
         font-size: rem-calc(12);
-        color: #9B9B9B;
+        color: $dark-gray;
         line-height: 1.3;
-        margin-top: rem-calc(10);
-        margin-bottom: 0;
-
-        &.unregistered {
-          color: #D0021B;
-        }
       }
 
       .church-service-times {
@@ -407,17 +426,8 @@ div.container-overlay {
       }
 
       .church-distance {
-        position: absolute;
-        right: rem-calc(10);
-        bottom: rem-calc(10);
-        color: #54DA6D;
-        font-size: rem-calc(36);
-        font-weight: 300;
-        text-align: right;
-
-        .smaller {
-          font-size: rem-calc(20);
-        }
+        color: $our-blue;
+        font-size: rem-calc(20);
       }
     }
   }
