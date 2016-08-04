@@ -55,8 +55,10 @@ $alert-color: #ec5840;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #969696;
+$light-black: #4A4A4A;
 $black: #2c2c2c;
 $white: #fefefe;
+$orange: #F78519;
 $body-background: $white;
 $body-font-color: $dark-gray;
 $body-font-family:  'Open Sans','Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
@@ -67,6 +69,11 @@ $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
 $global-text-direction: ltr;
+
+// Custom colors
+
+$our-green: #47DA7A;
+$our-blue: #00C0CB;
 
 // 2. Breakpoints
 // --------------
