@@ -63,6 +63,9 @@ gem 'rack-timeout'
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
 
+# font awesome
+gem 'font-awesome-sass', '~> 4.6.2'
+
 # text editor
 gem 'ckeditor'
 gem 'paperclip'
