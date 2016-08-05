@@ -19,6 +19,7 @@
 //= require nprogress-turbolinks
 //= require flux/dist/Flux
 //= require FluxUtils
+//= require markerwithlabel
 //= require underscore/underscore-min
 //= require toastr/toastr
 //= require react

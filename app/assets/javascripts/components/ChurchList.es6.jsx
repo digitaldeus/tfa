@@ -26,7 +26,7 @@ class ChurchListMap extends React.Component {
     this._clearMarkers();
     this._clearBounds();
 
-    this.props.searchResults.forEach(result => this._createMarker(result));
+    this.props.searchResults.forEach((result, index) => this._createMarker(result, index));
 
     this.map.fitBounds(this.bounds);
     this.map.setCenter(this.bounds.getCenter());
@@ -43,15 +43,19 @@ class ChurchListMap extends React.Component {
     this.bounds = new google.maps.LatLngBounds();
   }
 
-  _createMarker(place) {
+  _createMarker(place, index) {
     const infoWindow = this.infoWindow;
     const map = this.map;
     const location = new google.maps.LatLng(place.lat, place.lng);
-    const marker = new google.maps.Marker ({
+    const marker = new MarkerWithLabel ({
       map: map,
       position: location,
-      title: place.description,
-      icon: "http://maps.google.com/mapfiles/kml/pal2/icon11.png"
+      icon: this._getPin(),
+      labelContent: (index + 1) + '',
+      label: ' ',
+      labelAnchor: new google.maps.Point(15, 30),
+      labelClass: "google-map-marker-label",
+      labelInBackground: false
     });
 
     this.bounds.extend(location);
@@ -61,6 +65,17 @@ class ChurchListMap extends React.Component {
       infoWindow.setContent(place.description);
       infoWindow.open(map, marker);
     })
+  }
+
+  _getPin(){
+    return {
+        path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+        fillColor: '#F78519',
+        fillOpacity: 1,
+        strokeColor: '#C45200',
+        strokeWeight: 1,
+        scale: 0.7
+    };
   }
 
   render() {
@@ -103,7 +118,7 @@ class ChurchListItem extends React.Component {
 
   render() {
     const c = this.props.church;
-    let service = <a className="church-register" href={`/establishments/new?place_id=${c.place_id}`}>Request Access</a>;
+    let service = <a className="button hollow small church-register" href={`/establishments/new?place_id=${c.place_id}`}>Request Access</a>;
     if (c.registered) {
       service = <span className="church-service-times"><span className="church-service-time">Sunday 9:00am</span>(Worship)</span>;
     }
@@ -111,24 +126,42 @@ class ChurchListItem extends React.Component {
     return (
       <div className="church-search-entry">
         <div className="church-thumbnail" style={{background: `url(${c.photo}) top center no-repeat`}}>
+          <div className="church-index-number">{this.props.index + 1}</div>
           <img className="church-size" src={this.props.member_icon}/>
         </div>
 
         <div className="church-details">
-          <div className="top">
-            <span className="church-name">{c.description}</span>
-
-            {service}
+          <div className="church-details-top clearfix">
+            <div className="row">
+              <div className="columns">
+                <span className="church-name">{c.description}</span>
+              </div>
+              <div className="columns shrink church-distance">
+                {c.distance} mi
+              </div>
+            </div>
           </div>
-          <div className="mid">
-            <span className="church-address">{c.address}</span>
-          </div>
-          <p className={ "church-description " + (c.registered ? "registered" : "unregistered") }>
-            This church has not completed a profile. If you are a staff member & <br />
-            would like to claim this profile, request access here.
-          </p>
 
-          <span className="church-distance">{c.distance}<br/><span className="smaller">mi</span></span>
+          <div className="church-details-mid">
+            <div className="row">
+              <div className={"columns church-description " + (c.registered ? "registered" : "unregistered") }>
+                This church has not completed a profile. If you are a staff member & <br />
+                would like to claim this profile, request access here.
+              </div>
+                
+            </div>
+          </div>
+
+          <div className="church-details-bot">
+            <div className="row">
+              <div className="columns">
+                <div className="church-address">{c.address}</div>
+              </div>
+              <div className="columns shrink">
+                {service}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -155,7 +188,11 @@ class PlaceSearchList extends React.Component {
         <div className="place-search-list-container columns small-12 medium-8">
           <div className="place-search-list">
             {
-              this.state.searchResults.map(c => <ChurchListItem key={c.place_id} church={c} {...this.props}/>)
+              this.state.searchResults.map((c, index) => <ChurchListItem 
+                                                          key={c.place_id}
+                                                          church={c}
+                                                          index={index}
+                                                          {...this.props}/>)
             }
           </div>
           <div className="place-search-list-more-button-container">
