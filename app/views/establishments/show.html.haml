@@ -34,6 +34,22 @@
             .map-header
               = @establishment.location.address
             = react_component "EstablishmentMapContainer"
+          .service-container
+            .service-header.white-block-header
+              Service Times
+            - @establishment.service_times.each do |service|
+              .service-entry
+                .row
+                  .columns.small-6
+                    %span.service-day
+                      = service.day+":"
+                    %span.serivce-time
+                      = service.start_time
+                  .columns.small-6
+                    %span.service-name
+                      %span.service-type
+                        Type:
+                      = service.service_name
             
           .widget-container
             %img{ src: "http://placehold.it/420x300/DDD?text=Photos", width: "100%" }
@@ -41,7 +57,7 @@
             %img{ src: "http://placehold.it/420x350/DDD?text=Giving", width: "100%" }
         .columns.small-12.medium-6
           .about-container
-            .about-header
+            .about-header.white-block-header
               About us
             .about-content
               = @establishment.description

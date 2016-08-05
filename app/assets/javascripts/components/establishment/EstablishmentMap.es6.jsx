@@ -9,8 +9,8 @@ class EstablishmentMapCont extends React.Component {
   }
 
   render() {
-    const lat = getChildStr(this, "state.establishment.location.longitude") || 0,
-      lng = getChildStr(this, "state.establishment.location.latitude") || 0;
+    const lat = getChildStr(this, "state.establishment.location.latitude") || 0,
+      lng = getChildStr(this, "state.establishment.location.longitude") || 0;
     return (
       <EstablishmentMap
         lat={lat}
@@ -22,7 +22,13 @@ class EstablishmentMapCont extends React.Component {
 }
 
 class EstablishmentMap extends GoogleMap {
+  _updateMap() {
+    super._updateMap();
 
+    google.maps.event.addListenerOnce(this.map, "idle", () => { 
+      this.map.setZoom(15);
+    });
+  }
 }
 
 const EstablishmentMapContainer = FluxUtils.Container.create(EstablishmentMapCont);

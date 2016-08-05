@@ -18,6 +18,15 @@
 		margin: 0;
 	}
 
+	.white-block-header {
+		@extend .white-block;
+		position: relative;
+		color: $dark-gray;
+		font-weight: bold;
+		font-size: rem-calc(16);
+		padding: rem-calc(10) rem-calc(16);
+	}
+
 	.side-ads {
 		.columns {			
 			margin-top: 1em;
@@ -99,16 +108,6 @@
 	.about-container {
 		margin-top: rem-calc(16);
 
-		.about-header {
-			@extend .white-block;
-
-			position: relative;
-			color: $dark-gray;
-			font-weight: bold;
-			font-size: rem-calc(16);
-			padding: rem-calc(10) rem-calc(16);
-		}
-
 		.about-content {
 			@extend .white-block;
 
@@ -132,6 +131,22 @@
 		}
 	}
 
+	.service-container {
+		.service-entry {
+			@extend .white-block;
+			padding: rem-calc(5) rem-calc(16);
+			font-size: rem-calc(14);
+
+			.service-day {
+				font-weight: bold;
+			}
+
+			.service-type {
+				font-weight: bold;
+			}
+
+		}
+	}
 
 
 	.widget-container {

@@ -61,9 +61,9 @@ class GoogleMap extends React.Component {
     this.bounds.extend(location);
     this.markers.push(marker);
 
-    if(desciption){
+    if(description){
       marker.addListener("click", () => {
-        infoWindow.setContent(desciption);
+        infoWindow.setContent(description);
         infoWindow.open(map, marker);
       })
     }
