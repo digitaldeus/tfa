@@ -1,13 +1,15 @@
 const EstablishmentAPI = {
 
   update: function(establishment){
-    fetch('/establishments/${establishmen.id}', {
+    establishment.authenticity_token = EstablishmentAPI.authenticityToken
+
+    fetch(`/establishments/${establishment.id}`, {
       method: 'PATCH',
       body: JSON.stringify(establishment),
+      credentials: 'same-origin',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': EstablishmentAPI.authenticityToken
+        'Content-Type': 'application/json'
       }
     })
     .then(response => {

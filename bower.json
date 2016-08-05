@@ -21,6 +21,7 @@
     "underscore": "^1.8.3",
     "toastr": "^2.1.2",
     "fetch": "~1.0.0",
-    "es6-promise": "~3.2.2"
+    "es6-promise": "~3.2.2",
+    "classnames": "~2.2.5"
   }
 }

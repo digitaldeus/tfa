@@ -22,6 +22,12 @@ class EstablishmentMapCont extends React.Component {
 }
 
 class EstablishmentMap extends GoogleMap {
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.lat != this.props.lat &&
+        nextProps.lng != this.props.lng);
+  }
+
   _updateMap() {
     super._updateMap();
 

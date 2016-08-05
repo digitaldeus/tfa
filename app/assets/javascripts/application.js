@@ -26,6 +26,7 @@
 //= require react_ujs
 //= require fetch/fetch
 //= require es6-promise/es6-promise.min
+//= require classnames
 
 // First load all the dependencies from our javascripts
 //= require utils/BaseAPI

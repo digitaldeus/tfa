@@ -11,6 +11,18 @@
 
 	color: $black-text;
 
+	input {
+		margin: 0
+	}
+
+	input.show-only {
+		border: none;
+		background-color: transparent;
+		box-shadow: none;
+		padding: 0;
+		height: auto;
+	}
+
 	.white-block {
 		@include container-shadow();
 		background-color: white;
@@ -80,9 +92,23 @@
 					display: inline-block;
 					margin: 0 1rem;
 				}
+
+				.establishment-phone-input-container {
+					position: relative;
+
+					input {
+						padding: rem-calc(2);
+						height: auto;
+					}
+
+					.input-actions {
+						position: absolute;
+						right: 0;
+					}
+				}
 			}
 
-			.button {
+			.top-button {
 				@extend .white-block;
 				line-height: rem-calc(16);
 				font-size: rem-calc(14);
