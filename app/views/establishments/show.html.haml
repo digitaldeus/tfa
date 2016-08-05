@@ -10,25 +10,41 @@
           = @establishment.name
         .cover-header
           .row.align-right
-            .columns.small-6.medium-3
+            .columns.small-6.no-pad-right.z-index-10
               .establishment-phone
-                = @establishment.phone
-            .columns.small-6.medium-6
-              .button-group.expanded
-                %a.hollow.secondary.button Join
-                %a.hollow.secondary.button Bookmark
-                %a.hollow.secondary.button Icons
+                %i.fa.fa-phone
+                %span.phone-text
+                  = @establishment.phone
+            .columns.small-4.medium-2.no-pad-sides.z-index-9
+              .hollow.secondary.expanded.button
+                %i.fa.fa-home
+                Join 
+            .columns.small-4.medium-2.no-pad-sides.z-index-8
+              .hollow.secondary.expanded.button
+                %i.fa.fa-bookmark-o
+                Bookmark
+            .columns.small-4.medium-2.no-pad-left
+              .icon-block
+                %i.fa.fa-share-square-o
+                %i.fa.fa-envelope-o
+                %i.fa.fa-usd
       .row
         .columns.small-12.medium-6
-          .widget-container
-            %img{ src: "http://placehold.it/420x400/DDD?text=Map+section", width: "100%" }
+          .map-container
+            .map-header
+              = @establishment.location.address
+            = react_component "EstablishmentMapContainer"
+            
           .widget-container
             %img{ src: "http://placehold.it/420x300/DDD?text=Photos", width: "100%" }
           .widget-container
             %img{ src: "http://placehold.it/420x350/DDD?text=Giving", width: "100%" }
         .columns.small-12.medium-6
-          .widget-container
-            %img{ src: "http://placehold.it/420x350/DDD?text=About+Us", width: "100%" }
+          .about-container
+            .about-header
+              About us
+            .about-content
+              = @establishment.description
           .widget-container
             %img{ src: "http://placehold.it/420x200/DDD?text=Members", width: "100%" }
           .widget-container

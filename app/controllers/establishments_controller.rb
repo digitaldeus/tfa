@@ -12,6 +12,8 @@ class EstablishmentsController < ApplicationController
   # GET /establishments/1
   # GET /establishments/1.json
   def show
+    gon.stores = ["AppEstablishmentStore"]
+    gon.jbuilder
   end
 
   # GET /establishments/new

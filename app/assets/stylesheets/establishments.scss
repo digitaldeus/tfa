@@ -1,11 +1,6 @@
 // Place all the styles related to the Establishments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-@mixin container-shadow() {
-	box-shadow: 0px 0px 12px 1px #aaa;
-}
-
 .establishment-register {
   .hero-container {
     background-image: audio_url('landing/signin-hero.png');
@@ -14,14 +9,25 @@
 
 .establishment-show {
 
+	color: $black-text;
+
+	.white-block {
+		@include container-shadow();
+		background-color: white;
+		border: none;
+		margin: 0;
+	}
+
 	.side-ads {
-		.columns {
+		.columns {			
 			margin-top: 1em;
+			img {
+				@include container-shadow();
+			}
 		}
 	}
 
 	.cover-container {
-		@include container-shadow();
 		position: relative;
 
 		.cover-picture {
@@ -30,19 +36,11 @@
 			filter: opacity(60%);
 		}
 
-		.cover-header {
-			height: rem-calc(40);
-
-			.establishment-phone {
-				
-			}
-
-		}
-
 		.profile-picture {
 			@include container-shadow();
 
 			position: absolute;
+			z-index: 11;
 			bottom: rem-calc(16);
 			left: rem-calc(32);
 			width: rem-calc(150);
@@ -59,7 +57,82 @@
 			font-weight: bold;
 			color: white;
 		}
+
+		.cover-header {
+			height: rem-calc(40);
+
+			.establishment-phone {
+				@include container-shadow();
+				background-color: white;
+				line-height: rem-calc(40);
+				text-align: right;
+
+				.phone-text {
+					display: inline-block;
+					margin: 0 1rem;
+				}
+			}
+
+			.button {
+				@extend .white-block;
+				line-height: rem-calc(16);
+				font-size: rem-calc(14);
+				height: 100%;
+			}
+
+			.icon-block {
+				@extend .white-block;
+				line-height: rem-calc(40);
+				font-size: rem-calc(14);
+				text-align: center;
+				height: 100%;
+
+				i {
+					display: inline-block;
+					margin-right: rem-calc(4);
+					font-size: rem-calc(20);
+				}
+			}
+		}
 	}
+
+	.about-container {
+		margin-top: rem-calc(16);
+
+		.about-header {
+			@extend .white-block;
+
+			position: relative;
+			color: $dark-gray;
+			font-weight: bold;
+			font-size: rem-calc(16);
+			padding: rem-calc(10) rem-calc(16);
+		}
+
+		.about-content {
+			@extend .white-block;
+
+			font-size: rem-calc(12);
+			padding: rem-calc(16);
+		}
+	}
+
+	.map-container {
+		margin-top: rem-calc(16);
+
+		.map-header {
+			@extend .white-block;
+			text-align: center;
+			font-weight: bold;
+			padding: rem-calc(10) rem-calc(16);
+		}
+
+		.google-map {
+			height: rem-calc(256);
+		}
+	}
+
+
 
 	.widget-container {
 		@include container-shadow();

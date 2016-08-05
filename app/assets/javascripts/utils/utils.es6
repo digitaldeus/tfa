@@ -20,8 +20,29 @@ const parseQueryString = function (variable) {
 	return null;
 };
 
-const getLocation = function(href) {
-    var l = document.createElement("a");
-    l.href = href;
-    return l;
+/**
+ * Used for getting children of object when there
+ * is no evidence if those children exists
+ *
+ * Example:
+ *
+ * getChildStr({a: {b: {c: 2}}}, "a.b.c") == 2
+ * 
+ * @param  {object} obj  Object on which to search
+ * @param  {string} path String interpretation of path
+ * @return {mixed}       Return false if no ancestors exists or value
+ */
+const getChildStr = function(obj, path) {
+  return path.split(".").reduce((a, b) => {
+    return a && (a[b] || false);
+  }, obj);
+};
+
+
+/**
+ * Pseudo uniq string generator
+ * @return {string} uniq indentifier
+ */
+const getUniqId = function() {
+  return '_' + Math.random().toString(36).substr(2, 9);
 };

@@ -28,6 +28,7 @@
 
 // First load all the dependencies from our javascripts
 //= require utils/BaseAPI
+//= require_tree ./components/shared
 
 //= require_tree ./utils
 //= require components

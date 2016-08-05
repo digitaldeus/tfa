@@ -46,6 +46,7 @@
 // ---------------
 
 $bodycolor: #969695;
+$background-gray: #E9EAED;
 $green: #47DA7A;
 $blue: #00C0CB;
 $yellow: #FFDD22;
@@ -67,8 +68,9 @@ $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #969696;
 $black: #2c2c2c;
+$black-text: #4A4A4A;
 $white: #fefefe;
-$body-background: $white;
+$body-background: $background-gray;
 $body-font-color: $dark-gray;
 $body-font-family:  'Open Sans','Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
