@@ -5,13 +5,14 @@ class Api::V1::SearchController < Api::V1::BaseController
     #TODO split google search into it's own class / gem
     my_params = search_params
 
-    radius = my_params[:radius] or 80500 # default to about 50 miles
+    onemile = 1610
+    radius = my_params[:radius] or (5 * onemile) # default to about 5 miles
     term = my_params[:term] or ''
     lat = my_params[:lat]
     long = my_params[:long]
 
     # call the google search with paramters
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{term}&location=#{lat},#{long}&rankby=distance&types=church&key=#{ENV['GOOGLE_SERVER_KEY']}"
+    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{term}&location=#{lat},#{long}&rankby=distance&radius=#{radius}&types=church&key=#{ENV['GOOGLE_SERVER_KEY']}"
     # url = "https://maps.googleapis.com/maps/api/place/search/json?name=#{term}&rankby=distance&type=church&location=#{lat},#{long}&radius=80500&key=#{ENV['GOOGLE_SERVER_KEY']}"
     response = HTTParty.get(url).parsed_response
     results = response['results'] or []
