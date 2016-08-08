@@ -1,11 +1,14 @@
 const EstablishmentAPI = {
 
   update: function(establishment){
-    establishment.authenticity_token = EstablishmentAPI.authenticityToken
+    let data = {
+      authenticity_token: EstablishmentAPI.authenticityToken,
+      establishment: establishment
+    };
 
     fetch(`/establishments/${establishment.id}`, {
       method: 'PATCH',
-      body: JSON.stringify(establishment),
+      body: JSON.stringify(data),
       credentials: 'same-origin',
       headers: {
         'Accept': 'application/json',

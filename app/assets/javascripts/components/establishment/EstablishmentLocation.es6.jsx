@@ -34,12 +34,18 @@ class EstablishmentLocationInput extends EditableInput {
 
   componentDidMount() {
     this._autocomplete = new google.maps.places.Autocomplete(this._input);
+
+    this._autocomplete.addListener('place_changed', () => {
+      const place = this._autocomplete.getPlace();
+      this.setState({ value: place.vicinity })
+      this.inputSuccess();
+    });
   }
 
   inputSuccess(e) {
     const place = this._autocomplete.getPlace(),
       location = {
-        address: place.name,
+        address: place.vicinity,
         latitude: place.geometry.location.lat(),
         longitude: place.geometry.location.lng(),
         place_id: place.place_id
@@ -74,7 +80,7 @@ class EstablishmentLocationInput extends EditableInput {
             type="text"
             value={this.state.value}
             onChange={this.inputChange.bind(this)}
-            onBlur={this.inputCancel.bind(this)}
+            // onBlur={this.inputCancel.bind(this)}
             ref={(c) => this._input = c}/>
           <div className="input-actions">
             <a 

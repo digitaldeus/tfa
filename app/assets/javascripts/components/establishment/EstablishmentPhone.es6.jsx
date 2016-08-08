@@ -8,19 +8,19 @@ class EstablishmentPhone extends React.Component {
     return AppEstablishmentStore.getState();
   }
 
-  onPhoneChange(newPhone){
+  onAttributeChange(key, value){
     EstablishmentActions.update({
       id: this.state.establishment.id,
-      phone: newPhone
+      phone: value
     })
   }
 
   render() {
     return (
-      <div className="establishment-phone-input-container">
+      <div className="phone-input-container">
         <EstablishmentPhoneInput
           value={this.state.establishment.phone}
-          onPhoneChange={this.onPhoneChange.bind(this)}
+          onAttributeChange={this.onAttributeChange.bind(this)}
           mode="show"
         />
       </div>
@@ -29,62 +29,23 @@ class EstablishmentPhone extends React.Component {
 
 }
 
-class EstablishmentPhoneInput extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: (props.value || ""),
-      mode: props.mode
-    };
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({
-      value: (props.value || "")
-    });
-  }
-
-  componentDidUpdate() {
-    if(this.state.mode == "edit"){
-      this._input.focus();
-    }
-  }
-
-  inputChange(e) {
-    this.setState({ value: e.target.value });
-  }
-
-  inputCancel(e) {
-    this.setState({ 
-      mode: "show",
-      value: this.props.value
-    });
-  }
-
-  inputSuccess(e) {
-    this.setState({ mode: "show" });
-    this.props.onPhoneChange(this.state.value);
-  }
-
-  pencilClick(e) {
-    this.setState({ mode: "edit" });
-  }
-
+class EstablishmentPhoneInput extends EditableInput {
   render() {
     const labelCl = classNames({
       "hidden": this.state.mode != "show"
     });
     const inputCl = classNames({
+      "input-with-actions": true,
       "hidden": this.state.mode == "show"
+    });
+    const pencilCl = classNames({
+      "fa fa-pencil": true,
+      "hidden": this.state.mode == "edit"
     });
     return (
       <div>
         <div className={labelCl}>
           {this.state.value}
-          <i 
-            className="fa fa-pencil"
-            onClick={this.pencilClick.bind(this)}/>
         </div>
         <div className={inputCl}>
           <input
@@ -106,6 +67,9 @@ class EstablishmentPhoneInput extends React.Component {
             </a>
           </div>
         </div>
+        <i 
+          className={pencilCl}
+          onClick={this.pencilClick.bind(this)}/>
       </div>
     );
   }

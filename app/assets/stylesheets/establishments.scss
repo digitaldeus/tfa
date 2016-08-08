@@ -110,12 +110,25 @@
 					margin: 0 1rem;
 				}
 
-				.establishment-phone-input-container {
+				.phone-input-container {
 					@extend .editable-input-container;
+					padding-right: rem-calc(32);
 
 					input {
 						padding: rem-calc(2);
 						height: auto;
+					}
+
+					.input-with-actions {
+						position: relative;
+					}
+
+					.fa-pencil {
+						position: absolute;
+						top: 0;
+						right: 0;
+						line-height: rem-calc(40);
+						color: $dark-gray;
 					}
 				}
 			}
