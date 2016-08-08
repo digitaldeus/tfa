@@ -32,7 +32,7 @@ const parseQueryString = function (variable) {
  * @param  {string} path String interpretation of path
  * @return {mixed}       Return false if no ancestors exists or value
  */
-const getChildStr = function(obj, path) {
+const getChild = function(obj, path) {
   return path.split(".").reduce((a, b) => {
     return a && (a[b] || false);
   }, obj);

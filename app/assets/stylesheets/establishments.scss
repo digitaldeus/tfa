@@ -11,8 +11,14 @@
 
 	color: $black-text;
 
+	// Global and extendable classes
+
 	input {
 		margin: 0
+	}
+
+	.fa-pencil {
+		cursor: pointer;
 	}
 
 	input.show-only {
@@ -39,6 +45,17 @@
 		padding: rem-calc(10) rem-calc(16);
 	}
 
+	.editable-input-container {
+		position: relative;
+
+		.input-actions {
+			position: absolute;
+			right: 0;
+		}
+	}
+
+
+	// Columns
 	.side-ads {
 		.columns {			
 			margin-top: 1em;
@@ -94,16 +111,11 @@
 				}
 
 				.establishment-phone-input-container {
-					position: relative;
+					@extend .editable-input-container;
 
 					input {
 						padding: rem-calc(2);
 						height: auto;
-					}
-
-					.input-actions {
-						position: absolute;
-						right: 0;
 					}
 				}
 			}
@@ -140,10 +152,30 @@
 			font-size: rem-calc(12);
 			padding: rem-calc(16);
 		}
+
+		textarea {
+			margin: 0;
+		}
 	}
 
 	.map-container {
 		margin-top: rem-calc(16);
+
+		.location-input-container {
+			@extend .editable-input-container;
+
+			.fa-pencil {
+				color: $dark-gray;
+				position: absolute;
+				right: 0;
+				top: 0;
+				line-height: rem-calc(24);
+			}
+
+			.input-actions {
+				z-index: 2;
+			}
+		}
 
 		.map-header {
 			@extend .white-block;

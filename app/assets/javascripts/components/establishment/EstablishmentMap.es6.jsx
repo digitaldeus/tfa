@@ -9,8 +9,8 @@ class EstablishmentMapCont extends React.Component {
   }
 
   render() {
-    const lat = getChildStr(this, "state.establishment.location.latitude") || 0,
-      lng = getChildStr(this, "state.establishment.location.longitude") || 0;
+    const lat = getChild(this, "state.establishment.location.latitude") || 0,
+      lng = getChild(this, "state.establishment.location.longitude") || 0;
     return (
       <EstablishmentMap
         lat={lat}

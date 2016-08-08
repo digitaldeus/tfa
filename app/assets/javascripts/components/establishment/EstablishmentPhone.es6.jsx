@@ -46,7 +46,6 @@ class EstablishmentPhoneInput extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('ComponentDidUpdate');
     if(this.state.mode == "edit"){
       this._input.focus();
     }

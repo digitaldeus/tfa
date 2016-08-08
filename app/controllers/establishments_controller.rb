@@ -1,7 +1,7 @@
 class EstablishmentsController < ApplicationController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
   before_action :set_google_api_key, only: [:new, :edit]
-  wrap_parameters :establishment, format: [:json]
+  wrap_parameters :establishment, format: [:json], include: [:location_attributes]
   
   # GET /establishments
   # GET /establishments.json

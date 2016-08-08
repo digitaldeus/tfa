@@ -32,7 +32,7 @@
         .columns.small-12.medium-6
           .map-container
             .map-header
-              = @establishment.location.address
+              = react_component "EstablishmentLocationContainer"
             = react_component "EstablishmentMapContainer"
           .service-container
             .service-header.white-block-header
@@ -56,11 +56,7 @@
           .widget-container
             %img{ src: "http://placehold.it/420x350/DDD?text=Giving", width: "100%" }
         .columns.small-12.medium-6
-          .about-container
-            .about-header.white-block-header
-              About us
-            .about-content
-              = @establishment.description
+          = react_component "EstablishmentDescriptionContainer"
           .widget-container
             %img{ src: "http://placehold.it/420x200/DDD?text=Members", width: "100%" }
           .widget-container
