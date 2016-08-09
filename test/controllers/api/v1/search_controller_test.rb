@@ -1,20 +1,11 @@
 require 'test_helper'
 
 class Api::V1::SearchControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-
-    # should also not have any results since required params not given
-    res = JSON.parse response.body
-    assert_equal res['results'].length, 0
-    assert_not res['next_page']
-  end
-
   test "should return results with correct params" do
     get :index, term: 'baptist', lat: 37.804370880127, long: -122.27079772949
     assert_response :success
 
+    # TODO: validate all response params
     # # should also have results
     # res = JSON.parse response.body
     # assert_not_equal res['results'].length, 0
