@@ -80,20 +80,8 @@ class EstablishmentLocationInput extends EditableInput {
             type="text"
             value={this.state.value}
             onChange={this.inputChange.bind(this)}
-            // onBlur={this.inputCancel.bind(this)}
+            onBlur={this.inputCancel.bind(this)}
             ref={(c) => this._input = c}/>
-          <div className="input-actions">
-            <a 
-              className="small button success"
-              onMouseDown={this.inputSuccess.bind(this)}>
-              <i className="fa fa-check"/>
-            </a>
-            <a 
-              className="small button alert"
-              onClick={this.inputCancel.bind(this)}>
-              <i className="fa fa-times"/>
-            </a>
-          </div>
         </div>
 
         <i 

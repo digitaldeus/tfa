@@ -19,6 +19,7 @@
 
 	.fa-pencil {
 		cursor: pointer;
+		color: $dark-gray;
 	}
 
 	input.show-only {
@@ -52,6 +53,11 @@
 			position: absolute;
 			right: 0;
 		}
+	}
+
+	// Add shadows to input actions when editing
+	.input-actions {
+		@include container-shadow();
 	}
 
 
@@ -128,7 +134,6 @@
 						top: 0;
 						right: 0;
 						line-height: rem-calc(40);
-						color: $dark-gray;
 					}
 				}
 			}
@@ -177,8 +182,7 @@
 		.location-input-container {
 			@extend .editable-input-container;
 
-			.fa-pencil {
-				color: $dark-gray;
+			.fa-pencil {				
 				position: absolute;
 				right: 0;
 				top: 0;
@@ -205,6 +209,7 @@
 	.service-container {
 		.service-entry {
 			@extend .white-block;
+			position: relative;
 			padding: rem-calc(5) rem-calc(16);
 			font-size: rem-calc(14);
 
@@ -216,6 +221,19 @@
 				font-weight: bold;
 			}
 
+			.input-actions {
+				position: absolute;
+				top: rem-calc(-34);
+				right: 0;
+
+				.button {
+					margin: 0;
+				}
+			}
+		}
+
+		.fa-plus {
+			cursor: pointer;
 		}
 	}
 

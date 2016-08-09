@@ -61,7 +61,7 @@ class EstablishmentPhoneInput extends EditableInput {
               <i className="fa fa-check"/>
             </a>
             <a 
-              className="small button alert"
+              className="small button secondary"
               onClick={this.inputCancel.bind(this)}>
               <i className="fa fa-times"/>
             </a>

@@ -35,21 +35,7 @@
               = react_component "EstablishmentLocationContainer"
             = react_component "EstablishmentMapContainer"
           .service-container
-            .service-header.white-block-header
-              Service Times
-            - @establishment.service_times.each do |service|
-              .service-entry
-                .row
-                  .columns.small-6
-                    %span.service-day
-                      = service.day+":"
-                    %span.serivce-time
-                      = service.start_time
-                  .columns.small-6
-                    %span.service-name
-                      %span.service-type
-                        Type:
-                      = service.service_name
+            = react_component "EstablishmentServicesContainer"
             
           .widget-container
             %img{ src: "http://placehold.it/420x300/DDD?text=Photos", width: "100%" }
