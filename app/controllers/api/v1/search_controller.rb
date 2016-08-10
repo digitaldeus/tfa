@@ -11,7 +11,12 @@ class Api::V1::SearchController < Api::V1::BaseController
     term = my_params[:term]
     lat = my_params[:lat]
     long = my_params[:long]
-    radius = my_params[:radius] or 5 * onemile # default to about 5 miles
+    radius = params[:radius].to_f
+
+    # minimum radius of 1 mile
+    if radius < onemile then
+      radius = onemile
+    end
 
     # call the google search with paramters
     # url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{term}&location=#{lat},#{long}&radius=#{radius}&types=church&key=#{ENV['GOOGLE_SERVER_KEY']}"
@@ -19,11 +24,9 @@ class Api::V1::SearchController < Api::V1::BaseController
 
     coordinates = {latitude: lat.to_f, longitude: long.to_f}
     params = {
-      radius_filter: 5 * onemile,
-      category_filter: "religiousorgs"
+      category_filter: "religiousorgs",
+      radius_filter: radius
     }
-
-    params[:term] = term if term
 
     yelp_results = yc.search_by_coordinates(coordinates, params)
 
@@ -32,6 +35,7 @@ class Api::V1::SearchController < Api::V1::BaseController
       format_church church
     end
     render json: {
+      radius: radius,
       results: results,
       # yelp: yelp_results,
       count: yelp_results.businesses.length,
