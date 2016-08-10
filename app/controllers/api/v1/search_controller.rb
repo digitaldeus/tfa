@@ -8,7 +8,7 @@ class Api::V1::SearchController < Api::V1::BaseController
 
     onemile = 1610
 
-    term = my_params[:term] or ''
+    term = my_params[:term]
     lat = my_params[:lat]
     long = my_params[:long]
     radius = my_params[:radius] or 5 * onemile # default to about 5 miles
@@ -20,9 +20,10 @@ class Api::V1::SearchController < Api::V1::BaseController
     coordinates = {latitude: lat.to_f, longitude: long.to_f}
     params = {
       radius_filter: 5 * onemile,
-      category_filter: "religiousorgs",
-      term: term
+      category_filter: "religiousorgs"
     }
+
+    params[:term] = term if term
 
     yelp_results = yc.search_by_coordinates(coordinates, params)
 

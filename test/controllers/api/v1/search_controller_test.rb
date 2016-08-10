@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class Api::V1::SearchControllerTest < ActionController::TestCase
+  test "should return results without" do
+    get :index, lat: 37.804370880127, long: -122.27079772949
+    assert_response :success
+  end
+
   test "should return results with correct params" do
     get :index, term: 'baptist', lat: 37.804370880127, long: -122.27079772949
     assert_response :success
