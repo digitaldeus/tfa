@@ -44,6 +44,18 @@
     },
     "STAGING_PIPELINE": {
       "required": true
+    },
+    "YELP_CONSUMER_KEY": {
+      "required": true
+    },
+    "YELP_CONSUMER_SECRET": {
+      "required": true
+    },
+    "YELP_TOKEN": {
+      "required": true
+    },
+    "YELP_TOKEN_SECRET": {
+      "required": true
     }
   },
   "formation": {
