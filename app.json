@@ -1,7 +1,9 @@
 {
   "name": "tfa",
   "description": "The fellowship app config",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
+  },
   "env": {
     "AWS_ACCESS_KEY_ID": {
       "required": true
