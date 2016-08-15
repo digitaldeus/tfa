@@ -12,6 +12,7 @@ class Api::V1::SearchController < Api::V1::BaseController
     lat = my_params[:lat]
     long = my_params[:long]
     radius = params[:radius].to_f
+    offset = params[:offset].to_i
 
     # minimum radius of 1 mile
     if radius < onemile then
@@ -27,6 +28,7 @@ class Api::V1::SearchController < Api::V1::BaseController
       category_filter: "religiousorgs",
       radius_filter: radius
     }
+    params[:offset] = offset if offset > 0
 
     yelp_results = yc.search_by_coordinates(coordinates, params)
 
@@ -39,9 +41,8 @@ class Api::V1::SearchController < Api::V1::BaseController
       results: results,
       # yelp: yelp_results,
       count: yelp_results.businesses.length,
-      total: yelp_results.total
-      # results: results,
-      # next_page: response['next_page_token']
+      total: yelp_results.total,
+      offset: offset
     }
   end
 
