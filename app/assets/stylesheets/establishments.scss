@@ -58,6 +58,10 @@
 	// Add shadows to input actions when editing
 	.input-actions {
 		@include container-shadow();
+		
+		.button {
+			margin: 0;
+		}
 	}
 
 
@@ -225,10 +229,6 @@
 				position: absolute;
 				top: rem-calc(-34);
 				right: 0;
-
-				.button {
-					margin: 0;
-				}
 			}
 		}
 
