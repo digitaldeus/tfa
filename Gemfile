@@ -63,6 +63,9 @@ gem 'rack-timeout'
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
 
+# font awesome
+gem 'font-awesome-sass', '~> 4.6.2'
+
 # text editor
 gem 'ckeditor'
 gem 'paperclip'
@@ -106,6 +109,9 @@ gem 'nprogress-rails'
 
 # include react
 gem 'react-rails'
+
+# add gon for JS variable injection
+gem 'gon'
 
 # es6 support
 gem 'sprockets-es6'

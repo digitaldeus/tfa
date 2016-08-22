@@ -12,16 +12,17 @@
  *
  */
 
-$bodycolor: #969695;
-$green: #47DA7A;
-$blue: #00C0CB;
-$yellow: #FFDD22;
-$nprogress-color: $yellow;
-
 @import "toastr/toastr.scss";
 @import "foundation_and_overrides";
 @import "nprogress";
 @import "scaffolds";
+
+// Font awesome integration
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Our modules
+@import "mixins";
 @import "landing";
 @import "establishments";
 @import "errors";
@@ -43,6 +44,9 @@ ul {
 
 .title-wrapper {
   background: $blue;
+  // Solves shadows overlaping of near elemens
+  position: relative;
+  z-index: 300;
 }
 
 .title-row {

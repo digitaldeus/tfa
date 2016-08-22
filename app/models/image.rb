@@ -6,7 +6,7 @@ class Image < ActiveRecord::Base
   after_save :enqueue_image
 
   def enqueue_image
-    if key.present?
+    if key.present? && self.graphic.present?
       logger.debug 'Running async task to process image' 
       ImageWorker.perform_async(id, key) if key.present?
     else

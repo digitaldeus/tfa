@@ -24,6 +24,15 @@
 //= require toastr/toastr
 //= require react
 //= require react_ujs
+//= require fetch/fetch
+//= require es6-promise/es6-promise.min
+//= require classnames
+
+// First load all the dependencies from our javascripts
+//= require utils/BaseAPI
+//= require_tree ./components/shared
+
+//= require_tree ./utils
 //= require components
 //= require_tree .
 

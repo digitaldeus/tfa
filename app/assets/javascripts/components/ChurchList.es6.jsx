@@ -118,9 +118,9 @@ class ChurchListItem extends React.Component {
 
   render() {
     const c = this.props.church;
-    service = <a className="button hollow small church-register" href={`/establishments/new?place_id=${c.place_id}`}>Request Access</a>;
+    let service = <a className="button hollow small church-register" href={`/establishments/new?place_id=${c.place_id}`}>Request Access</a>;
     if (c.registered) {
-      let service = <span className="church-service-times"><span className="church-service-time">Sunday 9:00am</span>(Worship)</span>;
+      service = <span className="church-service-times"><span className="church-service-time">Sunday 9:00am</span>(Worship)</span>;
     }
 
     return (
@@ -179,7 +179,7 @@ class PlaceSearchList extends React.Component {
 
   componentDidMount() {
     // get the churches for this search
-    TFADispatcher.getChurches();
+    SearchActions.getChurches();
   }
 
   render() {
