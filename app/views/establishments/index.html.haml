@@ -10,7 +10,7 @@
     - @establishments.each do |establishment|
       %tr
         %td= establishment.name
-        %td= establishment.description.html_safe
+        %td= establishment.description.html_safe unless establishment.description.nil?
         %td
           = link_to 'Show', establishment
           |
