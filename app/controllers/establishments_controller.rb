@@ -1,5 +1,5 @@
 class EstablishmentsController < ApplicationController
-  before_action :set_establishment, only: [:show, :edit, :update, :destroy]
+  before_action :set_establishment, only: [:show, :edit, :destroy]
   before_action :set_google_api_key, only: [:new, :edit]
 
   # GET /establishments
@@ -60,6 +60,8 @@ class EstablishmentsController < ApplicationController
   # PATCH/PUT /establishments/1
   # PATCH/PUT /establishments/1.json
   def update
+    @establishment = Establishment.find(params[:id])
+
     respond_to do |format|
       # prevent errors with blank graphic image
       pia = params['establishment']['profile_image_attributes']
