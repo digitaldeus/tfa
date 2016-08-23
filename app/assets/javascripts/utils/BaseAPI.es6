@@ -1,5 +1,26 @@
-// This is place for simple API calls that could be used in more general way
+// Provides simple fetch function that acts as global fetch but adds neccessary 
+// headers and data
+const BaseAPI = {
+  fetch: (route, options) => {
+    const token = BaseAPI.authenticityToken,
+      headers = Object.assign({}, {
+        'X-CSRF-Token': token,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }, options.headers);
 
+    // Assign new headers
+    options.headers = headers;
+    options.credentials = 'same-origin';
+
+    return fetch(route, options);
+  }
+}
+
+// Store csrf token inside our API
+$(() => {
+  BaseAPI.authenticityToken = $("meta[name='csrf-token']").attr("content");
+})
 
 // Update script
 // this script will update stores on turbolink page load.

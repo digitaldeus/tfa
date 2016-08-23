@@ -14,7 +14,7 @@ class EstablishmentServices extends React.Component {
       service_times_attributes: [service_time]
     };
 
-    EstablishmentActions.update(establishment);
+    EstablishmentActions.updateEstablishment(establishment);
   }
 
   render() {

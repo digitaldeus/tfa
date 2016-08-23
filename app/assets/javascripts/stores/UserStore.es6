@@ -1,28 +1,28 @@
-class EstablishmentStore extends FluxUtils.ReduceStore {
+class UserStore extends FluxUtils.ReduceStore {
 
   getInitialState(){
     return {
       isUpdating: false,
-      establishment: {}
+      user: {}
     };
   }
 
   reduce(state, action){
     switch(action.type){
-      case 'REQUEST_ESTABLISHMENT_UPDATE':
+      case 'REQUEST_USER_UPDATE':
         return Object.assign({}, state, {
           isUpdating: true
         });
-      case 'SET_ESTABLISHMENT':
+      case 'SET_USER':
         return Object.assign({}, state, {
           isUpdating: false,
-          establishment: action.establishment
+          user: action.user
         });
       // Action emitted on turbolinks if this store has
       // been included in gon.stores
-      case 'GON_APPESTABLISHMENTSTORE':
+      case 'GON_APPUSERSTORE':
         return Object.assign({}, state, {
-          establishment: action.data
+          user: action.data
         });
       default:
         return state;
@@ -30,4 +30,4 @@ class EstablishmentStore extends FluxUtils.ReduceStore {
   }
 }
 
-const AppEstablishmentStore = new EstablishmentStore(TFADispatcher)
+const AppUserStore = new UserStore(TFADispatcher)

@@ -30,6 +30,7 @@
 
 // First load all the dependencies from our javascripts
 //= require utils/BaseAPI
+//= require components/shared/EditableInput
 //= require_tree ./components/shared
 
 //= require_tree ./utils

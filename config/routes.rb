@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users
+
   # api
   namespace :api do
     namespace :v1 do

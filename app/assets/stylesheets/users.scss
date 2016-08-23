@@ -1,0 +1,21 @@
+.user-show {
+
+	input {
+		color: $black-text;
+		font-weight: normal;
+	}
+
+	.user-name-show {
+		float: left;
+		margin-right: rem-calc(16);
+	}
+
+	.fa-pencil {
+		display: inline-block;
+		float: right;
+		line-height: rem-calc(24);
+		font-size: rem-calc(16);
+	}
+}
+
+

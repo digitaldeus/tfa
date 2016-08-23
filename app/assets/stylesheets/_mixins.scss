@@ -5,6 +5,17 @@
 	box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.17);
 }
 
+
+// Common extendables
+// ------------------
+
+.white-block {
+	@include container-shadow();
+	background-color: white;
+	border: none;
+	margin: 0;
+}
+
 // Helper Classes
 // --------------
 

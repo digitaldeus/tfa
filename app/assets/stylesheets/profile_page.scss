@@ -1,0 +1,176 @@
+// Shared css for establishment profile page and user profile page
+
+.profile-page {
+	color: $black-text;
+
+	// Global and extendable classes
+
+	input {
+		margin: 0
+	}
+
+	.fa-pencil {
+		cursor: pointer;
+		color: $dark-gray;
+	}
+
+	input.show-only {
+		border: none;
+		background-color: transparent;
+		box-shadow: none;
+		padding: 0;
+		height: auto;
+	}
+
+	.white-block-header {
+		@extend .white-block;
+		position: relative;
+		color: $dark-gray;
+		font-weight: bold;
+		font-size: rem-calc(16);
+		padding: rem-calc(10) rem-calc(16);
+	}
+
+	.editable-input-container {
+		position: relative;
+
+		.input-actions {
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	// Add shadows to input actions when editing
+	.input-actions {
+		@include container-shadow();
+		
+		.button {
+			margin: 0;
+		}
+	}
+
+	.editable-input-show {
+		height: rem-calc(40);
+	}
+
+	// Columns
+	.side-ads {
+		.columns {			
+			margin-top: 1em;
+			img {
+				@include container-shadow();
+			}
+		}
+	}
+
+	.cover-container {
+		position: relative;
+
+		.cover-picture {
+			height: rem-calc(200);
+			overflow: hidden;
+			filter: opacity(60%);
+		}
+
+		.profile-picture {
+			@include container-shadow();
+
+			position: absolute;
+			z-index: 11;
+			bottom: rem-calc(16);
+			left: rem-calc(32);
+			width: rem-calc(150);
+			height: rem-calc(150);
+			border-radius: 50%;
+			overflow: hidden;
+		}
+
+		.profile-title {
+			position: absolute;
+			z-index: 12;
+			bottom: rem-calc(48);
+			left: rem-calc(204);
+			font-size: rem-calc(24);
+			font-weight: bold;
+			color: white;
+		}
+
+		.cover-header {
+			height: rem-calc(40);
+
+			.profile-phone {
+				@include container-shadow();
+				background-color: white;
+				line-height: rem-calc(40);
+				text-align: right;
+
+				.phone-text {
+					display: inline-block;
+					margin: 0 1rem;
+				}
+
+				.phone-input-container {
+					@extend .editable-input-container;
+					padding-right: rem-calc(32);
+
+					input {
+						padding: rem-calc(2);
+						height: auto;
+					}
+
+					.input-with-actions {
+						position: relative;
+					}
+
+					.fa-pencil {
+						position: absolute;
+						top: 0;
+						right: 0;
+						line-height: rem-calc(40);
+					}
+				}
+			}
+
+			.top-button {
+				@extend .white-block;
+				line-height: rem-calc(16);
+				font-size: rem-calc(14);
+				height: 100%;
+			}
+
+			.icon-block {
+				@extend .white-block;
+				line-height: rem-calc(40);
+				font-size: rem-calc(14);
+				text-align: center;
+				height: 100%;
+
+				i {
+					display: inline-block;
+					margin-right: rem-calc(4);
+					font-size: rem-calc(20);
+				}
+			}
+		}
+	}
+
+	.about-container {
+		margin-top: rem-calc(16);
+
+		.about-content {
+			@extend .white-block;
+
+			font-size: rem-calc(12);
+			padding: rem-calc(16);
+		}
+
+		textarea {
+			margin: 0;
+		}
+	}
+
+	.widget-container {
+		@include container-shadow();
+		margin-top: 1rem;
+	}
+}

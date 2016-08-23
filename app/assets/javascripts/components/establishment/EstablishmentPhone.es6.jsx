@@ -9,7 +9,7 @@ class EstablishmentPhone extends React.Component {
   }
 
   onAttributeChange(key, value){
-    EstablishmentActions.update({
+    EstablishmentActions.updateEstablishment({
       id: this.state.establishment.id,
       phone: value
     })
@@ -18,8 +18,8 @@ class EstablishmentPhone extends React.Component {
   render() {
     return (
       <div className="phone-input-container">
-        <EstablishmentPhoneInput
-          value={this.state.establishment.phone}
+        <ProfilePhoneInput
+          value={this.state.establishment.phone || ""}
           onAttributeChange={this.onAttributeChange.bind(this)}
           mode="show"
         />
@@ -27,52 +27,6 @@ class EstablishmentPhone extends React.Component {
     );
   }
 
-}
-
-class EstablishmentPhoneInput extends EditableInput {
-  render() {
-    const labelCl = classNames({
-      "hidden": this.state.mode != "show"
-    });
-    const inputCl = classNames({
-      "input-with-actions": true,
-      "hidden": this.state.mode == "show"
-    });
-    const pencilCl = classNames({
-      "fa fa-pencil": true,
-      "hidden": this.state.mode == "edit"
-    });
-    return (
-      <div>
-        <div className={labelCl}>
-          {this.state.value}
-        </div>
-        <div className={inputCl}>
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.inputChange.bind(this)}
-            onBlur={this.inputCancel.bind(this)}
-            ref={(c) => this._input = c}/>
-          <div className="input-actions">
-            <a 
-              className="small button success"
-              onMouseDown={this.inputSuccess.bind(this)}>
-              <i className="fa fa-check"/>
-            </a>
-            <a 
-              className="small button secondary"
-              onClick={this.inputCancel.bind(this)}>
-              <i className="fa fa-times"/>
-            </a>
-          </div>
-        </div>
-        <i 
-          className={pencilCl}
-          onClick={this.pencilClick.bind(this)}/>
-      </div>
-    );
-  }
 }
 
 const EstablishmentPhoneContainer = FluxUtils.Container.create(EstablishmentPhone);

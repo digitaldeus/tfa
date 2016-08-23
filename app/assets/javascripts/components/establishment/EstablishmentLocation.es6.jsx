@@ -11,7 +11,7 @@ class EstablishmentLocation extends React.Component {
   onAttributeChange(key, value){
     const data = { id: this.state.establishment.id };
     data[key] = value;
-    EstablishmentActions.update(data);
+    EstablishmentActions.updateEstablishment(data);
   }
 
   render() {
