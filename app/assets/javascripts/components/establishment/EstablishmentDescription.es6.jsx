@@ -18,7 +18,7 @@ class EstablishmentDescription extends React.Component {
   render() {
     return (
       <div className="about-container">
-        <EstablishmentDescriptionInput
+        <ProfileDescriptionInput
           value={this.state.establishment.description}
           header="About Us"
           onAttributeChange={this.onAttributeChange.bind(this)}
