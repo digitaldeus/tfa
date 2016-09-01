@@ -9,12 +9,7 @@ class EstablishmentServices extends React.Component {
   }
 
   updateServiceTime(service_time) {
-    const establishment = { 
-      id: this.state.establishment.id,
-      service_times_attributes: [service_time]
-    };
-
-    EstablishmentActions.updateEstablishment(establishment);
+    EstablishmentActions.updateServiceTimes(this.state.establishment, service_time);
   }
 
   render() {

@@ -13,5 +13,14 @@ var EstablishmentActions = {
       type: 'SET_ESTABLISHMENT',
       establishment: establishment
     });
+  },
+
+  updateServiceTimes: function(est, serviceTimes) {
+    const establishment = {
+      id: est.id,
+      service_times_attributes: serviceTimes
+    }
+
+    EstablishmentActions.updateEstablishment(establishment);
   }
 }
