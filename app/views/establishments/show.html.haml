@@ -2,10 +2,10 @@
   .row.align-center
     .columns.small-12.medium-9
       .row.columns.cover-container
-        .cover-picture
-          = image_tag "establishments/church-placeholder.jpg", width: "100%"
-        .profile-picture
-          = image_tag "establishments/church-placeholder-profile.jpg", width: "100%"
+        .banner-image-container
+          = react_component "EstablishmentBannerImageContainer"
+        .profile-image-container
+          = react_component "EstablishmentProfileImageContainer"
         .profile-title
           = @establishment.name
         .cover-header
@@ -91,14 +91,6 @@
     = image_tag @establishment.profile_image.graphic_url(:smedium).to_s, alt: "Profile image of #{@establishment.name}"
   - else
     %em Processing image...
-%p
-  %strong Banner Image:
-  %br
-  - if @establishment.banner_image.processed
-    = image_tag @establishment.banner_image.graphic_url(:large).to_s, alt: "Banner image of #{@establishment.name}"
-  - else
-    %em Processing image...
-
 %div
   = render "social/social_link_list"
 

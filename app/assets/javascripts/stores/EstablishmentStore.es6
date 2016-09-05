@@ -14,9 +14,10 @@ class EstablishmentStore extends FluxUtils.ReduceStore {
           isUpdating: true
         });
       case 'SET_ESTABLISHMENT':
+        const establishment = Object.assign({}, state.establishment, action.establishment)
         return Object.assign({}, state, {
           isUpdating: false,
-          establishment: action.establishment
+          establishment: establishment
         });
       // Action emitted on turbolinks if this store has
       // been included in gon.stores

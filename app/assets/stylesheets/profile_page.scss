@@ -66,23 +66,59 @@
 	.cover-container {
 		position: relative;
 
-		.cover-picture {
+		.banner-image-container {
 			height: rem-calc(200);
 			overflow: hidden;
-			filter: opacity(60%);
-		}
+			position: relative;
 
-		.profile-picture {
-			@include container-shadow();
+			.banner-image {
+				filter: opacity(60%);
+			}
 
+			.image-change {
+				position: absolute;
+				right: rem-calc(12);
+				bottom: rem-calc(12);
+			}
+		}	
+
+		.profile-image-container {
 			position: absolute;
 			z-index: 11;
 			bottom: rem-calc(16);
 			left: rem-calc(32);
-			width: rem-calc(150);
-			height: rem-calc(150);
+
+			.image-change {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+		}
+
+		.profile-image {
 			border-radius: 50%;
 			overflow: hidden;
+			width: rem-calc(150);
+			height: rem-calc(150);
+			background-color: white;
+			@include container-shadow();
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.masked {
+				filter: opacity(50%);
+			}
+		}
+
+		.profile-image-progress-bar {
+			position: absolute;
+			top: rem-calc(150/2 - 16/2);
+			left: 0;
+			right: 0;
+			@include container-shadow();			
 		}
 
 		.profile-title {

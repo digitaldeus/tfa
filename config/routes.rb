@@ -32,6 +32,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  scope '/images' do
+    get 'presigned', to: 'images#presigned'
+  end
+
   # api
   namespace :api do
     namespace :v1 do

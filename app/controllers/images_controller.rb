@@ -29,6 +29,16 @@ class ImagesController < ApplicationController
     process_image
   end
 
+  def presigned
+    @s3_presigned = S3_BUCKET.presigned_post(
+      key: "uploads/#{SecureRandom.uuid}/${filename}",
+      success_action_status: '201',
+      acl: 'public-read'
+    )
+
+    request.format = :json
+  end
+
   private
   # process the passed in image parameters and saves it
   def process_image

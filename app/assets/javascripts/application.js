@@ -27,6 +27,9 @@
 //= require fetch/fetch
 //= require es6-promise/es6-promise.min
 //= require classnames
+//= require jquery.ui.widget
+//= require blueimp-file-upload/js/jquery.iframe-transport
+//= require blueimp-file-upload/js/jquery.fileupload
 
 // First load all the dependencies from our javascripts
 //= require utils/BaseAPI

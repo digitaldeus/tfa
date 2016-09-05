@@ -1,5 +1,5 @@
 class EstablishmentsController < ApplicationController
-  before_action :set_establishment, only: [:show, :edit, :destroy]
+  before_action :set_establishment, only: [:show, :edit, :destroy, :update]
   before_action :set_google_api_key, only: [:new, :edit]
   
   # GET /establishments
@@ -13,6 +13,9 @@ class EstablishmentsController < ApplicationController
   def show
     gon.stores = ["AppEstablishmentStore"]
     gon.jbuilder
+  end
+
+  def image_uploaded
   end
 
   # GET /establishments/new
@@ -62,29 +65,47 @@ class EstablishmentsController < ApplicationController
   # PATCH/PUT /establishments/1
   # PATCH/PUT /establishments/1.json
   def update
-    @establishment = Establishment.find(params[:id])
+    pia = params['establishment']['profile_image_attributes']
+    bia = params['establishment']['banner_image_attributes']
 
     respond_to do |format|
-      # prevent errors with blank graphic image
-      pia = params['establishment']['profile_image_attributes']
-      if pia and (pia['graphic'].blank? and pia['graphic_cache'].blank?)
-        params['establishment'].delete 'profile_image_attributes'
-      end
+      # Are we updating pictures or establishment itself?
+      if pia || bia
+        # Updating one of the pictures
+        if pia and pia['url']
+          # Process profile image that have already been uploaded to S3
+          # but awaits format processing
+          @establishment.profile_image.enqueue_image pia['url']
+          @url = pia['url']
+          # Respond with the same url that have been send here
+          format.json { render :profile_image_update }
+        end
 
-      bia = params['establishment']['banner_image_attributes']
-      if bia and (bia['graphic'].blank? and bia['graphic_cache'].blank?)
-        params['establishment'].delete 'banner_image_attributes'
-      end
+        if bia and bia['url']
+          @establishment.banner_image.enqueue_image bia['url']
+          @url = bia['url']
+          format.json { render :banner_image_updated}
+        end
 
-      if @establishment.update(establishment_params)
-        format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @establishment }
       else
-        format.html { render :edit }
-        format.json { render json: @establishment.errors, status: :unprocessable_entity }
+        # Okay we are updating establishment
+        if @establishment.update(establishment_params)
+          format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
+          format.json { render :show, status: :ok, location: @establishment }
+        else
+          format.html { render :edit }
+          format.json { render json: @establishment.errors, status: :unprocessable_entity }
+        end
       end
+      
+      # if bia and (bia['graphic'].blank? and bia['graphic_cache'].blank?)
+      #   params['establishment'].delete 'banner_image_attributes'
+      # end
+
+      
     end
   end
+
 
   # DELETE /establishments/1
   # DELETE /establishments/1.json
