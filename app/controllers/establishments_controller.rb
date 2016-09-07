@@ -133,10 +133,12 @@ class EstablishmentsController < ApplicationController
 
     unless @establishment.profile_image
       @establishment.build_profile_image
+      @establishment.profile_image.processed = true
     end
 
     unless @establishment.banner_image
       @establishment.build_banner_image
+      @establishment.banner_image.processed = true
     end
 
     # set_service_times()

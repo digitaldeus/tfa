@@ -5,7 +5,8 @@ class Image < ActiveRecord::Base
 
   def enqueue_image url
     # This also creats object if there was no ID before
-    update_column :processed, false
+    self.processed = false
+    self.save!
 
     if url.present?
       logger.info 'Running async task to process image' 
