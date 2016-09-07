@@ -38,8 +38,8 @@ class EstablishmentProfileImage extends React.Component {
       imageSrc = this.props.profileImage.full;
     }
 
-    if(this.props.profileImage && this.props.profileImage.smedium){
-      imageSrc = this.props.profileImage.smedium
+    if(this.props.profileImage && this.props.profileImage.medium){
+      imageSrc = this.props.profileImage.medium
     }
 
     let profileImageCl = classNames({

@@ -15,7 +15,7 @@ class ProfileDescriptionInput extends EditableInput {
           </div>
           <div className="float-right">
             <i 
-              className="fa fa-pencil"
+              className="ci ci-edit"
               onClick={this.pencilClick.bind(this)}/>
           </div>
         </div>

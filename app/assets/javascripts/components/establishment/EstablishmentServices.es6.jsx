@@ -53,9 +53,9 @@ class EstablishmentServicesList extends React.Component {
       <div>
         <div className="service-header white-block-header clearfix">
           <div className="float-left">Service Times</div>
-          <div className="float-right">
+          <div className="float-right establishment-service-plus-container">
             <i 
-              className="fa fa-plus"
+              className="ci ci-plus ci-24 establishment-service-plus"
               onClick={this.plusClick.bind(this)}/>
           </div>
         </div>
@@ -157,7 +157,7 @@ class EstablishmentServicesEntry extends React.Component {
           <div className="columns shrink">
             <i
               onClick={this.pencilClick.bind(this)} 
-              className="fa fa-pencil"/>
+              className="ci ci-edit"/>
           </div>
         </div>
 

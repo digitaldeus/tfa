@@ -14,7 +14,7 @@ class ProfileImageUpload extends React.Component {
     return (
       <div>
         <div>
-          <i className="fa fa-picture-o image-change"
+          <i className="ci ci-add-photo ci-32 image-change"
             onClick={this.openReveal.bind(this)}/>
         </div>
 
@@ -22,10 +22,15 @@ class ProfileImageUpload extends React.Component {
           id={this.uniqId}
           ref={(c) => this.$reveal = $(c)}
           data-reveal>
+          <button className="close-button" type="button" data-close="">
+            <span>&times;</span>
+          </button>
           <h2>{this.props.title}</h2>
           <p class="lead">Please select image to upload(jpg, jpeg, png, gif).</p>
-          <ImageUploadModule
-            doneCallback={this.props.doneCallback}/>
+          <div className="profile-image-upload-box">
+            <ImageUploadModule
+              doneCallback={this.props.doneCallback}/>
+          </div>
         </div>
       </div>
     );

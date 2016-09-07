@@ -158,11 +158,10 @@
 						position: relative;
 					}
 
-					.fa-pencil {
+					.ci-edit {
 						position: absolute;
-						top: 0;
+						top: rem-calc(10);
 						right: 0;
-						line-height: rem-calc(40);
 					}
 				}
 			}
@@ -176,16 +175,12 @@
 
 			.icon-block {
 				@extend .white-block;
-				line-height: rem-calc(40);
-				font-size: rem-calc(14);
-				text-align: center;
 				height: 100%;
+				padding-top: rem-calc(4);
+				padding-left: rem-calc(21);
 
-				i {
-					display: inline-block;
-					margin-right: rem-calc(4);
-					font-size: rem-calc(20);
-				}
+				font-size: 0px;
+				line-height: 0px;
 			}
 		}
 	}

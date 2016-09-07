@@ -59,8 +59,6 @@ class ImageUploadModule extends React.Component {
     this.setState({
       uploadProgress: progress
     })
-
-    console.log(progress);
   }
 
   uploadDone(e, data) {
@@ -69,9 +67,26 @@ class ImageUploadModule extends React.Component {
       isDone: true
     });
 
-    this.props.doneCallback(this.state.presigned, data);
+    this.$preview.css('filter', 'none');
 
-    console.log('upload done');
+    this.props.doneCallback(this.state.presigned, data);
+  }
+
+  onInputChange() {
+    const files = this.$input.prop('files');
+    if(files && files[0]){
+      this.getPresigned();  
+
+      // Show currently selected image
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        this.$preview.attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(files[0]);
+    }
+    
   }
 
   render() {
@@ -85,26 +100,28 @@ class ImageUploadModule extends React.Component {
       "hidden": !this.state.isUploading && !this.state.isPresigning
     });
 
-    let doneSignCl = classNames({
-      "hidden": !this.state.isDone
+    let previewImgCl = classNames({
+      "image-upload-preview": true,
+      "hidden": !this.state.isUploading && !this.state.isPresigning && !this.state.isDone
     });
 
     return (
       <div className="image-upload-module">
-        <div className="row align-middle">
-          <div className="columns text-center image-upload-box">
-            <input
-              className={inputCl}
-              type="file"
-              onChange={this.getPresigned.bind(this)}
-              ref={(c) => this.$input = $(c)}/>
-            <div className={progressBarCl}>
-              <div className="progress-meter"
-                style={ { width: `${this.state.uploadProgress}%` } }>
-              </div>
-            </div>
-            <div className={doneSignCl}>
-              Done!
+        <div className="text-center image-upload-box">
+          <input
+            className={inputCl}
+            type="file"
+            onChange={this.onInputChange.bind(this)}
+            ref={(c) => this.$input = $(c)}/>
+          <div className={previewImgCl}>
+            <span className="image-upload-preview-image-helper"></span>
+            <img
+              className="image-upload-preview-image"
+              ref={(c) => this.$preview = $(c)}/>
+          </div>
+          <div className={progressBarCl}>
+            <div className="progress-meter"
+              style={ { width: `${this.state.uploadProgress}%` } }>
             </div>
           </div>
         </div>

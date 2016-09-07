@@ -9,8 +9,8 @@ class UserName extends React.Component {
   }
 
   onAttributeChange(key, value){
-    UserActions.updateUser({
-      id: this.state.user.id,
+    UserActions.requestUserProfileUpdate({
+      id: this.state.user.user_profile.id,
       name: value
     })
   }
@@ -19,7 +19,7 @@ class UserName extends React.Component {
     return (
       <div className="name-input-container">
         <UserNameInput
-          value={this.state.user.name || ""}
+          value={ getChild(this, 'state.user.user_profile.name') || ""}
           onAttributeChange={this.onAttributeChange.bind(this)}
           mode="show"
         />
@@ -41,7 +41,7 @@ class UserNameInput extends EditableInput {
       "hidden": this.state.mode == "show"
     });
     const pencilCl = classNames({
-      "fa fa-pencil": true,
+      "ci ci-edit": true,
       "hidden": this.state.mode == "edit"
     });
     return (

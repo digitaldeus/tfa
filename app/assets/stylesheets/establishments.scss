@@ -24,7 +24,7 @@
 		.location-input-container {
 			@extend .editable-input-container;
 
-			.fa-pencil {				
+			.ci-edit {				
 				position: absolute;
 				right: 0;
 				top: 0;
@@ -70,7 +70,11 @@
 			}
 		}
 
-		.fa-plus {
+		.establishment-service-plus-container {
+			line-height: 0;
+		}
+
+		.establishment-service-plus {
 			cursor: pointer;
 		}
 	}

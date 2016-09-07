@@ -19,7 +19,7 @@ var EstablishmentActions = {
   updateServiceTimes: function(est, serviceTimes) {
     const establishment = {
       id: est.id,
-      service_times_attributes: serviceTimes
+      service_times_attributes: [serviceTimes]
     }
 
     EstablishmentActions.updateEstablishment(establishment);

@@ -3,18 +3,12 @@
     .columns.small-12.medium-9
       .row.columns.cover-container
         .cover-picture
-          = image_tag "establishments/church-placeholder.jpg", width: "100%"
         .profile-picture
-          = image_tag "users/user-picture-placeholder.png", width: "100%"
         .profile-title
           = react_component "UserNameContainer"
         .cover-header
           .row.align-right
             .columns.small-6.no-pad-right.z-index-10
-              .profile-phone
-                %i.fa.fa-phone
-                %span.phone-text
-                  = react_component "UserPhoneContainer"
             .columns.small-4.medium-2.no-pad-sides.z-index-9
               .hollow.secondary.expanded.button.top-button
                 %i.fa.fa-home

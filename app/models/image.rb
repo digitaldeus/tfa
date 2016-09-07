@@ -4,10 +4,8 @@ class Image < ActiveRecord::Base
   mount_uploader :graphic, ImageUploader
 
   def enqueue_image url
-    # Create object if no Id is present
-    unless id.present?
-      save
-    end
+    # This also creats object if there was no ID before
+    update_column :processed, false
 
     if url.present?
       logger.info 'Running async task to process image' 
@@ -23,10 +21,11 @@ class Image < ActiveRecord::Base
 
     def perform(id, url)
       image = Image.find(id);
-      
+
       begin
         logger.info "Processing image from #{url}"
         image.remote_graphic_url = "https:#{url}"
+        image.processed = true
         image.save!
       rescue CarrierWave::DownloadError
         logger.info "Caught CarrierWave::DownloadError"
@@ -36,4 +35,5 @@ class Image < ActiveRecord::Base
       
     end
   end
+
 end

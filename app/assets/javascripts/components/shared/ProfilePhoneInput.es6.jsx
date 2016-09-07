@@ -9,7 +9,7 @@ class ProfilePhoneInput extends EditableInput {
       "hidden": this.state.mode == "show"
     });
     const pencilCl = classNames({
-      "fa fa-pencil": true,
+      "ci ci-edit": true,
       "hidden": this.state.mode == "edit"
     });
     return (

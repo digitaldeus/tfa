@@ -78,17 +78,17 @@ class EstablishmentsController < ApplicationController
           @establishment.profile_image.enqueue_image pia['url']
           @url = pia['url']
           # Respond with the same url that have been send here
-          format.json { render :profile_image_update }
+          format.json { render :show }
         end
 
         if bia and bia['url']
           @establishment.banner_image.enqueue_image bia['url']
           @url = bia['url']
-          format.json { render :banner_image_updated}
+          format.json { render :show }
         end
 
       else
-        # Okay we are updating establishment
+        # Okay we are updating establishment        
         if @establishment.update(establishment_params)
           format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
           format.json { render :show, status: :ok, location: @establishment }

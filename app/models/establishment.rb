@@ -5,11 +5,15 @@ class Establishment < ActiveRecord::Base
   has_many :staff, dependent: :destroy
   has_many :service_times, dependent: :destroy
 
-  has_one :profile_image, -> {where imageable_type: 'ProfileImage'},
+  has_one :profile_image, -> {where imageable_type: 'EstablishmentProfileImage'},
     class_name: :Image, foreign_key: :imageable_id, 
     foreign_type: :imageable_type, dependent: :destroy
-  has_one :banner_image, -> {where imageable_type: 'BannerImage'},
+  has_one :banner_image, -> {where imageable_type: 'EstablishmentBannerImage'},
     class_name: :Image, foreign_key: :imageable_id, 
+    foreign_type: :imageable_type, dependent: :destroy
+
+  has_many :photos, -> {where imageable_type: 'EstablishmentPhoto'},
+    class_name: :Image, foreign_key: :imageable_id,
     foreign_type: :imageable_type, dependent: :destroy
 
   accepts_nested_attributes_for :location
@@ -19,4 +23,5 @@ class Establishment < ActiveRecord::Base
 
   accepts_nested_attributes_for :banner_image
   accepts_nested_attributes_for :profile_image
+  accepts_nested_attributes_for :photos
 end

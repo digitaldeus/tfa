@@ -30,19 +30,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [50, 50]
   end
 
-  version :small do
-    process :resize_to_fit => [100, 100]
+  version :medium, if: :require_medium? do
+    process :resize_to_fill => [256, 256]
   end
-
-  version :smedium do
-    process :resize_to_fit => [250, 250]
-  end
-
-  version :medium do
-    process :resize_to_fit => [512, 512]
-  end
-
-  version :large do
+  
+  version :large, if: :require_large? do
     process :resize_to_fit => [1024, 1024]
   end
 
@@ -57,5 +49,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+
+  def require_medium? image
+    model.imageable_type =~ /ProfileImage/
+  end
+
+  def require_large? image
+    (model.imageable_type =~ /BannerImage/)
+  end
 
 end
