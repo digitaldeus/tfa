@@ -14,9 +14,10 @@ class UserStore extends FluxUtils.ReduceStore {
           isUpdating: true
         });
       case 'SET_USER':
+        const user = Object.assign({}, state.user, action.user);
         return Object.assign({}, state, {
           isUpdating: false,
-          user: action.user
+          user: user
         });
       // Action emitted on turbolinks if this store has
       // been included in gon.stores

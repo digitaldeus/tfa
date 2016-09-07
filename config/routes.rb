@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users, :user_profiles
 
   scope '/images' do
     get 'presigned', to: 'images#presigned'
