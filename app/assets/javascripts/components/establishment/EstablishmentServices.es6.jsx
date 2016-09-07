@@ -78,6 +78,13 @@ class EstablishmentServicesEntry extends React.Component {
 
   constructor(props) {
     super(props);
+
+    const service = props.service;
+
+    // Make null to empty string, need to figure out better way
+    if(!service.service_name)
+      service.service_name = ""
+
     this.state = {
       mode: "show",
       service_time: props.service
