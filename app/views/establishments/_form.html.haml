@@ -30,17 +30,11 @@
     = f.text_field :admin_email
   .field
     = f.fields_for :profile_image do |profile_image_form|
-      - if @establishment.profile_image.graphic
-        = image_tag @establishment.profile_image.graphic_url(:small)
-        %br/
       = profile_image_form.label :graphic, "Choose your profile image"
       = profile_image_form.file_field :graphic
       = profile_image_form.hidden_field :graphic_cache
   .field
     = f.fields_for :banner_image do |banner_image_form|
-      - if @establishment.banner_image.graphic
-        = image_tag @establishment.banner_image.graphic_url(:small)
-        %br/
       = banner_image_form.label :graphic, "Choose your banner image"
       = banner_image_form.file_field :graphic
       = banner_image_form.hidden_field :graphic_cache
