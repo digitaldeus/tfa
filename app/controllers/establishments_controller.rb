@@ -21,9 +21,6 @@ class EstablishmentsController < ApplicationController
     end    
   end
 
-  def image_uploaded
-  end
-
   # GET /establishments/new
   def new
     @establishment = Establishment.new
@@ -82,19 +79,20 @@ class EstablishmentsController < ApplicationController
           # Process profile image that have already been uploaded to S3
           # but awaits format processing
           @establishment.profile_image.enqueue_image pia['url']
-          @url = pia['url']
-          # Respond with the same url that have been send here
           format.json { render :show }
         end
 
         if bia and bia['url']
           @establishment.banner_image.enqueue_image bia['url']
-          @url = bia['url']
           format.json { render :show }
         end
 
+      # There is new photo url to add
+      elsif params['establishment']['new_photo_url']
+        @establishment.photos.build.enqueue_image params['establishment']['new_photo_url']
+        format.json { render :show }
+      # Okay we are updating establishment
       else
-        # Okay we are updating establishment        
         if @establishment.update(establishment_params)
           format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
           format.json { render :show, status: :ok, location: @establishment }

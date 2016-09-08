@@ -4,11 +4,7 @@ var EstablishmentActions = {
     EstablishmentAPI.get(establishment);
   },
 
-  updateEstablishment: function(establishment) {
-    dispatch({
-      type: 'REQUEST_ESTABLISHMENT_UPDATE'
-    });
-
+  updateEstablishment: function(establishment) {    
     EstablishmentAPI.update(establishment);
   },
 
@@ -47,6 +43,19 @@ var EstablishmentActions = {
         url: url
       }
     };
+
+    EstablishmentActions.updateEstablishment(establishment);
+  },
+
+  addPhoto: function(establishmentId, url) {
+    const establishment = {
+      id: establishmentId,
+      new_photo_url: url
+    };
+
+    dispatch({
+      type: 'ADD_UPLOADER',
+    });
 
     EstablishmentActions.updateEstablishment(establishment);
   }

@@ -53,11 +53,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   private
 
   def require_medium? image
-    model.imageable_type =~ /ProfileImage/
+    (model.imageable_type =~ /ProfileImage/) || (model.imageable_type =~ /Photo/)
   end
 
   def require_large? image
-    (model.imageable_type =~ /BannerImage/)
+    (model.imageable_type =~ /BannerImage/) 
   end
 
 end

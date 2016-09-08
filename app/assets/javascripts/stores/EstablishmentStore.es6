@@ -2,28 +2,42 @@ class EstablishmentStore extends FluxUtils.ReduceStore {
 
   getInitialState(){
     return {
-      isUpdating: false,
+      ui: {
+        photoUploaders: 6,
+      },
+      imagesLoadTimeout: null,
       establishment: {}
     };
   }
 
   reduce(state, action){
     switch(action.type){
-      case 'REQUEST_ESTABLISHMENT_UPDATE':
-        return Object.assign({}, state, {
-          isUpdating: true
-        });
       case 'SET_ESTABLISHMENT':
-        const establishment = Object.assign({}, state.establishment, action.establishment)
+        const establishment = Object.assign({}, state.establishment, action.establishment),
+          photos = establishment.photos || [],
+          photosLoading = photos.some((p) => !p.processed),
+          profileImageLoading = !establishment.profile_image.processed,
+          bannerImageLoading = !establishment.banner_image.processed;
 
-        // Request again if there is no profile or banner image
-        if(!establishment.profile_image || !establishment.banner_image){
-          setTimeout(() => { EstablishmentActions.getEstablishment(establishment) }, 3000);
+        let imagesLoadTimeout = null;
+        // In case establishment was received before timout
+        clearTimeout(state.imagesLoadTimeout);
+
+        // Are there some unprocessed images?
+        if(photosLoading || profileImageLoading || bannerImageLoading){
+          // Set 3 sec timout to load processing images
+          imagesLoadTimeout = setTimeout(() => { EstablishmentActions.getEstablishment(establishment) }, 3000);
         }
 
         return Object.assign({}, state, {
-          isUpdating: false,
-          establishment: establishment
+          establishment: establishment,
+          imagesLoadTimeout: imagesLoadTimeout
+        });
+      case 'ADD_UPLOADER':
+        return Object.assign({}, state, {
+          ui: {
+            photoUploaders: state.ui.photoUploaders + 1
+          }
         });
       // Action emitted on turbolinks if this store has
       // been included in gon.stores

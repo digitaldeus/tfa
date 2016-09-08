@@ -1,12 +1,10 @@
 class EstablishmentBannerImageC extends React.Component {
   static getStores() {
-    return [AppEstablishmentStore, AppImageStore];
+    return [AppEstablishmentStore];
   }
 
   static calculateState() {
-    return Object.assign({},
-      AppEstablishmentStore.getState(),
-      AppImageStore.getState());
+    return AppEstablishmentStore.getState();
   }
 
   uploadDone(presigned, data) {
@@ -33,11 +31,7 @@ class EstablishmentBannerImage extends React.Component {
   render() {
     let imageSrc = "https://placeholdit.imgix.net/~text?txtsize=25&bg=dddddd&txt=Loading+Image&w=1024&h=1024";
 
-    if(this.props.bannerImage && this.props.bannerImage.full){
-      imageSrc = this.props.bannerImage.full;
-    }
-
-    if(this.props.bannerImage && this.props.bannerImage.large){
+    if( getChild(this.props, 'bannerImage.processed') ){
       imageSrc = this.props.bannerImage.large;
     }
 

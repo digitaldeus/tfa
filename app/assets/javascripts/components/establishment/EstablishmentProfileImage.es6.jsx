@@ -1,12 +1,10 @@
 class EstablishmentProfileImageC extends React.Component {
   static getStores() {
-    return [AppEstablishmentStore, AppImageStore];
+    return [AppEstablishmentStore];
   }
 
   static calculateState() {
-    return Object.assign({},
-      AppEstablishmentStore.getState(),
-      AppImageStore.getState());
+    return AppEstablishmentStore.getState();
   }
 
   uploadDone(presigned, data) {
@@ -34,11 +32,7 @@ class EstablishmentProfileImage extends React.Component {
   render() {
     let imageSrc = "https://placeholdit.imgix.net/~text?txtsize=25&bg=dddddd&txt=Loading+Image&w=256&h=256";
 
-    if(this.props.profileImage && this.props.profileImage.full){
-      imageSrc = this.props.profileImage.full;
-    }
-
-    if(this.props.profileImage && this.props.profileImage.medium){
+    if( getChild(this.props, 'profileImage.processed')){
       imageSrc = this.props.profileImage.medium
     }
 

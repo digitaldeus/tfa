@@ -68,7 +68,7 @@ class ImageUploadModule extends React.Component {
     });
 
     // Set relative height of done sign
-    const height = this.$doneContainer.height();
+    const height = this.$container.height();
     this.$doneSign.css('font-size', `${height*2/3}px`)
 
     this.props.doneCallback(this.state.presigned, data);
@@ -93,12 +93,12 @@ class ImageUploadModule extends React.Component {
 
   render() {
     let inputCl = classNames({
-      "image-upload-file-input": true,
+      "image-upload-button secondary hollow button": true,
       "hidden": this.state.isUploading || this.state.isPresigning || this.state.isDone
     });
 
     let progressBarCl = classNames({
-      "progress": true,
+      "progress image-upload-progress": true,
       "hidden": !this.state.isUploading && !this.state.isPresigning
     });
 
@@ -108,22 +108,24 @@ class ImageUploadModule extends React.Component {
     });
 
     let doneCl = classNames({
-      "image-upload-done": true,
+      "fa fa-check-circle-o image-upload-done-sign": true,
       "hidden": !this.state.isDone
     });
 
     return (
       <div className="image-upload-module">
-        <div className="text-center image-upload-box">
-          <input
-            className={inputCl}
-            type="file"
-            onChange={this.onInputChange.bind(this)}
-            ref={(c) => this.$input = $(c)}/>
+        <div className="text-center image-upload-box"
+          ref={(c) => this.$container = $(c)}>
+          <div className={inputCl}>
+            <span>Upload</span>
+            <input className="image-upload-input"
+              type="file"
+              onChange={this.onInputChange.bind(this)}
+              ref={(c) => this.$input = $(c)}/>
+          </div>
           <div className={previewImgCl}>
             <span className="image-upload-preview-image-helper"></span>
-            <img
-              className="image-upload-preview-image"
+            <img className="image-upload-preview-image"
               ref={(c) => this.$preview = $(c)}/>
           </div>
           <div className={progressBarCl}>
@@ -131,13 +133,8 @@ class ImageUploadModule extends React.Component {
               style={ { width: `${this.state.uploadProgress}%` } }>
             </div>
           </div>
-          <div 
-            className={doneCl}
-            ref={(c) => this.$doneContainer = $(c)}>
-            <i 
-              className="fa fa-check-circle-o image-upload-done-center"
-              ref={(c) => this.$doneSign = $(c)}></i> 
-          </div>
+          <i className={doneCl}
+            ref={(c) => this.$doneSign = $(c)}></i> 
         </div>
       </div>
     );
