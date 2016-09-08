@@ -67,7 +67,9 @@ class ImageUploadModule extends React.Component {
       isDone: true
     });
 
-    this.$preview.css('filter', 'none');
+    // Set relative height of done sign
+    const height = this.$doneContainer.height();
+    this.$doneSign.css('font-size', `${height*2/3}px`)
 
     this.props.doneCallback(this.state.presigned, data);
   }
@@ -105,6 +107,11 @@ class ImageUploadModule extends React.Component {
       "hidden": !this.state.isUploading && !this.state.isPresigning && !this.state.isDone
     });
 
+    let doneCl = classNames({
+      "image-upload-done": true,
+      "hidden": !this.state.isDone
+    });
+
     return (
       <div className="image-upload-module">
         <div className="text-center image-upload-box">
@@ -123,6 +130,13 @@ class ImageUploadModule extends React.Component {
             <div className="progress-meter"
               style={ { width: `${this.state.uploadProgress}%` } }>
             </div>
+          </div>
+          <div 
+            className={doneCl}
+            ref={(c) => this.$doneContainer = $(c)}>
+            <i 
+              className="fa fa-check-circle-o image-upload-done-center"
+              ref={(c) => this.$doneSign = $(c)}></i> 
           </div>
         </div>
       </div>

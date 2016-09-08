@@ -33,8 +33,7 @@
   max-height: 100%;
   max-width: 100%;
 
-  white-space: nowarp;
-  text-align: center;
+  z-index: 0;
 }
 
 .image-upload-preview-image-helper {
@@ -46,4 +45,17 @@
 .image-upload-preview-image {
 	vertical-align: middle;
 	filter: opacity(50%);
+}
+
+.image-upload-done {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	// To make it above preview
+	position: relative;
+}
+
+.image-upload-done-center {
+	color: $our-green;
 }

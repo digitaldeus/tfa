@@ -32,7 +32,7 @@ class EstablishmentProfileImageC extends React.Component {
 class EstablishmentProfileImage extends React.Component {
 
   render() {
-    let imageSrc = "http://placehold.it/420x300/DDD?text=Image";
+    let imageSrc = "https://placeholdit.imgix.net/~text?txtsize=25&bg=dddddd&txt=Loading+Image&w=256&h=256";
 
     if(this.props.profileImage && this.props.profileImage.full){
       imageSrc = this.props.profileImage.full;

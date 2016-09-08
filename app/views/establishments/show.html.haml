@@ -62,29 +62,6 @@
       .widget-container
         %img{ src: "http://placehold.it/420x150/DDD?text=Blogs", width: "100%" }
 
-
-%p
-  %strong Description:
-  %br
-- if @establishment.description.present?
-  = @establishment.description.html_safe
-
-- if @establishment.admin_phone.present?
-  %p
-    %strong Admin phone:
-    %br
-    = @establishment.admin_phone
-- if @establishment.email.present? 
-  %p
-    %strong Email:
-    %br
-    = @establishment.email
-- if @establishment.admin_email.present? 
-  %p
-    %strong Admin email:
-    %br
-    = @establishment.admin_email
-
 %div
   = render "social/social_link_list"
 

@@ -31,7 +31,7 @@ class EstablishmentBannerImageC extends React.Component {
 
 class EstablishmentBannerImage extends React.Component {
   render() {
-    let imageSrc = "http://placehold.it/1000x500/DDD?text=Banner";
+    let imageSrc = "https://placeholdit.imgix.net/~text?txtsize=25&bg=dddddd&txt=Loading+Image&w=1024&h=1024";
 
     if(this.props.bannerImage && this.props.bannerImage.full){
       imageSrc = this.props.bannerImage.full;

@@ -11,7 +11,19 @@ const EstablishmentAPI = {
     .then(json => {
       EstablishmentActions.setEstablishment(json);
     });
-  }
+  },
+
+  get: (establishment) => {
+    BaseAPI.fetch(`/establishments/${establishment.id}`, {
+      method: 'GET'
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      EstablishmentActions.setEstablishment(json);
+    });
+  },
 
 }
 

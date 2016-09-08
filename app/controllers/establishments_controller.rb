@@ -11,8 +11,14 @@ class EstablishmentsController < ApplicationController
   # GET /establishments/1
   # GET /establishments/1.json
   def show
-    gon.stores = ["AppEstablishmentStore"]
-    gon.jbuilder
+    respond_to do |format|
+      format.html do
+        gon.stores = ["AppEstablishmentStore"] 
+        gon.jbuilder  
+      end
+
+      format.json { render :show }
+    end    
   end
 
   def image_uploaded

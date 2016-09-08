@@ -1,6 +1,10 @@
 var EstablishmentActions = {
 
-  updateEstablishment: function(establishment){
+  getEstablishment: function(establishment) {
+    EstablishmentAPI.get(establishment);
+  },
+
+  updateEstablishment: function(establishment) {
     dispatch({
       type: 'REQUEST_ESTABLISHMENT_UPDATE'
     });
@@ -8,7 +12,7 @@ var EstablishmentActions = {
     EstablishmentAPI.update(establishment);
   },
 
-  setEstablishment: function(establishment){
+  setEstablishment: function(establishment) {
 
     dispatch({
       type: 'SET_ESTABLISHMENT',

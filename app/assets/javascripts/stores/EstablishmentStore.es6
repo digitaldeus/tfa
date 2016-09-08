@@ -15,6 +15,12 @@ class EstablishmentStore extends FluxUtils.ReduceStore {
         });
       case 'SET_ESTABLISHMENT':
         const establishment = Object.assign({}, state.establishment, action.establishment)
+
+        // Request again if there is no profile or banner image
+        if(!establishment.profile_image || !establishment.banner_image){
+          setTimeout(() => { EstablishmentActions.getEstablishment(establishment) }, 3000);
+        }
+
         return Object.assign({}, state, {
           isUpdating: false,
           establishment: establishment
