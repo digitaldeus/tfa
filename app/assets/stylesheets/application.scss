@@ -12,13 +12,14 @@
  *
  */
 
+/*
+ *= require photoswipe
+ */
+
 @import "toastr/toastr.scss";
 @import "foundation_and_overrides";
 @import "nprogress";
 @import "scaffolds";
-// Photoswipe gallery css
-@import "photoswipe/dist/photoswipe.css";
-@import "photoswipe/dist/default-skin/default-skin.css";
 
 // Font awesome integration
 @import "font-awesome-sprockets";

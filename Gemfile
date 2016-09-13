@@ -102,10 +102,8 @@ gem 'httparty'
 # loading bar
 gem 'nprogress-rails'
 
-# direct file upload
-# group :assets do
-#   gem 'jquery-fileupload-rails'
-# end
+# photo gallery
+gem 'photoswipe-rails'
 
 # include react
 gem 'react-rails'

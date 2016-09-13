@@ -325,6 +325,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.18.4)
+    photoswipe-rails (4.1.1)
     pkg-config (1.1.7)
     puma (3.4.0)
     rack (1.6.4)
@@ -475,6 +476,7 @@ DEPENDENCIES
   omniauth-linkedin
   paperclip
   pg (~> 0.15)
+  photoswipe-rails
   puma
   rack-livereload
   rack-timeout
