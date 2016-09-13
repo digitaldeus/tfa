@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   
   resources :establishments, shallow: true do
+    member do
+      delete :destroy_photo
+    end
+    
     resources :staff do
       member do
         get 'image'

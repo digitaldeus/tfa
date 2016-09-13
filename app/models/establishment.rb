@@ -23,5 +23,5 @@ class Establishment < ActiveRecord::Base
 
   accepts_nested_attributes_for :banner_image
   accepts_nested_attributes_for :profile_image
-  accepts_nested_attributes_for :photos, allow_destroy: true
+  accepts_nested_attributes_for :photos
 end

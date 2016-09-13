@@ -121,6 +121,31 @@ class EstablishmentsController < ApplicationController
     end
   end
 
+  # Destroys photo if it belongs to the establishment,
+  # graphic removal is done on background.
+  def destroy_photo
+    @establishment = Establishment.find(params[:id])
+
+    # If photo to destory belongs to this establishment
+    if @establishment.photos.any? { |p| p.id == params[:photo_id] }
+      # Nullify image so we can send correct version of establishment
+      # back to frontend
+      image = Image.find(params[:photo_id])
+      image.imageable_type = nil
+      image.imageable_id = nil
+      image.save
+
+      @establishment.reload
+
+      # Now remove image
+      image.enqueue_removal
+      respond_to do |format|
+        format.json { render :show }
+      end
+    end
+
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_establishment
@@ -165,7 +190,6 @@ class EstablishmentsController < ApplicationController
             profile_image_attributes: [:id, :graphic, :graphic_cache],
             banner_image_attributes: [:id, :graphic, :graphic_cache],
             service_times_attributes: [:id, :start_time, :day, :service_name, :_destroy],
-            photos_attributes: [:id, :_destroy]
            )
   end
 

@@ -25,5 +25,19 @@ const EstablishmentAPI = {
     });
   },
 
+  deletePhoto: (establishmentId, photoId) => {
+    BaseAPI.fetch(`/establishments/${establishmentId}/destroy_photo`, {
+      method: 'DELETE',
+      body: JSON.stringify({ photo_id: photoId })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      EstablishmentActions.setEstablishment(json);
+    });
+
+  },
+
 }
 

@@ -3,6 +3,11 @@ class Image < ActiveRecord::Base
 
   mount_uploader :graphic, ImageUploader
 
+  def enqueue_removal
+    logger.info 'Running async task to destroy image'
+    RemovalWorker.perform_async(self.id)
+  end
+
   def enqueue_image url
     # This also creats object if there was no ID before
     self.processed = false
@@ -13,6 +18,15 @@ class Image < ActiveRecord::Base
       ImageWorker.perform_async(id, url)
     else
       logger.info 'Not running image async task but model saved'
+    end
+  end
+
+  class RemovalWorker
+    include Sidekiq::Worker
+
+    def perform(id)
+      image = Image.find(id)
+      image.destroy
     end
   end
 
