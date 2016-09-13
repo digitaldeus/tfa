@@ -58,5 +58,19 @@ var EstablishmentActions = {
     });
 
     EstablishmentActions.updateEstablishment(establishment);
+  },
+
+  deletePhoto: function(establishmentId, photoId) {
+    const establishment = {
+      id: establishmentId,
+      photos_attributes: [
+        {
+          id: photoId,
+          _destroy: true
+        }
+      ]
+    };
+
+    EstablishmentActions.updateEstablishment(establishment);
   }
 }

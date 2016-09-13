@@ -164,7 +164,8 @@ class EstablishmentsController < ApplicationController
             social_link_attributes: [:id, :facebook, :twitter, :instagram, :yelp, :google_plus, :youtube],
             profile_image_attributes: [:id, :graphic, :graphic_cache],
             banner_image_attributes: [:id, :graphic, :graphic_cache],
-            service_times_attributes: [:id, :start_time, :day, :service_name, :_destroy]
+            service_times_attributes: [:id, :start_time, :day, :service_name, :_destroy],
+            photos_attributes: [:id, :_destroy]
            )
   end
 

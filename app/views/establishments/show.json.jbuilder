@@ -16,7 +16,7 @@ json.banner_image do
 end
 
 json.photos @establishment.photos do |photo|
-	json.extract! photo, :id, :processed 
+	json.extract! photo, :id, :processed, :width, :height 
 	json.medium photo.graphic.medium.url
-	json.full photo.graphic.url
+	json.large photo.graphic.large.url
 end

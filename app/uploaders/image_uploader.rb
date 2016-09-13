@@ -24,6 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   process :set_content_type
+  process :set_dimensions
 
   # Create different versions of your uploaded files:
   version :thumb do
@@ -52,12 +53,18 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   private
 
+  def set_dimensions
+    if file && model
+      model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
+    end
+  end
+
   def require_medium? image
     (model.imageable_type =~ /ProfileImage/) || (model.imageable_type =~ /Photo/)
   end
 
   def require_large? image
-    (model.imageable_type =~ /BannerImage/) 
+    (model.imageable_type =~ /BannerImage/) || (model.imageable_type =~ /Photo/)
   end
 
 end

@@ -30,6 +30,8 @@
 //= require jquery.ui.widget
 //= require blueimp-file-upload/js/jquery.iframe-transport
 //= require blueimp-file-upload/js/jquery.fileupload
+//= require photoswipe/dist/photoswipe
+//= require photoswipe/dist/photoswipe-ui-default.min
 
 // First load all the dependencies from our javascripts
 //= require utils/BaseAPI

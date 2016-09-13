@@ -23,6 +23,7 @@
     "fetch": "~1.0.0",
     "es6-promise": "~3.2.2",
     "classnames": "~2.2.5",
-    "blueimp-file-upload": "jquery-file-upload#~9.12.5"
+    "blueimp-file-upload": "jquery-file-upload#~9.12.5",
+    "photoswipe": "~4.1.1"
   }
 }

@@ -86,8 +86,23 @@
 
 .establishment-photos-gallery-column {
 	padding: rem-calc(2) rem-calc(2);
+	position: relative;
+
+	&:hover {
+		.establishment-photos-remove {
+			display: inline;
+		}
+	}
 }
 
 .establishment-photos-gallery-row {
 	margin: 0 !important;
+}
+
+.establishment-photos-remove {
+	color: $alert-color;
+	position: absolute;
+	top: rem-calc(12);
+	right: rem-calc(12);
+	display: none;
 }
