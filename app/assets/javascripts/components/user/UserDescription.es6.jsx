@@ -10,7 +10,7 @@ class UserDescription extends React.Component {
 
   onAttributeChange(key, value){
     UserActions.requestUserProfileUpdate({
-      id: this.state.user.user_profile.id,
+      id: this.state.user_profile.id,
       description: value
     })
   }
@@ -19,7 +19,7 @@ class UserDescription extends React.Component {
     return (
       <div className="about-container">
         <ProfileDescriptionInput
-          value={ getChild(this, 'state.user.user_profile.description') || ""}
+          value={ getChild(this, 'state.user_profile.description') || ""}
           header="About Me"
           onAttributeChange={this.onAttributeChange.bind(this)}
           mode="show"

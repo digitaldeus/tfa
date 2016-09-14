@@ -33,17 +33,14 @@
 
 	.editable-input-container {
 		position: relative;
-
-		.input-actions {
-			position: absolute;
-			right: 0;
-			line-height: normal;
-		}
 	}
 
 	// Add shadows to input actions when editing
 	.input-actions {
 		@include container-shadow();
+		position: absolute;
+		right: 0;
+		line-height: normal;
 		
 		.button {
 			margin: 0;
@@ -64,145 +61,165 @@
 		}
 	}
 
-	.cover-container {
+	.banner-image-container {
+		height: rem-calc(200);
+		overflow: hidden;
 		position: relative;
 
-		.banner-image-container {
-			height: rem-calc(200);
-			overflow: hidden;
-			position: relative;
-
-			.banner-image {
-				filter: opacity(60%);
-			}
-
-			.image-change {
-				position: absolute;
-				right: rem-calc(12);
-				bottom: rem-calc(12);
-			}
-		}	
-
-		.profile-image-container {
-			position: absolute;
-			z-index: 11;
-			bottom: rem-calc(16);
-			left: rem-calc(32);
-
-			.image-change {
-				position: absolute;
-				right: 0;
-				bottom: 0;
-			}
+		.banner-image {
+			filter: opacity(60%);
 		}
 
-		.profile-image {
-			border-radius: 50%;
-			overflow: hidden;
-			width: rem-calc(150);
-			height: rem-calc(150);
-			background-color: white;
-			@include container-shadow();
-
-			img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.masked {
-				filter: opacity(50%);
-			}
-		}
-
-		.profile-image-progress-bar {
+		.image-change {
 			position: absolute;
-			top: rem-calc(150/2 - 16/2);
-			left: 0;
+			right: rem-calc(12);
+			bottom: rem-calc(12);
+		}
+	}	
+
+	.profile-image-container {
+		position: absolute;
+		z-index: 11;
+		bottom: rem-calc(16);
+		left: rem-calc(32);
+
+		.image-change {
+			position: absolute;
 			right: 0;
-			@include container-shadow();			
+			bottom: 0;
+		}
+	}
+
+	.profile-image {
+		border-radius: 50%;
+		overflow: hidden;
+		width: rem-calc(150);
+		height: rem-calc(150);
+		background-color: white;
+		@include container-shadow();
+
+		img {
+			width: 100%;
+			height: 100%;
 		}
 
-		.profile-title {
+		.masked {
+			filter: opacity(50%);
+		}
+	}
+
+	.profile-title {
+		position: absolute;
+		z-index: 12;
+		bottom: rem-calc(48);
+		left: rem-calc(204);
+		font-size: rem-calc(24);
+		font-weight: bold;
+		color: white;
+	}
+
+	.cover-container {
+		position: relative;
+	}
+
+	.cover-header {
+		height: rem-calc(40);
+	}
+
+	.cover-button {
+		@extend .white-block;
+		line-height: rem-calc(16);
+		font-size: rem-calc(14);
+		height: 100%;
+		border: none !important;
+	}
+
+	.icon-block {
+		@extend .white-block;
+		height: 100%;
+		padding-top: rem-calc(4);
+		padding-left: rem-calc(21);
+
+		font-size: 0px;
+		line-height: 0px;
+	}
+
+	.profile-phone {
+		@include container-shadow();
+		background-color: white;
+		line-height: rem-calc(40);
+		text-align: right;
+
+		.phone-text {
+			display: inline-block;
+			margin: 0 1rem;
+		}
+	}
+
+	.phone-input-container {
+		@extend .editable-input-container;
+		padding-right: rem-calc(32);
+
+		input {
+			padding: rem-calc(2);
+			height: auto;
+		}
+
+		.input-with-actions {
+			position: relative;
+		}
+
+		.ci-edit {
 			position: absolute;
-			z-index: 12;
-			bottom: rem-calc(48);
-			left: rem-calc(204);
-			font-size: rem-calc(24);
-			font-weight: bold;
-			color: white;
-		}
-
-		.cover-header {
-			height: rem-calc(40);
-
-			.profile-phone {
-				@include container-shadow();
-				background-color: white;
-				line-height: rem-calc(40);
-				text-align: right;
-
-				.phone-text {
-					display: inline-block;
-					margin: 0 1rem;
-				}
-
-				.phone-input-container {
-					@extend .editable-input-container;
-					padding-right: rem-calc(32);
-
-					input {
-						padding: rem-calc(2);
-						height: auto;
-					}
-
-					.input-with-actions {
-						position: relative;
-					}
-
-					.ci-edit {
-						position: absolute;
-						top: rem-calc(10);
-						right: 0;
-					}
-				}
-			}
-
-			.top-button {
-				@extend .white-block;
-				line-height: rem-calc(16);
-				font-size: rem-calc(14);
-				height: 100%;
-			}
-
-			.icon-block {
-				@extend .white-block;
-				height: 100%;
-				padding-top: rem-calc(4);
-				padding-left: rem-calc(21);
-
-				font-size: 0px;
-				line-height: 0px;
-			}
+			top: rem-calc(10);
+			right: 0;
 		}
 	}
 
 	.about-container {
 		margin-top: rem-calc(16);
 
-		.about-content {
-			@extend .white-block;
-
-			font-size: rem-calc(12);
-			padding: rem-calc(16);
-		}
-
 		textarea {
 			margin: 0;
 		}
 	}
 
+	.about-content {
+		@extend .white-block;
+
+		font-size: rem-calc(12);
+		padding: rem-calc(16);
+	}
+
 	.widget-container {
 		@include container-shadow();
 		margin-top: 1rem;
+	}
+
+	.photos-uploader-column {
+		padding: rem-calc(2) rem-calc(2);
+	}
+
+	.photos-gallery-column {
+		padding: rem-calc(2) rem-calc(2);
+		position: relative;
+
+		&:hover {
+			.establishment-photos-remove {
+				display: inline;
+			}
+		}
+	}
+
+	.photos-gallery-row {
+		margin: 0 !important;
+	}
+
+	.photos-remove {
+		color: $alert-color;
+		position: absolute;
+		top: rem-calc(12);
+		right: rem-calc(12);
+		display: none;
 	}
 }

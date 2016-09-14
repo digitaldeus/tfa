@@ -34,7 +34,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, :user_profiles
+  resources :users
+  resources :user_profiles do
+    member do
+      post :add_photo
+      post :create_profile_image
+      post :create_banner_image
+      delete :destroy_photo
+    end
+  end
 
   scope '/images' do
     get 'presigned', to: 'images#presigned'

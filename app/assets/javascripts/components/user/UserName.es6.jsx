@@ -10,7 +10,7 @@ class UserName extends React.Component {
 
   onAttributeChange(key, value){
     UserActions.requestUserProfileUpdate({
-      id: this.state.user.user_profile.id,
+      id: this.state.user_profile.id,
       name: value
     })
   }
@@ -19,7 +19,7 @@ class UserName extends React.Component {
     return (
       <div className="name-input-container">
         <UserNameInput
-          value={ getChild(this, 'state.user.user_profile.name') || ""}
+          value={ getChild(this, 'state.user_profile.name') || ""}
           onAttributeChange={this.onAttributeChange.bind(this)}
           mode="show"
         />

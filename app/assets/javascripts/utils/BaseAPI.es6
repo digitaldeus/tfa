@@ -13,6 +13,10 @@ const BaseAPI = {
     options.headers = headers;
     options.credentials = 'same-origin';
 
+    // Delete body on GET requests
+    if(options.method == 'GET')
+      options.body = null;
+
     return fetch(route, options);
   }
 }

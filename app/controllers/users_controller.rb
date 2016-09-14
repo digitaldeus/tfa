@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-
+		# We are counting with at least nil images
+		@user.user_profile.build_images
 		gon.stores = ["AppUserStore"]
 		gon.jbuilder
 	end

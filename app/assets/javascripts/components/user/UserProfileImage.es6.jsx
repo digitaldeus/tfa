@@ -1,24 +1,24 @@
-class EstablishmentProfileImageC extends React.Component {
+class UserProfileImageC extends React.Component {
   static getStores() {
-    return [AppEstablishmentStore];
+    return [AppUserStore];
   }
 
   static calculateState() {
-    return AppEstablishmentStore.getState();
+    return AppUserStore.getState();
   }
 
   uploadDone(presigned, data) {
     const key = $(data.jqXHR.responseXML).find('Key').text(),
       url = '//' + presigned.host + '/' + key;
 
-    EstablishmentActions.updateProfileImage(this.state.establishment.id, url);
+    UserActions.createProfileImage(this.state.user_profile.id, url);
   }
 
   render() {
     return (
       <div className="establishment-profile-image-container">
-        <EstablishmentProfileImage
-          profileImage={this.state.establishment.profile_image}/>
+        <UserProfileImage
+          profileImage={this.state.user_profile.profile_image}/>
         <ProfileImageUpload
           doneCallback={this.uploadDone.bind(this)}
           title="Profile image upload"/>
@@ -27,7 +27,7 @@ class EstablishmentProfileImageC extends React.Component {
   }
 }
 
-class EstablishmentProfileImage extends React.Component {
+class UserProfileImage extends React.Component {
 
   render() {
     let imageSrc = "https://placeholdit.imgix.net/~text?txtsize=25&bg=dddddd&txt=Loading+Image&w=256&h=256";
@@ -45,4 +45,4 @@ class EstablishmentProfileImage extends React.Component {
 }
 
 
-const EstablishmentProfileImageContainer = FluxUtils.Container.create(EstablishmentProfileImageC);
+const UserProfileImageContainer = FluxUtils.Container.create(UserProfileImageC);

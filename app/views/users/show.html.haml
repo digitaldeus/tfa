@@ -2,26 +2,26 @@
   .row.align-center
     .columns.small-12.medium-9
       .row.columns.cover-container
-        .cover-picture
-        .profile-picture
+        .banner-image-container
+          = react_component "UserBannerImageContainer"
+        .profile-image-container
+          = react_component "UserProfileImageContainer"
         .profile-title
           = react_component "UserNameContainer"
         .cover-header
           .row.align-right
-            .columns.small-6.no-pad-right.z-index-10
-            .columns.small-4.medium-2.no-pad-sides.z-index-9
-              .hollow.secondary.expanded.button.top-button
-                %i.fa.fa-home
-                Join 
+            .columns.small-6.medium-8.no-pad-right.z-index-10
+              .cover-info
+                %i.ci.ci-home.ci-12
+                In random church for 2 year
             .columns.small-4.medium-2.no-pad-sides.z-index-8
-              .hollow.secondary.expanded.button.top-button
-                %i.fa.fa-bookmark-o
-                Follow
+              .hollow.secondary.expanded.button.cover-button
+                %i.ci.ci-bookmark.ci-12
+                Add Friend
             .columns.small-4.medium-2.no-pad-left
               .icon-block
-                %i.fa.fa-share-square-o
-                %i.fa.fa-envelope-o
-                %i.fa.fa-usd
+                %i.ci.ci-sharing.ci-32
+                %i.ci.ci-messaging.ci-32
       .row
         .columns.small-12.medium-6
           .widget-container
@@ -34,7 +34,7 @@
           = react_component "UserDescriptionContainer"
             
           .widget-container
-            %img{ src: "http://placehold.it/420x400/DDD?text=photos", width: "100%" }
+            = react_component "UserPhotosContainer"
           .widget-container
             %img{ src: "http://placehold.it/420x200/DDD?text=events", width: "100%" }
 
