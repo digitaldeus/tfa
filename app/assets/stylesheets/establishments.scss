@@ -1,9 +1,81 @@
 // Place all the styles related to the Establishments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .establishment-register {
   .hero-container {
     background-image: audio_url('landing/signin-hero.png');
   }
+}
+
+.establishment-show {
+
+	.editable-input-container {
+		position: relative;
+
+		.input-actions {
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	.map-container {
+		margin-top: rem-calc(16);
+
+		.location-input-container {
+			@extend .editable-input-container;
+
+			.ci-edit {				
+				position: absolute;
+				right: 0;
+				top: 0;
+				line-height: rem-calc(24);
+			}
+
+			.input-actions {
+				z-index: 2;
+			}
+		}
+
+		.map-header {
+			@extend .white-block;
+			text-align: center;
+			font-weight: bold;
+			padding: rem-calc(10) rem-calc(16);
+		}
+
+		.google-map {
+			height: rem-calc(256);
+		}
+	}
+
+	.service-container {
+		.service-entry {
+			@extend .white-block;
+			position: relative;
+			padding: rem-calc(5) rem-calc(16);
+			font-size: rem-calc(14);
+
+			.service-day {
+				font-weight: bold;
+			}
+
+			.service-type {
+				font-weight: bold;
+			}
+
+			.input-actions {
+				position: absolute;
+				top: rem-calc(-34);
+				right: 0;
+			}
+		}
+
+		.establishment-service-plus-container {
+			line-height: 0;
+		}
+
+		.establishment-service-plus {
+			cursor: pointer;
+		}
+	}
 }

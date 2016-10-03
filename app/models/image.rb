@@ -3,33 +3,52 @@ class Image < ActiveRecord::Base
 
   mount_uploader :graphic, ImageUploader
 
-  after_save :enqueue_image
+  def enqueue_removal
+    logger.info 'Running async task to destroy image'
+    RemovalWorker.perform_async(self.id)
+  end
 
-  def enqueue_image
-    if key.present? && self.graphic.present?
-      logger.debug 'Running async task to process image' 
-      ImageWorker.perform_async(id, key) if key.present?
+  def enqueue_image url
+    # This also creats object if there was no ID before
+    self.processed = false
+    self.save!
+
+    if url.present?
+      logger.info 'Running async task to process image' 
+      ImageWorker.perform_async(id, url)
     else
-      logger.debug 'Not running image async task but model saved'
+      logger.info 'Not running image async task but model saved'
+    end
+  end
+
+  class RemovalWorker
+    include Sidekiq::Worker
+
+    def perform(id)
+      image = Image.find(id)
+      image.destroy
     end
   end
 
   class ImageWorker
     include Sidekiq::Worker
-    sidekiq_options :retry => 5
+    sidekiq_options :retry => false
 
-    def perform(id, key)
-      image = Image.find(id)
+    def perform(id, url)
+      image = Image.find(id);
 
-      unless image.processed
-        # Need a signal to keep from firing again before we have finished processing
-        image.update_column(:processed, false)
-        image.key = key
-        image.remote_graphic_url = image.graphic.direct_fog_url(with_path: true)
-        logger.debug "Processing images for ${image.remote_graphic_url}"
+      begin
+        logger.info "Processing image from #{url}"
+        image.remote_graphic_url = "https:#{url}"
+        image.processed = true
         image.save!
-        image.update_column(:processed, true)
+      rescue CarrierWave::DownloadError
+        logger.info "Caught CarrierWave::DownloadError"
+      rescue CarrierWave::IntegrityError
+        logger.info "Caught CarrierWave::IntegrityError"
       end
+      
     end
   end
+
 end

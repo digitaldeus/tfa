@@ -34,3 +34,6 @@ public/uploads
 /node_modules
 
 npm-debug.log
+
+# Redis dump files
+*.rdb

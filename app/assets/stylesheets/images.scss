@@ -1,3 +1,86 @@
-// Place all the styles related to the Images controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.image-upload-module {
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+}
+
+.image-upload-box {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	border: 2px dashed $medium-gray;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.image-upload-button {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.image-upload-input {
+	position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.profile-image-upload-box {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.image-upload-preview {
+	position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  /* Maintain aspect ratio */
+  max-height: 100%;
+  max-width: 100%;
+
+  z-index: 0;
+}
+
+.image-upload-preview-image-helper {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.image-upload-preview-image {
+	vertical-align: middle;
+	filter: opacity(50%);
+}
+
+.image-upload-centered {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	// To make it above preview
+	position: relative;
+}
+
+.image-upload-progress {
+	position: relative;
+	width: 100%;
+}
+
+.image-upload-done-sign {
+	color: $our-green;
+	z-index: 1;
+}

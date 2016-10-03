@@ -1,7 +1,7 @@
 class EstablishmentsController < ApplicationController
-  before_action :set_establishment, only: [:show, :edit, :destroy]
+  before_action :set_establishment, only: [:show, :edit, :destroy, :update]
   before_action :set_google_api_key, only: [:new, :edit]
-
+  
   # GET /establishments
   # GET /establishments.json
   def index
@@ -11,6 +11,14 @@ class EstablishmentsController < ApplicationController
   # GET /establishments/1
   # GET /establishments/1.json
   def show
+    respond_to do |format|
+      format.html do
+        gon.stores = ["AppEstablishmentStore"] 
+        gon.jbuilder  
+      end
+
+      format.json { render :show }
+    end    
   end
 
   # GET /establishments/new
@@ -60,29 +68,48 @@ class EstablishmentsController < ApplicationController
   # PATCH/PUT /establishments/1
   # PATCH/PUT /establishments/1.json
   def update
-    @establishment = Establishment.find(params[:id])
+    pia = params['establishment']['profile_image_attributes']
+    bia = params['establishment']['banner_image_attributes']
 
     respond_to do |format|
-      # prevent errors with blank graphic image
-      pia = params['establishment']['profile_image_attributes']
-      if pia and (pia['graphic'].blank? and pia['graphic_cache'].blank?)
-        params['establishment'].delete 'profile_image_attributes'
-      end
+      # Are we updating pictures or establishment itself?
+      if pia || bia
+        # Updating one of the pictures
+        if pia and pia['url']
+          # Process profile image that have already been uploaded to S3
+          # but awaits format processing
+          @establishment.profile_image.enqueue_image pia['url']
+          format.json { render :show }
+        end
 
-      bia = params['establishment']['banner_image_attributes']
-      if bia and (bia['graphic'].blank? and bia['graphic_cache'].blank?)
-        params['establishment'].delete 'banner_image_attributes'
-      end
+        if bia and bia['url']
+          @establishment.banner_image.enqueue_image bia['url']
+          format.json { render :show }
+        end
 
-      if @establishment.update(establishment_params)
-        format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @establishment }
+      # There is new photo url to add
+      elsif params['establishment']['new_photo_url']
+        @establishment.photos.build.enqueue_image params['establishment']['new_photo_url']
+        format.json { render :show }
+      # Okay we are updating establishment
       else
-        format.html { render :edit }
-        format.json { render json: @establishment.errors, status: :unprocessable_entity }
+        if @establishment.update(establishment_params)
+          format.html { redirect_to @establishment, notice: 'Establishment was successfully updated.' }
+          format.json { render :show, status: :ok, location: @establishment }
+        else
+          format.html { render :edit }
+          format.json { render json: @establishment.errors, status: :unprocessable_entity }
+        end
       end
+      
+      # if bia and (bia['graphic'].blank? and bia['graphic_cache'].blank?)
+      #   params['establishment'].delete 'banner_image_attributes'
+      # end
+
+      
     end
   end
+
 
   # DELETE /establishments/1
   # DELETE /establishments/1.json
@@ -92,6 +119,31 @@ class EstablishmentsController < ApplicationController
       format.html { redirect_to establishments_url, notice: 'Establishment was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # Destroys photo if it belongs to the establishment,
+  # graphic removal is done on background.
+  def destroy_photo
+    @establishment = Establishment.find(params[:id])
+
+    # If photo to destory belongs to this establishment
+    if @establishment.photos.any? { |p| p.id == params[:photo_id] }
+      # Nullify image so we can send correct version of establishment
+      # back to frontend
+      image = Image.find(params[:photo_id])
+      image.imageable_type = nil
+      image.imageable_id = nil
+      image.save
+
+      @establishment.reload
+
+      # Now remove image
+      image.enqueue_removal
+      respond_to do |format|
+        format.json { render :show }
+      end
+    end
+
   end
 
   private
@@ -110,10 +162,12 @@ class EstablishmentsController < ApplicationController
 
     unless @establishment.profile_image
       @establishment.build_profile_image
+      @establishment.profile_image.processed = true
     end
 
     unless @establishment.banner_image
       @establishment.build_banner_image
+      @establishment.banner_image.processed = true
     end
 
     # set_service_times()
@@ -135,7 +189,7 @@ class EstablishmentsController < ApplicationController
             social_link_attributes: [:id, :facebook, :twitter, :instagram, :yelp, :google_plus, :youtube],
             profile_image_attributes: [:id, :graphic, :graphic_cache],
             banner_image_attributes: [:id, :graphic, :graphic_cache],
-            service_times_attributes: [:id, :start_time, :day, :service_name, :_destroy]
+            service_times_attributes: [:id, :start_time, :day, :service_name, :_destroy],
            )
   end
 
