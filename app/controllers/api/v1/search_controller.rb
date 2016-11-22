@@ -1,41 +1,39 @@
 # handle searching establishments
 class Api::V1::SearchController < Api::V1::BaseController
-  before_action
+
+  ONE_MILE  = 1610
 
   def index
     yc = Yelp.client
-    my_params = search_params
 
-    onemile = 1610
-
-    term = my_params[:term]
-    lat = my_params[:lat]
-    long = my_params[:long]
-    radius = params[:radius].to_f
-    offset = params[:offset].to_i
+    term = search_params[:term]
+    lat = search_params[:lat].to_f
+    long = search_params[:long].to_f
+    radius = search_params[:radius].to_f
+    offset = search_params[:offset].to_i
 
     # minimum radius of 1 mile
-    if radius < onemile then
-      radius = onemile
-    end
+    radius = ONE_MILE if radius < ONE_MILE
 
     # call the google search with paramters
     # url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{term}&location=#{lat},#{long}&radius=#{radius}&types=church&key=#{ENV['GOOGLE_SERVER_KEY']}"
     # url = "https://maps.googleapis.com/maps/api/place/search/json?name=#{term}&rankby=distance&type=church&location=#{lat},#{long}&radius=80500&key=#{ENV['GOOGLE_SERVER_KEY']}"
 
-    coordinates = {latitude: lat.to_f, longitude: long.to_f}
-    params = {
-      category_filter: "religiousorgs",
+    coordinates = {latitude: lat, longitude: long}
+    query_params = {
+      category_filter: 'religiousorgs',
       radius_filter: radius
     }
-    params[:offset] = offset if offset > 0
+    query_params[:offset] = offset if offset > 0
 
-    yelp_results = yc.search_by_coordinates(coordinates, params)
+    yelp_results = yc.search_by_coordinates(coordinates, query_params)
 
     # iterate through the response and convert to our format
     results = yelp_results.businesses.map do |church|
       format_church church
     end
+
+    #NOTE: Why not JBuilder?
     render json: {
       radius: radius,
       results: results,
@@ -49,9 +47,10 @@ class Api::V1::SearchController < Api::V1::BaseController
   private
   def search_params
     # TODO Figure out how to use strong parameters
-    params
+    params.permit([:term, :lat, :long, :radius, :offset])
   end
 
+  #TODO: replace with https://github.com/alexreisner/geocoder#for-activerecord-models
   def distance_between(lat1, lon1, lat2, lon2)
     rad_per_deg = Math::PI / 180
     rm = 6371000 # Earth radius in meters
@@ -66,7 +65,7 @@ class Api::V1::SearchController < Api::V1::BaseController
   end
 
   def format_church(church)
-    retval = {
+    {
       name: church.name,
       lat: church.location.coordinate.latitude,
       long:church.location.coordinate.longitude,
@@ -75,8 +74,5 @@ class Api::V1::SearchController < Api::V1::BaseController
       address: "#{church.location.address.join(', ')} #{church.location.city}, #{church.location.state_code}",
       photo: (church.image_url or '').gsub('ms.jpg', 'l.jpg')
     }
-
-    # return our retval
-    retval
   end
 end
