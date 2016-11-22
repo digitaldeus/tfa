@@ -1,0 +1,51 @@
+.profile-page.user-show
+  .row.align-center
+    .columns.small-12.medium-9
+      .row.columns.cover-container
+        .banner-image-container
+          = react_component "UserBannerImageContainer"
+        .profile-image-container
+          = react_component "UserProfileImageContainer"
+        .profile-title
+          = react_component "UserNameContainer"
+        .cover-header
+          .row.align-right
+            .columns.small-6.medium-8.no-pad-right.z-index-10
+              .cover-info
+                %i.ci.ci-home.ci-12
+                In random church for 2 year
+            .columns.small-4.medium-2.no-pad-sides.z-index-8
+              .hollow.secondary.expanded.button.cover-button
+                %i.ci.ci-bookmark.ci-12
+                Add Friend
+            .columns.small-4.medium-2.no-pad-left
+              .icon-block
+                %i.ci.ci-sharing.ci-32
+                %i.ci.ci-messaging.ci-32
+      .row
+        .columns.small-12.medium-6
+          .widget-container
+            %img{ src: "http://placehold.it/420x300/DDD?text=stream", width: "100%" }
+          .widget-container
+            %img{ src: "http://placehold.it/420x300/DDD?text=songs", width: "100%" }
+          .widget-container
+            %img{ src: "http://placehold.it/420x350/DDD?text=recently", width: "100%" }
+        .columns.small-12.medium-6
+          = react_component "UserDescriptionContainer"
+            
+          .widget-container
+            = react_component "UserPhotosContainer"
+          .widget-container
+            %img{ src: "http://placehold.it/420x200/DDD?text=events", width: "100%" }
+
+    .columns.medium-3
+      .row.hide-for-small-only.side-ads
+        .columns.small-12
+          %img{ src: "http://placehold.it/260x180/DDD?text=Ad+goes+here!", width: "100%", height: "100%" }
+        .columns.small-12
+          %img{ src: "http://placehold.it/260x180/DDD?text=Ad+goes+here!", width: "100%", height: "100%" }
+        .columns.small-12
+          %img{ src: "http://placehold.it/260x180/DDD?text=Ad+goes+here!", width: "100%", height: "100%" }
+
+      .widget-container
+        %img{ src: "http://placehold.it/420x150/DDD?text=Blogs", width: "100%" }

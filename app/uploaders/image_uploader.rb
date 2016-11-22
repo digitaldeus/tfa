@@ -24,25 +24,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   process :set_content_type
+  process :set_dimensions
 
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_fit => [50, 50]
   end
 
-  version :small do
-    process :resize_to_fit => [100, 100]
+  version :medium, if: :require_medium? do
+    process :resize_to_fill => [256, 256]
   end
-
-  version :smedium do
-    process :resize_to_fit => [250, 250]
-  end
-
-  version :medium do
-    process :resize_to_fit => [512, 512]
-  end
-
-  version :large do
+  
+  version :large, if: :require_large? do
     process :resize_to_fit => [1024, 1024]
   end
 
@@ -57,5 +50,21 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+
+  def set_dimensions
+    if file && model
+      model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
+    end
+  end
+
+  def require_medium? image
+    (model.imageable_type =~ /ProfileImage/) || (model.imageable_type =~ /Photo/)
+  end
+
+  def require_large? image
+    (model.imageable_type =~ /BannerImage/) || (model.imageable_type =~ /Photo/)
+  end
 
 end

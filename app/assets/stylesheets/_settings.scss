@@ -41,6 +41,19 @@
 
 @import 'util/util';
 
+
+// 0. Our settings
+// ---------------
+
+$bodycolor: #969695;
+$background-gray: #E9EAED;
+$green: #47DA7A;
+$blue: #00C0CB;
+$yellow: #FFDD22;
+$our-green: #47DA7A;
+$our-blue: #00C0CB;
+$nprogress-color: $yellow;
+
 // 1. Global
 // ---------
 
@@ -52,14 +65,16 @@ $secondary-color: #777;
 $success-color: #3adb76;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
+$lighter-gray: #f0f0f0;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #969696;
 $light-black: #4A4A4A;
 $black: #2c2c2c;
+$black-text: #4A4A4A;
 $white: #fefefe;
 $orange: #F78519;
-$body-background: $white;
+$body-background: $background-gray;
 $body-font-color: $dark-gray;
 $body-font-family:  'Open Sans','Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
@@ -69,11 +84,6 @@ $global-weight-normal: normal;
 $global-weight-bold: bold;
 $global-radius: 0;
 $global-text-direction: ltr;
-
-// Custom colors
-
-$our-green: #47DA7A;
-$our-blue: #00C0CB;
 
 // 2. Breakpoints
 // --------------

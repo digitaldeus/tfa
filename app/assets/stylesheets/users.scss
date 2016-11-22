@@ -1,0 +1,32 @@
+.profile-page.user-show {
+
+	input {
+		color: $black-text;
+		font-weight: normal;
+	}
+
+	.user-name-show {
+		float: left;
+		margin-right: rem-calc(16);
+	}
+
+	.fa-pencil {
+		display: inline-block;
+		float: right;
+		line-height: rem-calc(24);
+		font-size: rem-calc(16);
+	}
+
+	.cover-info {
+		@extend .white-block;
+		line-height: rem-calc(40);
+		text-align: right;
+		padding: 0 rem-calc(16);
+	}
+
+	.icon-block {
+		padding-left: rem-calc(35);
+	}
+}
+
+

@@ -22,12 +22,30 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   
   resources :establishments, shallow: true do
+    member do
+      delete :destroy_photo
+    end
+    
     resources :staff do
       member do
         get 'image'
         get 'image_done'
       end
     end
+  end
+
+  resources :users
+  resources :user_profiles do
+    member do
+      post :add_photo
+      post :create_profile_image
+      post :create_banner_image
+      delete :destroy_photo
+    end
+  end
+
+  scope '/images' do
+    get 'presigned', to: 'images#presigned'
   end
 
   # api

@@ -24,6 +24,20 @@
 //= require toastr/toastr
 //= require react
 //= require react_ujs
+//= require fetch/fetch
+//= require es6-promise/es6-promise.min
+//= require classnames
+//= require jquery.ui.widget
+//= require blueimp-file-upload/js/jquery.iframe-transport
+//= require blueimp-file-upload/js/jquery.fileupload
+//= require photoswipe
+
+// First load all the dependencies from our javascripts
+//= require utils/BaseAPI
+//= require components/shared/EditableInput
+//= require_tree ./components/shared
+
+//= require_tree ./utils
 //= require components
 //= require_tree .
 
