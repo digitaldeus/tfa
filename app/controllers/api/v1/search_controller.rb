@@ -1,31 +1,48 @@
 # handle searching establishments
 class Api::V1::SearchController < Api::V1::BaseController
-  before_action 
+  before_action
+
   def index
-    #TODO split google search into it's own class / gem
+    yc = Yelp.client
     my_params = search_params
 
-    radius = my_params[:radius] or 80500 # default to about 50 miles
-    term = my_params[:term] or ''
+    onemile = 1610
+
+    term = my_params[:term]
     lat = my_params[:lat]
     long = my_params[:long]
+    radius = params[:radius].to_f
+    offset = params[:offset].to_i
+
+    # minimum radius of 1 mile
+    if radius < onemile then
+      radius = onemile
+    end
 
     # call the google search with paramters
-    url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{term}&location=#{lat},#{long}&rankby=distance&types=church&key=#{ENV['GOOGLE_SERVER_KEY']}"
+    # url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=#{term}&location=#{lat},#{long}&radius=#{radius}&types=church&key=#{ENV['GOOGLE_SERVER_KEY']}"
     # url = "https://maps.googleapis.com/maps/api/place/search/json?name=#{term}&rankby=distance&type=church&location=#{lat},#{long}&radius=80500&key=#{ENV['GOOGLE_SERVER_KEY']}"
-    response = HTTParty.get(url).parsed_response
-    results = response['results'] or []
+
+    coordinates = {latitude: lat.to_f, longitude: long.to_f}
+    params = {
+      category_filter: "religiousorgs",
+      radius_filter: radius
+    }
+    params[:offset] = offset if offset > 0
+
+    yelp_results = yc.search_by_coordinates(coordinates, params)
 
     # iterate through the response and convert to our format
-    results = results.map do |church|
-      new_church = format_church church
-      new_church['distance'] = distance_between(lat.to_f, long.to_f, new_church[:lat].to_f, new_church[:long].to_f)
-
-      new_church
+    results = yelp_results.businesses.map do |church|
+      format_church church
     end
     render json: {
+      radius: radius,
       results: results,
-      next_page: response['next_page_token']
+      # yelp: yelp_results,
+      count: yelp_results.businesses.length,
+      total: yelp_results.total,
+      offset: offset
     }
   end
 
@@ -50,20 +67,14 @@ class Api::V1::SearchController < Api::V1::BaseController
 
   def format_church(church)
     retval = {
-      name: church['name'],
-      lat: church['geometry']['location']['lat'],
-      long:church['geometry']['location']['lng'],
-      place_id: church['place_id'],
-      address: church['vicinity']
+      name: church.name,
+      lat: church.location.coordinate.latitude,
+      long:church.location.coordinate.longitude,
+      yelp_id: church.id,
+      distance: church.distance,
+      address: "#{church.location.address.join(', ')} #{church.location.city}, #{church.location.state_code}",
+      photo: (church.image_url or '').gsub('ms.jpg', 'l.jpg')
     }
-
-    # add a phot refernece url if possible, end users will have to add their own key
-    photos = church['photos']
-    if photos and church['photos'].length > 0
-      photo_ref = photos.first['photo_reference']
-      photo_url = "https://maps.googleapis.com/maps/api/place/photo?photoreference=#{photo_ref}&maxwidth=400" 
-      retval['photo_reference'] = photo_url
-    end
 
     # return our retval
     retval

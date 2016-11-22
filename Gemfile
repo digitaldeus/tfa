@@ -99,6 +99,9 @@ gem 'omniauth-google-oauth2'
 # httparty for external api calls
 gem 'httparty'
 
+# yelp integration
+gem 'yelp', require: 'yelp'
+
 # loading bar
 gem 'nprogress-rails'
 

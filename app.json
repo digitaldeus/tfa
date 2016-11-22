@@ -1,7 +1,9 @@
 {
   "name": "tfa",
   "description": "The fellowship app config",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup"
+  },
   "env": {
     "AWS_ACCESS_KEY_ID": {
       "required": true
@@ -43,6 +45,18 @@
       "required": true
     },
     "STAGING_PIPELINE": {
+      "required": true
+    },
+    "YELP_CONSUMER_KEY": {
+      "required": true
+    },
+    "YELP_CONSUMER_SECRET": {
+      "required": true
+    },
+    "YELP_TOKEN": {
+      "required": true
+    },
+    "YELP_TOKEN_SECRET": {
       "required": true
     }
   },
